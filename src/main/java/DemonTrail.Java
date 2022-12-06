@@ -1,19 +1,20 @@
-public class DemonTrail extends Application{
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+public class DemonTrail extends Application {
 
-public void start(Stage window) throws Exception{
-    Vbox box = new Vbox();
-    box.setAlignment(Pos.CENTER);
-    
-    Scene practice = new Scene(box, 700, 600);
-    window.setScene(practice);
-    window.show();
-}
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        VBox box = new VBox();
+        box.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(box, 700, 600); 
+        primaryStage.setScene(scene); 
+        primaryStage.show();
 
-    public void initialize(){
-
-
-
+        
+        
     }
-
 }
