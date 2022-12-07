@@ -19,7 +19,8 @@ public class DemonTrail extends Application {
         title.setPrefWidth(300);
         GameScene l1 = new GameScene();
         
-        Scene scene = new Scene(l1.basicLayout(title, box), 1000, 800); 
+        Scene scene = new Scene(l1.basicLayout(title, box), 1000, 800);
+        //scene.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm()); 
         primaryStage.setScene(scene); 
         primaryStage.show();
         

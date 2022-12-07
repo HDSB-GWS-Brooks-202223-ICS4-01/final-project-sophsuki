@@ -13,7 +13,8 @@ public class GameScene {
         basic.setAlignment(Pos.CENTER_LEFT);
         
         text.setTextFill(javafx.scene.paint.Color.RED);
-        text.setFont(new Font("Courier New", 30));
+        //text.setFont(new Font("Courier New", 30));
+        text.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm());
 
         basic.getChildren().addAll(text, box);
         
