@@ -14,14 +14,18 @@ public class DemonTrail extends Application {
         VBox box = new VBox();
         Label title = new Label();
         title.setText("Welcome to Demon Trail");
-        
-        title.setPrefHeight(120);
-        title.setPrefWidth(300);
+  
+        //title.getStyleClass().add("label-title"); for bigger font when making start screen ect.
         GameScene l1 = new GameScene();
+        l1.basic(box);
+        l1.styleText(title, 0, -300);
+        box.getChildren().add(title);
+
+        Scene scene = new Scene(box, 1000, 800);
         
-        Scene scene = new Scene(l1.basicLayout(title, box), 1000, 800);
-        //scene.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm()); 
+      
         primaryStage.setScene(scene); 
+        primaryStage.setResizable(false);
         primaryStage.show();
         
     }

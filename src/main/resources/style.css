@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('Minecraft.ttf');
+}
+
+.label {
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 30;
+}
+
+.label-title{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 100;
+}
