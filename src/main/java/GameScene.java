@@ -1,8 +1,9 @@
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 public class GameScene {
 
@@ -20,13 +21,14 @@ public class GameScene {
     // return basic;
     // }
 
-    public VBox basic( VBox box) { // use this instead of function above explain to jelena tmrw in class.
+    public VBox basic(VBox box) { // use this instead of function above explain to jelena tmrw in class.
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.CENTER);
+
         return box;
     }
 
-    public Label styleText (Label text, int x, int y){
+    public Label styleText(Label text, int x, int y) {
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         text.setTranslateX(x);
@@ -34,4 +36,20 @@ public class GameScene {
 
         return text;
     }
+
+    public ImageView image(String picture) {
+        Image graphics = new Image(picture);
+        ImageView imageArea = new ImageView();
+
+        imageArea.setImage(graphics);
+        imageArea.setPreserveRatio(true);
+        imageArea.setSmooth(true);
+        imageArea.setCache(true);
+        imageArea.setFitWidth(1000);
+        imageArea.setFitHeight(300);
+
+        return imageArea;
+
+    }
+
 }
