@@ -16,7 +16,20 @@ public class DemonTrail extends Application {
   
         GameScene l1 = new GameScene();
         l1.basic(box);
-        l1.styleText(title, 0, -100);
+        l1.styleText(title, 0, 400);
+
+        // IDea for input changing scenes. 
+    //     Intro scene = new Intro();
+    //     scene.scene1();
+    //     scene.scene2();
+
+    //     Scene [] arrayintro = {scene.scene1(), scene.scene2()}; 
+    //      key pressed event if space bar clicked
+    //     i++ 
+    //      array[] = array[i];
+    //     we are on route2
+    //    if we are on route 2
+    //maybe create boolean variable for routes, make it false when on scene that links to next route. 
         
         box.getChildren().addAll(title, l1.image("\\images\\graveyard1.png", 200, 200));
 
