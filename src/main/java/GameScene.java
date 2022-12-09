@@ -1,5 +1,4 @@
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -7,23 +6,9 @@ import javafx.scene.layout.VBox;
 
 public class GameScene {
 
-    // public VBox basicLayout (Label text, VBox box){
-    // VBox basic = new VBox();
-
-    // basic.setStyle("-fx-background: black;");
-    // basic.setAlignment(Pos.CENTER_LEFT);
-
-    // text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
-    // text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-
-    // basic.getChildren().addAll(text, box);
-
-    // return basic;
-    // }
-
     public VBox basic(VBox box) {
         box.setStyle("-fx-background: black;");
-        box.setAlignment(Pos.CENTER);
+        box.setAlignment(Pos.TOP_CENTER);
 
         return box;
     }
