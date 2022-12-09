@@ -1,10 +1,15 @@
+import java.util.List;
+
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class GameScene {
+public class GameScene  {
+
+    
 
     public VBox basic(VBox box) {
         box.setStyle("-fx-background: black;");
@@ -22,6 +27,12 @@ public class GameScene {
         return text;
     }
 
+    public Label bigSize(Label label){
+        //label.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        label.getStyleClass().add("label-title");
+        return label;
+    }
+
     public ImageView image(String picture, int width, int height) {
         Image graphics = new Image(picture);
         ImageView imageArea = new ImageView();
@@ -36,6 +47,7 @@ public class GameScene {
         return imageArea;
 
     }
+
 
 // add animation method maybe
 

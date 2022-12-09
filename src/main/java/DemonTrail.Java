@@ -7,8 +7,11 @@ import javafx.stage.Stage;
 
 public class DemonTrail extends Application {
 
+    Stage window;
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        window = primaryStage ;
     
         VBox box = new VBox();
         Label title = new Label();
@@ -35,9 +38,13 @@ public class DemonTrail extends Application {
 
         Scene scene = new Scene(box, 1000, 800);
       
-        primaryStage.setScene(scene); 
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        RouteTwo story = new RouteTwo();
+        Scene routeTwoOne = story.partTwoOne();
+        //title.getStyleClass().add("label-title");
+
+       window.setScene(routeTwoOne); 
+       window.setResizable(false);
+       window.show();
 
         
     }
