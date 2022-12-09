@@ -21,7 +21,7 @@ public class GameScene {
     // return basic;
     // }
 
-    public VBox basic(VBox box) { // use this instead of function above explain to jelena tmrw in class.
+    public VBox basic(VBox box) {
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.CENTER);
 
@@ -37,7 +37,7 @@ public class GameScene {
         return text;
     }
 
-    public ImageView image(String picture) {
+    public ImageView image(String picture, int width, int height) {
         Image graphics = new Image(picture);
         ImageView imageArea = new ImageView();
 
@@ -45,11 +45,13 @@ public class GameScene {
         imageArea.setPreserveRatio(true);
         imageArea.setSmooth(true);
         imageArea.setCache(true);
-        imageArea.setFitWidth(1000);
-        imageArea.setFitHeight(300);
+        imageArea.setFitWidth(width);
+        imageArea.setFitHeight(height);
 
         return imageArea;
 
     }
+
+   
 
 }

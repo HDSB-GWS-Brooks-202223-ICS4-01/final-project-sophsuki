@@ -17,20 +17,20 @@ public class DemonTrail extends Application {
         title.setText("Welcome to Demon Trail");
   
         //title.getStyleClass().add("label-title"); for bigger font when making start screen ect.
-        Image graphics = new Image("\\images\\graveyard1.png");
-        ImageView imageArea = new ImageView();
+        // Image graphics = new Image("\\images\\graveyard1.png");
+        // ImageView imageArea = new ImageView();
 
-        imageArea.setImage(graphics);
-        //imageArea.setPreserveRatio(true);
-        imageArea.setSmooth(true);
-        imageArea.setCache(true);
-        imageArea.setFitWidth(1000);
-        imageArea.setFitHeight(300);
+        // imageArea.setImage(graphics);
+        // imageArea.setPreserveRatio(true);
+        // imageArea.setSmooth(true);
+        // imageArea.setCache(true);
+        // imageArea.setFitWidth(400);
+        // imageArea.setFitHeight(200);
         GameScene l1 = new GameScene();
         l1.basic(box);
-        l1.styleText(title, 0, -300);
-        // l1.image("\\resources\\images\\graveyard1.png");
-        box.getChildren().addAll(title, imageArea);
+        l1.styleText(title, 0, -100);
+        
+        box.getChildren().addAll(title, l1.image("\\images\\graveyard1.png", 200, 200));
         
 
         Scene scene = new Scene(box, 1000, 800);
