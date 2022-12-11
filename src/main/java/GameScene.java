@@ -1,24 +1,29 @@
-import java.util.List;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
-public class GameScene  {
+public class GameScene {
+    public int i = 0;
+
+    ActionEvent KeyEvent;
 
     
 
-    public VBox basic(VBox box) {
+    public VBox basic(VBox box) { // creates vbox
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.TOP_CENTER);
 
         return box;
     }
 
-    public Label styleText(Label text, int x, int y) {
+    public Label styleText(Label text, int x, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         text.setTranslateX(x);
@@ -27,18 +32,34 @@ public class GameScene  {
         return text;
     }
 
-    public Label bigSize(Label label){
-        //label.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+    public Label title(Label label) { // changes text to title sized font
         label.getStyleClass().add("label-title");
         return label;
     }
 
-    public ImageView image(String picture, int width, int height) {
+    public Label bigFont(Label label) { // changes text to bigger font
+        label.getStyleClass().add("label-big");
+        return label;
+
+    }
+
+    public Label spaceText(int y) { // creates click space text for all scenes
+        Label space = new Label();
+        space.setText("Press Space Bar To Continue");
+        space.setTranslateX(0);
+        space.setTranslateY(y);
+        space.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
+        space.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        bigFont(space);
+        return space;
+    }
+
+    public ImageView image(String picture, int width, int height) { // image
         Image graphics = new Image(picture);
         ImageView imageArea = new ImageView();
 
         imageArea.setImage(graphics);
-        imageArea.setPreserveRatio(true);
+
         imageArea.setSmooth(true);
         imageArea.setCache(true);
         imageArea.setFitWidth(width);
@@ -48,7 +69,22 @@ public class GameScene  {
 
     }
 
+    // public int nextScene(Scene scene){
+    // scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
-// add animation method maybe
+    // @Override
+    // public void handle(KeyEvent key) {
+    // if(key.getCode().equals(KeyCode.SPACE)){
+    // i++;
+
+    // }
+
+    // }
+
+    // });
+    // return i;
+    // }
+
+    // add animation method maybe
 
 }

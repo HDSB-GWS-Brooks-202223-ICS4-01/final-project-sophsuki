@@ -5,10 +5,16 @@
 
 .label {
     -fx-font-family: 'Minecraft';
-    -fx-font-size: 30;
+    -fx-font-size: 40;
 }
 
 .label-title{
     -fx-font-family: 'Minecraft';
     -fx-font-size: 100;
+}
+
+.label-big{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 50;
+
 }
