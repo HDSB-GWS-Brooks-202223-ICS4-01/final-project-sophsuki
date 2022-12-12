@@ -44,9 +44,11 @@ public class DemonTrail extends Application {
         Scene scene = new Scene(box, 1000, 800);
 
         RouteTwo story = new RouteTwo();
+        IntroScene intro = new IntroScene();
         Scene routeTwoOne = story.storyTwoOne();
         Scene routeTwoTwo = story.storyTwoTwo();
-        Scene[] allScenes = { routeTwoOne, routeTwoTwo };
+        Scene introOne = intro.introOne(); 
+        Scene[] allScenes = { introOne , routeTwoOne, routeTwoTwo };
 
         // testing for switching between screens.
         for (int j = 0; j < allScenes.length - 1; j++) {
@@ -64,7 +66,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(routeTwoOne); // change to whatever to test out screens.
+        window.setScene(introOne); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
 
