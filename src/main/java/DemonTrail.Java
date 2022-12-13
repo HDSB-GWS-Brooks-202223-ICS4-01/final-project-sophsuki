@@ -40,11 +40,12 @@ public class DemonTrail extends Application {
         RouteTwo rTwo = new RouteTwo();
         Scene rTwoOne = rTwo.storyTwoOne();
         Scene rTwoTwo = rTwo.storyTwoTwo();
+        Scene rTwoThree = rTwo.storyTwoThree();
 
         // scene arrays
         Scene[] introScenes = {introOne};
         Scene[] rTwoScenes = {rTwoOne, rTwoTwo};
-        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo }; // keep but delete eventually
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree }; // keep but delete eventually
         
 
 
