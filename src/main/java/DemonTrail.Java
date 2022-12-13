@@ -16,15 +16,6 @@ public class DemonTrail extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         window = primaryStage;
-
-        VBox box = new VBox();
-        Label title = new Label();
-        title.setText("Welcome to Demon Trail");
-
-        GameScene l1 = new GameScene();
-        l1.basic(box);
-        l1.styleText(title, 0, 400);
-
         // IDea for input changing scenes.
         // Intro scene = new Intro();
         // scene.scene1();
@@ -39,16 +30,24 @@ public class DemonTrail extends Application {
         // maybe create boolean variable for routes, make it false when on scene that
         // links to next route.
 
-        box.getChildren().addAll(title, l1.image("\\images\\graveyard1.png", 200, 200));
-
-        Scene scene = new Scene(box, 1000, 800);
-
-        RouteTwo story = new RouteTwo();
+        
+        // Intro scenes
         IntroScene intro = new IntroScene();
-        Scene routeTwoOne = story.storyTwoOne();
-        Scene routeTwoTwo = story.storyTwoTwo();
         Scene introOne = intro.introOne(); 
-        Scene[] allScenes = { introOne , routeTwoOne, routeTwoTwo };
+        
+
+        // Route 2 scenes
+        RouteTwo rTwo = new RouteTwo();
+        Scene rTwoOne = rTwo.storyTwoOne();
+        Scene rTwoTwo = rTwo.storyTwoTwo();
+
+        // scene arrays
+        Scene[] introScenes = {introOne};
+        Scene[] rTwoScenes = {rTwoOne, rTwoTwo};
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo }; // keep but delete eventually
+        
+
+
 
         // testing for switching between screens.
         for (int j = 0; j < allScenes.length - 1; j++) {

@@ -22,7 +22,7 @@ public class GameScene {
 
         return box;
     }
-
+//NOTE MAYBE TAKE OUT X if text is alwasy gonna be centered anyway
     public Label styleText(Label text, int x, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());

@@ -16,12 +16,12 @@ public class IntroScene extends GameScene{
 
         Label introText = new Label();
 
-        game.styleText(introText, 0, 300);
+        game.styleText(introText, 0, 0);
 
         introText.setText("It's Novemeber 10th, we've been in the apocalypse for 3 years now");
 
         v.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
-        v.getChildren().addAll(game.spaceText(100), introText);
+        v.getChildren().addAll(game.spaceText(400), introText);
 
         Scene scene = new Scene(v, 1000, 800);
 
