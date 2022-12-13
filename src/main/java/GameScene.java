@@ -23,10 +23,9 @@ public class GameScene {
         return box;
     }
 //NOTE MAYBE TAKE OUT X if text is alwasy gonna be centered anyway
-    public Label styleText(Label text, int x, int y) { // styles text and places pos
+    public Label styleText(Label text, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-        text.setTranslateX(x);
         text.setTranslateY(y);
 
         return text;
@@ -43,10 +42,17 @@ public class GameScene {
 
     }
 
+    public Label smallFont(Label label) { // changes text to smaller font
+        label.getStyleClass().add("label-small");
+        return label;
+
+    }
+
+
     public Label spaceText(int y) { // creates click space text for all scenes
         Label space = new Label();
         space.setText("Press Space Bar To Continue");
-        space.setTranslateX(0);
+        space.setTranslateX(0); // delete?
         space.setTranslateY(y);
         space.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         space.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());

@@ -29,10 +29,10 @@ public class RouteTwo extends GameScene {
         mile.setText("miles walked : 5");
 
         game.basic(box1);
-        game.styleText(stats, 0, 0);
+        game.styleText(stats, 0);
         game.title(stats);
-        game.styleText(day, 0, 200);
-        game.styleText(mile, 0, 300);
+        game.styleText(day, 200);
+        game.styleText(mile, 300);
         box1.getChildren().addAll(game.spaceText(700), stats, day, mile);
 
         Scene sceneOne = new Scene(box1, 1000, 800);
@@ -55,9 +55,9 @@ public class RouteTwo extends GameScene {
         gas.setText("You have come across a gas station");
 
         // styles text
-        game.styleText(travel, 0, -50);
-        game.styleText(food, 0, 50);
-        game.styleText(gas, 0, 100);
+        game.styleText(travel, -50);
+        game.styleText(food, 50);
+        game.styleText(gas, 100);
 
         // load images
         ImageView sun = game.image("\\images\\day.gif", 1000, 300);
