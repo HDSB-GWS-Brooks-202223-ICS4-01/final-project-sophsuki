@@ -14,14 +14,13 @@ public class GameScene {
 
     ActionEvent KeyEvent;
 
-    
-
     public VBox basic(VBox box) { // creates vbox
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.TOP_CENTER);
 
         return box;
     }
+
 //NOTE MAYBE TAKE OUT X if text is alwasy gonna be centered anyway
     public Label styleText(Label text, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
@@ -48,7 +47,6 @@ public class GameScene {
 
     }
 
-
     public Label spaceText(int y) { // creates click space text for all scenes
         Label space = new Label();
         space.setText("Press Space Bar To Continue");
@@ -72,7 +70,6 @@ public class GameScene {
         imageArea.setFitHeight(height);
 
         return imageArea;
-
     }
 
     // public int nextScene(Scene scene){
@@ -92,5 +89,4 @@ public class GameScene {
     // }
 
     // add animation method maybe
-
 }

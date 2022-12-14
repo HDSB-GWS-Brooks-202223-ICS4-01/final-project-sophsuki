@@ -87,5 +87,4 @@ public class RouteTwo extends GameScene {
         Scene sceneTwo = new Scene(box2, 1000, 800);
         return sceneTwo;
     }
-
 }
