@@ -1,3 +1,5 @@
+import java.util.Timer;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -6,10 +8,11 @@ import javafx.scene.layout.VBox;
 public class IntroScene extends GameScene{
 
     GameScene game = new GameScene(); 
+    public Timer timer = new Timer(); 
 
     //initial scene
     public Scene introOne() {
-        VBox v = new VBox(); 
+        VBox v1 = new VBox(); 
 
         Label monologue1 = new Label();
         Label monologue2 = new Label();
@@ -24,7 +27,7 @@ public class IntroScene extends GameScene{
         monologue4.setText("One day she went out into the city on our own and got bit...");
         //monologue5.setText("");
         
-        game.basic(v);
+        game.basic(v1);
         game.styleText(monologue1, 80);
         game.styleText(monologue2, 100);
         game.styleText(monologue3, 100);
@@ -34,13 +37,30 @@ public class IntroScene extends GameScene{
         game.smallFont(monologue3);
         game.smallFont(monologue4);
 
-        v.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
-        v.getChildren().addAll(monologue1, monologue2, monologue3, monologue4, monologue5);
+        v1.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
+        //v.getChildren().addAll(monologue1, monologue2, monologue3, monologue4, monologue5);
 
-        Scene scene = new Scene(v, 1000, 800);
+        v1.getChildren().add(monologue1);
+        v1.getChildren().add(monologue2);
+        v1.getChildren().add(monologue2);
+        v1.getChildren().add(monologue3);
+        v1.getChildren().add(monologue5);
 
-        return scene;
+
+        Scene scene1 = new Scene(v1, 1000, 800);
+
+        return scene1;
 
     } 
+
+    public Scene introTwo() {
+        VBox v2 = new VBox(); 
+
+        
+
+        Scene scene = new Scene(v2, 1000, 800);
+        return scene; 
+
+    }
     
 }
