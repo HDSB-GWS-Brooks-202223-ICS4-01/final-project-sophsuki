@@ -50,10 +50,16 @@ public class GameScene {
 
     }
 
+    public Label smallFont(Label label) { // changes text to smaller font
+        label.getStyleClass().add("label-small");
+        return label;
+
+    }
+
     public Label spaceText(int y) { // creates click space text for all scenes
         Label space = new Label();
         space.setText("Press Space Bar To Continue");
-        space.setTranslateX(0);
+        space.setTranslateX(0); // delete?
         space.setTranslateY(y);
         space.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         space.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
@@ -73,7 +79,6 @@ public class GameScene {
         imageArea.setFitHeight(height);
 
         return imageArea;
-
     }
 
     public TextField limitText (TextField field) {
@@ -125,5 +130,4 @@ public class GameScene {
     // }
 
     // add animation method maybe
-
 }

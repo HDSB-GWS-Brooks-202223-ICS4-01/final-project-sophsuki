@@ -29,12 +29,10 @@ public class DemonTrail extends Application {
         // if we are on route 2
         // maybe create boolean variable for routes, make it false when on scene that
         // links to next route.
-
         
         // Intro scenes
         IntroScene intro = new IntroScene();
         Scene introOne = intro.introOne(); 
-        
 
         // Route 2 scenes
         RouteTwo rTwo = new RouteTwo();
@@ -61,16 +59,12 @@ public class DemonTrail extends Application {
                         i++;
                         window.setScene(allScenes[i]);
                     }
-
                 }
-
             });
         }
 
         window.setScene(introOne); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
-
     }
-
 }
