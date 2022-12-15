@@ -16,7 +16,7 @@ public class IntroScene extends GameScene{
 
         Label introText = new Label();
 
-        game.styleText(introText, 0, 0);
+        game.styleText(introText, 0);
 
         introText.setText("It's Novemeber 10th, we've been in the apocalypse for 3 years now");
 
