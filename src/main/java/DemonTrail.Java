@@ -38,11 +38,16 @@ public class DemonTrail extends Application {
         RouteTwo rTwo = new RouteTwo();
         Scene rTwoOne = rTwo.storyTwoOne();
         Scene rTwoTwo = rTwo.storyTwoTwo();
+        Scene rTwoThree = rTwo.storyTwoThree();
+        Scene rTwoChoiceOne = rTwo.optionTwoOne();
 
         // scene arrays
         Scene[] introScenes = {introOne};
-        Scene[] rTwoScenes = {rTwoOne, rTwoTwo};
-        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo }; // keep but delete eventually
+        Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
+        
+
+
 
         // testing for switching between screens.
         for (int j = 0; j < allScenes.length - 1; j++) {

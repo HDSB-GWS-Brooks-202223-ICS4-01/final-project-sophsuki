@@ -58,6 +58,16 @@ public class IntroScene extends GameScene {
     //     Scene scene = new Scene(v2, 1000, 800);
     //     return scene; 
 
-    // }
+        game.styleText(introText, 0);
+
+        introText.setText("It's Novemeber 10th, we've been in the apocalypse for 3 years now");
+
+        v.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
+        v.getChildren().addAll(game.spaceText(400), introText);
+
+        Scene scene = new Scene(v, 1000, 800);
+
+        return scene;
+    } 
     
 }
