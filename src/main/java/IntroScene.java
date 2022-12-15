@@ -1,15 +1,16 @@
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class IntroScene extends GameScene {
 
-    GameScene game = new GameScene(); 
-    // public Timer timer = new Timer(); 
+    GameScene game = new GameScene();
+    // public Timer timer = new Timer();
 
-    //initial scene
+    // initial scene
     public Scene introOne() {
-        VBox v1 = new VBox(); 
+        StackPane v1 = new StackPane();
 
         Label monologue1 = new Label();
         Label monologue2 = new Label();
@@ -22,13 +23,13 @@ public class IntroScene extends GameScene {
         monologue2.setText("An evil scientists released the zombie plague which infected over half the city.");
         monologue3.setText("My sister and I barely survived the first year before she started getting rebellious.");
         monologue4.setText("One day she went out into the city on our own and got bit...");
-        //monologue5.setText("");
-        
-        game.basic(v1);
-        game.styleText(monologue1, 80);
-        game.styleText(monologue2, 100);
-        game.styleText(monologue3, 120);
-        game.styleText(monologue4,140);
+        // monologue5.setText("");
+
+        game.basicPane(v1);
+        game.styleText(monologue1, 350);
+        game.styleText(monologue2, 390);
+        game.styleText(monologue3, 430);
+        game.styleText(monologue4, 470);
         game.smallFont(monologue1);
         game.smallFont(monologue2);
         game.smallFont(monologue3);
@@ -41,33 +42,19 @@ public class IntroScene extends GameScene {
         // v1.getChildren().add(monologue2);
         // v1.getChildren().add(monologue2);
         // v1.getChildren().add(monologue3);
-        //v1.getChildren().add(monologue5);
-
+        // v1.getChildren().add(monologue5);
 
         Scene scene1 = new Scene(v1, 1000, 800);
 
         return scene1;
 
-    } 
+    }
 
-    // public Scene introTwo() {
-    //     VBox v2 = new VBox(); 
+    public Scene introTwo() {
+        VBox v2 = new VBox();
 
-        
-
-    //     Scene scene = new Scene(v2, 1000, 800);
-    //     return scene; 
-
-        game.styleText(introText, 0);
-
-        introText.setText("It's Novemeber 10th, we've been in the apocalypse for 3 years now");
-
-        v.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
-        v.getChildren().addAll(game.spaceText(400), introText);
-
-        Scene scene = new Scene(v, 1000, 800);
-
+        Scene scene = new Scene(v2, 1000, 800);
         return scene;
-    } 
-    
+
+    }
 }
