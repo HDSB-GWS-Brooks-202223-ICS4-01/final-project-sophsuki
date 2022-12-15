@@ -19,3 +19,8 @@
 
 }
 
+.label-small{
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 25;
+
+}
