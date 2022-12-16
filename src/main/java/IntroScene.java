@@ -33,10 +33,10 @@ public class IntroScene extends GameScene {
         game.styleText(monologue2, 390);
         game.styleText(monologue3, 430);
         game.styleText(monologue4, 470);
-        game.smallFont(monologue1);
-        game.smallFont(monologue2);
-        game.smallFont(monologue3);
-        game.smallFont(monologue4);
+        // game.smallFont(monologue1);
+        // game.smallFont(monologue2);
+        // game.smallFont(monologue3);
+        // game.smallFont(monologue4);
 
         sp1.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
         sp1.getChildren().addAll(monologue1, monologue2, monologue3, monologue4);
@@ -59,6 +59,7 @@ public class IntroScene extends GameScene {
         game.basicPane(sp2);
 
         sp2.getChildren().add(game.image("\\images\\red city.gif", 1000, 300));
+        sp2.getChildren().add(game.image("\\images\\zombie sister.png", 400, 300));
 
         Scene scene = new Scene(sp2, 1000, 800);
         return scene;
