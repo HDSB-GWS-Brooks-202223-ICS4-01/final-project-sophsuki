@@ -12,9 +12,8 @@ import javafx.util.Duration;
 public class RouteTwo extends GameScene {
 
     public int days = 5;
-    public int miles = 5;
-    public String date = "December 1st"; // change date to match jelenas
-
+    public int kilometers = 51;
+    public String date = "November 15th"; 
     private Group daysPass;
 
     GameScene game = new GameScene();
@@ -28,17 +27,20 @@ public class RouteTwo extends GameScene {
         Label stats = new Label();
         Label day = new Label();
         Label mile = new Label();
+        Label date = new Label();
 
         // text
         stats.setText("Stats");
         day.setText(" days survived : 5");
-        mile.setText("miles walked : 5");
+        mile.setText("kilometers walked : 51");
+        date.setText("November 15th");
 
         // styles text
         game.styleText(stats, 100);
         game.title(stats);
         game.styleText(day, 300);
         game.styleText(mile, 400);
+        game.styleText(date, 500);
 
         box1.getChildren().addAll(game.spaceText(700), stats, day, mile);
 
@@ -155,7 +157,7 @@ public class RouteTwo extends GameScene {
         return optionOneScene;
     }
 
-    public Scene endGaS() {
+    public Scene endGas() {
 
         StackPane box5 = new StackPane();
         game.basicPane(box5);
@@ -190,4 +192,64 @@ public class RouteTwo extends GameScene {
 
     }
 
+    public Scene endMedOne() {
+        StackPane box6 = new StackPane();
+        game.basicPane(box6);
+
+        //labels
+        Label travel = new Label();
+        Label noFood = new Label();
+
+        //text
+        travel.setText("You hike for days... nothing but mountains in sight");
+        noFood.setText("You have used up all your food and water");
+
+        //styles text
+        game.styleText(travel, 400);
+        game.styleText(noFood, 500);
+
+        
+        box6.getChildren().add(game.image("\\images\\mountain.png", 1000, 300));
+        box6.getChildren().addAll(travel, noFood, game.spaceText(700));
+
+        Scene medOne = new Scene(box6, 1000, 800);
+        return medOne; 
+
+
+    }
+
+    public Scene endMedTwo(){
+        StackPane box7 = new StackPane();
+        game.basicPane(box7);
+    
+        //labels
+        Label faint = new Label();
+        Label eaten = new Label();
+        Label scream = new Label();
+        Label hunger = new Label();
+        Label consume = new Label();
+
+        faint.setText("You pass out due to malnutrion");
+        eaten.setText("A sharp pain wakes you up");
+        scream.setText("Your sister broke of her ropes ");
+        hunger.setText("she is eating you");
+        consume.setText("You have been consumed");
+
+        game.styleText(faint, 400);
+        game.styleText(eaten, 450);
+        game.styleText(scream, 500);
+        game.styleText(hunger, 550);
+        game.styleText(consume, 600);
+        //add restart button on 700
+
+        box7.getChildren().add(game.image("\\images\\grave.png", 50, 100)); 
+        box7.getChildren().addAll(faint, eaten, scream, hunger, consume);
+
+        Scene endMedTwo = new Scene(box7, 1000, 800);
+        return endMedTwo;
+
+    }
+
 }
+
+

@@ -42,12 +42,13 @@ public class DemonTrail extends Application {
         Scene rTwoTwo = rTwo.storyTwoTwo();
         Scene rTwoThree = rTwo.storyTwoThree();
         Scene rTwoChoiceOne = rTwo.optionTwoOne();
-        Scene rTwoEndGas    = rTwo.endGaS();
+        Scene rTwoEndGas    = rTwo.endGas();
+        Scene rTwoEndMed = rTwo.endMedOne();
 
         // scene arrays
         Scene[] introScenes = {introOne};
         Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoEndGas }; // keep but delete eventually
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoEndGas, rTwoEndMed }; // keep but delete eventually
         
 
 
