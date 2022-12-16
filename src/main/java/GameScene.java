@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -10,10 +11,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Window;
 
 public class GameScene {
-    //class worked on together - Sophia & Jelena
-    public int i = 0;
+    // class worked on together - Sophia & Jelena
 
     ActionEvent KeyEvent;
 
@@ -76,8 +77,8 @@ public class GameScene {
 
     }
 
-    public TextField limitText (TextField field) {
-     
+    public TextField limitText(TextField field) {
+
         field.setAlignment(Pos.CENTER);
         field.setFont((Font.font("Helvetica", FontWeight.BOLD, 36)));
         field.setEditable(true);
@@ -94,9 +95,9 @@ public class GameScene {
             }
 
         });
-       
+
         field.textProperty().addListener((observable, oldValue, newValue) -> {
-            
+
             if (!newValue.matches("\\d*")) {
                 field.setText(newValue.replaceAll("[^\\d]", ""));
             }
@@ -106,24 +107,5 @@ public class GameScene {
         return field;
 
     }
-
-
-    // public int nextScene(Scene scene){
-    // scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-
-    // @Override
-    // public void handle(KeyEvent key) {
-    // if(key.getCode().equals(KeyCode.SPACE)){
-    // i++;
-
-    // }
-
-    // }
-
-    // });
-    // return i;
-    // }
-
-    // add animation method maybe
 
 }
