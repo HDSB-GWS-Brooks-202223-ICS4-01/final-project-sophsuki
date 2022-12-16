@@ -1,16 +1,19 @@
+import java.util.Timer;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class IntroScene extends GameScene {
 
     GameScene game = new GameScene();
-    // public Timer timer = new Timer();
+    Timer timer = new Timer();
 
     // initial scene
     public Scene introOne() {
-        StackPane v1 = new StackPane();
+        StackPane sp1 = new StackPane();
 
         Label monologue1 = new Label();
         Label monologue2 = new Label();
@@ -25,7 +28,7 @@ public class IntroScene extends GameScene {
         monologue4.setText("One day she went out into the city on our own and got bit...");
         // monologue5.setText("");
 
-        game.basicPane(v1);
+        game.basicPane(sp1);
         game.styleText(monologue1, 350);
         game.styleText(monologue2, 390);
         game.styleText(monologue3, 430);
@@ -35,25 +38,29 @@ public class IntroScene extends GameScene {
         game.smallFont(monologue3);
         game.smallFont(monologue4);
 
-        v1.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
-        v1.getChildren().addAll(monologue1, monologue2, monologue3, monologue4);
+        sp1.getChildren().add(game.image("\\images\\city.gif", 1000, 300));
+        sp1.getChildren().addAll(monologue1, monologue2, monologue3, monologue4);
 
-        // v1.getChildren().add(monologue1);
-        // v1.getChildren().add(monologue2);
-        // v1.getChildren().add(monologue2);
-        // v1.getChildren().add(monologue3);
-        // v1.getChildren().add(monologue5);
+        // sp1.getChildren().add(monologue1);
+        // sp1.getChildren().add(monologue2);
+        // sp1.getChildren().add(monologue2);
+        // sp1.getChildren().add(monologue3);
+        // sp1.getChildren().add(monologue5);
 
-        Scene scene1 = new Scene(v1, 1000, 800);
+        Scene scene1 = new Scene(sp1, 1000, 800);
 
         return scene1;
 
     }
 
     public Scene introTwo() {
-        VBox v2 = new VBox();
+        StackPane sp2 = new StackPane();
 
-        Scene scene = new Scene(v2, 1000, 800);
+        game.basicPane(sp2);
+
+        sp2.getChildren().add(game.image("\\images\\red city.gif", 1000, 300));
+
+        Scene scene = new Scene(sp2, 1000, 800);
         return scene;
 
     }
