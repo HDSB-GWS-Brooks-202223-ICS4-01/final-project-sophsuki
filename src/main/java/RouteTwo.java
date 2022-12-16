@@ -1,21 +1,13 @@
-import java.util.Stack;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
-
-import javafx.scene.input.KeyEvent;
 
 public class RouteTwo extends GameScene {
 
@@ -32,7 +24,7 @@ public class RouteTwo extends GameScene {
         StackPane box1 = new StackPane();
         game.basicPane(box1);
 
-        //labels
+        // labels
         Label stats = new Label();
         Label day = new Label();
         Label mile = new Label();
@@ -103,77 +95,99 @@ public class RouteTwo extends GameScene {
         return sceneTwo;
     }
 
-    public Scene storyTwoThree(){
-        
+    public Scene storyTwoThree() {
+
         StackPane box3 = new StackPane();
-        game.basicPane(box3); 
-       
-        //label
+        game.basicPane(box3);
+
+        // label
         Label gasStation = new Label();
 
-        //text + styles text
+        // text + styles text
         gasStation.setText("you arrive at the gas station");
         game.styleText(gasStation, 390);
-        
 
-        ImageView border =  game.image("\\images\\border.png", 615, 100);
+        ImageView border = game.image("\\images\\border.png", 615, 100);
         border.setTranslateY(370);
 
         box3.getChildren().addAll(game.image("\\images\\station.gif", 1000, 800), border);
         box3.getChildren().addAll(gasStation, game.spaceText(700));
-        
         Scene sceneThree = new Scene(box3, 1000, 800);
         return sceneThree;
     }
 
-    public Scene optionTwoOne(){
+    public Scene optionTwoOne() {
 
         StackPane box4 = new StackPane();
         game.basicPane(box4);
 
-        TextField textField = new TextField();
-        
-        //labels
+        // labels
         Label bag = new Label();
         Label choice = new Label();
         Label choiceOne = new Label();
         Label choiceTwo = new Label();
         Label choiceThree = new Label();
-    
-        //text
+
+        // text
         bag.setText("You may carry one item :");
         choice.setText("What is your choice?");
-
         choiceOne.setText("1 : Gas");
-        choiceTwo.setText("2 : food and water");
-        choiceThree.setText("3 : medical supplies");
+        choiceTwo.setText("2 : Food and Water");
+        choiceThree.setText("3 : Medical Supplies");
 
-        //styles text
+        // styles text
         game.styleText(bag, 150);
         game.styleText(choiceOne, 250);
         choiceOne.setTranslateX(-115);
         game.styleText(choiceTwo, 350);
         game.styleText(choiceThree, 450);
         game.styleText(choice, 600);
-        TextField option = game.limitText(textField);
 
+        // input textfield
+        TextField textField = new TextField();
+        TextField option = game.limitText(textField);
         option.setMaxSize(100, 10);
         option.setTranslateY(700);
-        
-    
- 
-        box4.getChildren().addAll(game.image("\\images\\border2.png", 800, 100),bag, choice);
+
+        box4.getChildren().addAll(game.image("\\images\\border2.png", 800, 100), bag, choice);
         box4.getChildren().addAll(choiceOne, choiceTwo, choiceThree, option);
+        Scene optionOneScene = new Scene(box4, 1000, 800);
+        return optionOneScene;
+    }
 
-        
-    
-        Scene sceneFour = new Scene(box4, 1000, 800);
-        return sceneFour;
+    public Scene endGaS() {
 
+        StackPane box5 = new StackPane();
+        game.basicPane(box5);
 
-    
+        // labels
+        Label car = new Label();
+        Label gasUse = new Label();
+        Label start = new Label();
+        Label explode = new Label();
+        Label death = new Label();
+
+        // text
+        car.setText("You approach an abanndoned car");
+        gasUse.setText("You pour gas into the car");
+        start.setText("You find the keys and start the car");
+        explode.setText("Something went wrong... the car explodes");
+        death.setText("you have died");
+
+        // styles text
+        game.styleText(car, 100);
+        game.styleText(gasUse, 200);
+        game.styleText(start, 300);
+        game.styleText(explode, 400);
+        game.styleText(death, 500);
+
+        //IMPORTANT ADD RESTART BUTTON WHEN POSSIBLE
+        box5.getChildren().add(game.image("\\images\\cargas.gif", 1000, 800));
+        box5.getChildren().addAll(car, gasUse, start, explode, death);
+
+        Scene endGasScene = new Scene(box5, 1000, 800);
+        return endGasScene;
+
     }
 
 }
-
-
