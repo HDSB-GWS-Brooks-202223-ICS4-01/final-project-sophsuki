@@ -1,6 +1,8 @@
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -11,7 +13,8 @@ public class DemonTrail extends Application {
     public int i = 0;
 
     Stage window;
-
+    GameScene game = new GameScene();
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -47,19 +50,31 @@ public class DemonTrail extends Application {
         Scene rTwoEndMedTwo = rTwo.endMedTwo();
         Scene rTwoFoodOption = rTwo.foodOption(); 
 
-        //Route 2 scenes continued from after food option
+        //Route 2 scenes continued from food option
         Scene rTwoFour = rTwo.storyTwoFour();
+        Scene rTwoChoiceTwo = rTwo.optionTwoTwo();
+        Scene rTwoEndTravel = rTwo.endTravel();
+        Scene rTwoEndRope  = rTwo.endRope();
+        Scene rTwofinal = rTwo.swimOption();
 
         // scene arrays
         Scene[] introScenes = {introOne};
         Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoEndGas, rTwoEndMed, rTwoEndMedTwo, rTwoFoodOption, rTwoFour }; // keep but delete eventually
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoEndGas, rTwoEndMed, rTwoEndMedTwo, rTwoFoodOption, rTwoFour,rTwoEndTravel, rTwoEndRope, rTwofinal }; // keep but delete eventually
         
+        
+        //note for score board maybe can include how many times player died (increase death count each time on end screen)
+        // deathcount back to 0 when back to start screen;
+        //restart button takes back to scene 1 not start screen
+        //if reached final good ending, play again button takes to start screen to reset "score" maybe
 
-
-
+        
+        
+    
         // testing for switching between screens.
         for (int j = 0; j < allScenes.length - 1; j++) {
+            
+
             allScenes[j].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
@@ -75,5 +90,17 @@ public class DemonTrail extends Application {
         window.setScene(introOne); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
+    }
+
+    public Button restart(){ // TESTING RESTART BUTTOn
+        Button button = new Button();
+        button.setTranslateY(700);
+        button.setAlignment(Pos.CENTER);
+        button.setText("Restart");
+        button.setOnAction((event) -> {
+            
+           // window.setScene(MAKES NULL WHY?????????);
+        });
+       return button;
     }
 }
