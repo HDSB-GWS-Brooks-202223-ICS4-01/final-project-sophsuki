@@ -3,6 +3,12 @@
     src: url('Minecraft.ttf');
 }
 
+.button {
+    -fx-background-color: #282828;
+    -fx-text-fill: #f8f8f8;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 40;
+}
 .label {
     -fx-font-family: 'Minecraft';
     -fx-font-size: 40;

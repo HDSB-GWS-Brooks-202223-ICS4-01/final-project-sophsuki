@@ -3,6 +3,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -18,6 +19,7 @@ public class RouteTwo extends GameScene {
 
     public TextField textFieldOne = new TextField();
     public TextField textFieldTwo = new TextField();
+    public Button restartButton = new Button();
    
     DemonTrail trail = new DemonTrail();
     public Scene storyTwoOne() {
@@ -133,7 +135,6 @@ public class RouteTwo extends GameScene {
         styleText(choiceThree, 450);
         styleText(choice, 600);
         // input textfield
-        // TextField textFieldOne = new TextField();
         TextField optionOne = limitText(textFieldOne);
         
 
@@ -168,7 +169,7 @@ public class RouteTwo extends GameScene {
 
         // IMPORTANT ADD RESTART BUTTON WHEN POSSIBLE
         box5.getChildren().add(image("\\images\\cargas.gif", 1000, 800));
-        box5.getChildren().addAll(car, gasUse, start, explode, death);
+        box5.getChildren().addAll(car, gasUse, start, explode, death, restart(restartButton));
 
         Scene endGasScene = new Scene(box5, 1000, 800);
         return endGasScene;
@@ -218,7 +219,6 @@ public class RouteTwo extends GameScene {
         styleText(scream, 475);
         styleText(hunger, 550);
         styleText(consume, 625);
-        // add restart button on 700
 
         box7.getChildren().add(image("\\images\\grave.png", 200, 300));
         box7.getChildren().addAll(faint, eaten, scream, hunger, consume);
@@ -265,8 +265,8 @@ public class RouteTwo extends GameScene {
         // text
         daysPass.setText("Couple of days pass");
         arrive.setText("You arrive at a river");
-        problem.setText("The rivers stretches for miles");
-        cross.setText("You prepare to cross the river");
+        problem.setText("The river stretches for miles");
+        cross.setText("You must cross the river quickly");
         // styles text
         styleText(daysPass, 350);
         styleText(arrive, 425);
@@ -292,7 +292,7 @@ public class RouteTwo extends GameScene {
         Label choiceTwo = new Label();
         Label choiceThree = new Label();
         // text
-        swim.setText("You must cross the river");
+        swim.setText("How will you cross?");
         choice.setText("What is your choice?");
         choiceOne.setText("1 : Swim across it");
         choiceTwo.setText("2 : Travel around it");
@@ -307,7 +307,6 @@ public class RouteTwo extends GameScene {
         styleText(choice, 600);
         choice.setTranslateX(-40);
         // input textfield
-        // TextField textFieldTwo = new TextField();
         TextField option = limitText(textFieldTwo);
         option.setMaxSize(100, 10);
         option.setTranslateY(700);

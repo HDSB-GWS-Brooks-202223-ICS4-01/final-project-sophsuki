@@ -115,20 +115,15 @@ public class GameScene {
         return field;
     }
 
-    // public String valueText(TextField field){
-    //     field.setOnKeyPressed(new EventHandler<KeyEvent>(){
-
-    //         @Override
-    //         public void handle(javafx.scene.input.KeyEvent key) {
-    //             if (key.getCode().equals(KeyCode.ENTER)){
-    //                 field.getText();
-                    
-    //             }
-                
-    //         }});
-    //        return field.getText();
-
-    // }
+    public Button restart(Button button) { // Restart Button
+        button.setTranslateY(700);
+        button.setMaxSize(300, 75);
+        button.setAlignment(Pos.CENTER);
+        button.setText("Restart");
+        button.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+      
+        return button;
+    }
 
  
 }
