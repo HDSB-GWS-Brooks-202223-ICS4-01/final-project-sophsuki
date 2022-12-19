@@ -13,37 +13,32 @@ public class RouteTwo extends GameScene {
 
     public int days = 5;
     public int kilometers = 51;
-    public String date = "November 15th"; 
+    public String date = "November 15th";
     private Group daysPass;
-
-    GameScene game = new GameScene();
-
+   
+    DemonTrail trail = new DemonTrail();
     public Scene storyTwoOne() {
 
         StackPane box1 = new StackPane();
-        game.basicPane(box1);
-
+        basicPane(box1);
         // labels
         Label stats = new Label();
         Label day = new Label();
         Label mile = new Label();
         Label date = new Label();
-
         // text
         stats.setText("Stats");
         day.setText(" days survived : 5");
         mile.setText("kilometers walked : 51");
-        date.setText("November 15th");
-
+        date.setText("Date : November 15th");
         // styles text
-        game.styleText(stats, 100);
-        game.title(stats);
-        game.styleText(day, 300);
-        game.styleText(mile, 400);
-        game.styleText(date, 500);
+       styleText(stats, 100);
+        title(stats);
+        styleText(day, 300);
+        styleText(mile, 400);
+        styleText(date, 500);
 
-        box1.getChildren().addAll(game.spaceText(700), stats, day, mile);
-
+        box1.getChildren().addAll(spaceText(700), stats, day, mile, date);
         Scene sceneOne = new Scene(box1, 1000, 800);
         return sceneOne;
     }
@@ -51,27 +46,22 @@ public class RouteTwo extends GameScene {
     public Scene storyTwoTwo() {
 
         StackPane box2 = new StackPane();
-        game.basicPane(box2);
-
+        basicPane(box2);
         // labels
         Label travel = new Label();
         Label food = new Label();
         Label gas = new Label();
-
         // text
-        travel.setText("Couple days pass");
+        travel.setText("Couple of days pass");
         food.setText("70% of rations have been depleted");
-        gas.setText("You see a gas station in the distance");
-
+        gas.setText("Luckily you see a gas station in the distance");
         // styles text
-        game.styleText(travel, 350);
-        game.styleText(food, 450);
-        game.styleText(gas, 550);
-
+        styleText(travel, 350);
+        styleText(food, 450);
+        styleText(gas, 550);
         // load images
-        ImageView sun = game.image("\\images\\day.gif", 1000, 300);
-        ImageView moon = game.image("\\images\\night.gif", 1000, 300);
-
+        ImageView sun = image("\\images\\day.gif", 1000, 300);
+        ImageView moon = image("\\images\\night.gif", 1000, 300);
         // Animating night and day images
         daysPass = new Group(sun);
 
@@ -92,7 +82,7 @@ public class RouteTwo extends GameScene {
 
         t.play();
 
-        box2.getChildren().addAll(daysPass, game.spaceText(700), travel, food, gas);
+        box2.getChildren().addAll(daysPass, spaceText(700), travel, food, gas);
         Scene sceneTwo = new Scene(box2, 1000, 800);
         return sceneTwo;
     }
@@ -100,20 +90,18 @@ public class RouteTwo extends GameScene {
     public Scene storyTwoThree() {
 
         StackPane box3 = new StackPane();
-        game.basicPane(box3);
-
+        basicPane(box3);
         // label
         Label gasStation = new Label();
-
         // text + styles text
         gasStation.setText("you arrive at the gas station");
-        game.styleText(gasStation, 390);
-
-        ImageView border = game.image("\\images\\border.png", 615, 100);
+        styleText(gasStation, 390);
+        // loading image and moving it
+        ImageView border = image("\\images\\border.png", 615, 100);
         border.setTranslateY(370);
 
-        box3.getChildren().addAll(game.image("\\images\\station.gif", 1000, 800), border);
-        box3.getChildren().addAll(gasStation, game.spaceText(700));
+        box3.getChildren().add(image("\\images\\station.gif", 1000, 800));
+        box3.getChildren().addAll(border, gasStation, spaceText(700));
         Scene sceneThree = new Scene(box3, 1000, 800);
         return sceneThree;
     }
@@ -121,38 +109,34 @@ public class RouteTwo extends GameScene {
     public Scene optionTwoOne() {
 
         StackPane box4 = new StackPane();
-        game.basicPane(box4);
-
+        basicPane(box4);
         // labels
         Label bag = new Label();
         Label choice = new Label();
         Label choiceOne = new Label();
         Label choiceTwo = new Label();
         Label choiceThree = new Label();
-
         // text
         bag.setText("You may carry one item :");
         choice.setText("What is your choice?");
         choiceOne.setText("1 : Gas");
         choiceTwo.setText("2 : Food and Water");
         choiceThree.setText("3 : Medical Supplies");
-
         // styles text
-        game.styleText(bag, 150);
-        game.styleText(choiceOne, 250);
+        styleText(bag, 150);
+        styleText(choiceOne, 250);
         choiceOne.setTranslateX(-115);
-        game.styleText(choiceTwo, 350);
-        game.styleText(choiceThree, 450);
-        game.styleText(choice, 600);
-
+        styleText(choiceTwo, 350);
+        styleText(choiceThree, 450);
+        styleText(choice, 600);
         // input textfield
         TextField textField = new TextField();
-        TextField option = game.limitText(textField);
+        TextField option = limitText(textField);
         option.setMaxSize(100, 10);
         option.setTranslateY(700);
 
-        box4.getChildren().addAll(game.image("\\images\\border2.png", 800, 100), bag, choice);
-        box4.getChildren().addAll(choiceOne, choiceTwo, choiceThree, option);
+        box4.getChildren().add(image("\\images\\border2.png", 800, 100));
+        box4.getChildren().addAll(bag, choice, choiceOne, choiceTwo, choiceThree, option);
         Scene optionOneScene = new Scene(box4, 1000, 800);
         return optionOneScene;
     }
@@ -160,31 +144,28 @@ public class RouteTwo extends GameScene {
     public Scene endGas() { // gas ending for option 1
 
         StackPane box5 = new StackPane();
-        game.basicPane(box5);
-
+        basicPane(box5);
         // labels
         Label car = new Label();
         Label gasUse = new Label();
         Label start = new Label();
         Label explode = new Label();
         Label death = new Label();
-
         // text
         car.setText("You approach an abanndoned car");
         gasUse.setText("You pour gas into the car");
         start.setText("You find the keys and start the car");
         explode.setText("Something went wrong... the car explodes");
         death.setText("you have died");
-
         // styles text
-        game.styleText(car, 100);
-        game.styleText(gasUse, 200);
-        game.styleText(start, 300);
-        game.styleText(explode, 400);
-        game.styleText(death, 500);
+        styleText(car, 100);
+        styleText(gasUse, 200);
+        styleText(start, 300);
+        styleText(explode, 400);
+        styleText(death, 500);
 
-        //IMPORTANT ADD RESTART BUTTON WHEN POSSIBLE
-        box5.getChildren().add(game.image("\\images\\cargas.gif", 1000, 800));
+        // IMPORTANT ADD RESTART BUTTON WHEN POSSIBLE
+        box5.getChildren().add(image("\\images\\cargas.gif", 1000, 800));
         box5.getChildren().addAll(car, gasUse, start, explode, death);
 
         Scene endGasScene = new Scene(box5, 1000, 800);
@@ -192,58 +173,52 @@ public class RouteTwo extends GameScene {
 
     }
 
-    public Scene endMedOne() { // medkit part 1 ending for option 1 
+    public Scene endMedOne() { // medkit part 1 ending for option 1
         StackPane box6 = new StackPane();
-        game.basicPane(box6);
-
-        //labels
+        basicPane(box6);
+        // labels
         Label travel = new Label();
         Label noFood = new Label();
-
-        //text
+        // text
         travel.setText("You hike for days... nothing but mountains in sight");
         noFood.setText("You have used up all your food and water");
+        // styles text
+        styleText(travel, 400);
+        styleText(noFood, 500);
 
-        //styles text
-        game.styleText(travel, 400);
-        game.styleText(noFood, 500);
-
-        
-        box6.getChildren().add(game.image("\\images\\mountain.png", 1000, 300));
-        box6.getChildren().addAll(travel, noFood, game.spaceText(700));
+        box6.getChildren().add(image("\\images\\mountain.png", 1000, 300));
+        box6.getChildren().addAll(travel, noFood, spaceText(700));
 
         Scene medOneScene = new Scene(box6, 1000, 800);
-        return medOneScene; 
-
+        return medOneScene;
 
     }
 
-    public Scene endMedTwo(){ //medkit ending part 2 for option 1
+    public Scene endMedTwo() { // medkit ending part 2 for option 1
+
         StackPane box7 = new StackPane();
-        game.basicPane(box7);
-    
-        //labels
+        basicPane(box7);
+        // labels
         Label faint = new Label();
         Label eaten = new Label();
         Label scream = new Label();
         Label hunger = new Label();
         Label consume = new Label();
-
-        //text
+        // text
         faint.setText("You pass out due to malnutrion");
-        eaten.setText("A sharp pain wakes you up");
-        scream.setText("Your sister broke of her ropes ");
+        eaten.setText("Suddenly a sharp pain wakes you up");
+        scream.setText("Your sister broke free of her ropes ");
         hunger.setText("she is eating you");
         consume.setText("You have been consumed");
-        //styles text
-        game.styleText(faint, 325);
-        game.styleText(eaten, 400);
-        game.styleText(scream, 475);
-        game.styleText(hunger, 550);
-        game.styleText(consume, 625);
-        //add restart button on 700
+        // styles text
+        styleText(faint, 325);
+        styleText(eaten, 400);
+        styleText(scream, 475);
+        styleText(hunger, 550);
+        styleText(consume, 625);
+        // add restart button on 700
 
-        box7.getChildren().add(game.image("\\images\\grave.png", 200, 300)); 
+        box7.getChildren().add(image("\\images\\grave.png", 200, 300));
         box7.getChildren().addAll(faint, eaten, scream, hunger, consume);
 
         Scene medTwoScene = new Scene(box7, 1000, 800);
@@ -251,59 +226,189 @@ public class RouteTwo extends GameScene {
 
     }
 
-    public Scene foodOption (){ // correct option to continue game
-        StackPane box8 = new StackPane();
-        game.basicPane(box8);
+    public Scene foodOption() { // correct option to continue game
 
-        //labels
+        StackPane box8 = new StackPane();
+        basicPane(box8);
+        // labels
         Label traveling = new Label();
         Label tired = new Label();
         Label eat = new Label();
-        //text
+        // text
         traveling.setText("You continue walking at a gruelling pace");
         tired.setText("You are exhausted and stop to rest ");
         eat.setText("You eat your food and begin walking again");
-        //styles text
-        game.styleText(traveling, 400);
-        game.styleText(tired, 500);
-        game.styleText(eat, 600);
+        // styles text
+        styleText(traveling, 400);
+        styleText(tired, 500);
+        styleText(eat, 600);
 
-        box8.getChildren().add(game.image("\\images\\camp.png", 1000, 300));
-        box8.getChildren().addAll(traveling, tired, eat, game.spaceText(700));
+        box8.getChildren().add(image("\\images\\camp.png", 1000, 300));
+        box8.getChildren().addAll(traveling, tired, eat, spaceText(700));
 
         Scene foodOptionScene = new Scene(box8, 1000, 800);
-     
-        return foodOptionScene;  
+
+        return foodOptionScene;
     }
 
-    public Scene storyTwoFour(){
-        StackPane box9 = new StackPane();
-        game.basicPane(box9);
+    public Scene storyTwoFour() {
 
-        //labels
+        StackPane box9 = new StackPane();
+        basicPane(box9);
+        // labels
         Label daysPass = new Label();
         Label arrive = new Label();
         Label problem = new Label();
         Label cross = new Label();
-        //text
+        // text
         daysPass.setText("Couple of days pass");
         arrive.setText("You arrive at a river");
         problem.setText("The rivers stretches for miles");
         cross.setText("You prepare to cross the river");
-        //styles text
-        game.styleText(daysPass, 350);
-        game.styleText(arrive, 425);
-        game.styleText(problem, 500);
-        game.styleText(cross, 575);
+        // styles text
+        styleText(daysPass, 350);
+        styleText(arrive, 425);
+        styleText(problem, 500);
+        styleText(cross, 575);
 
-        box9.getChildren().add(game.image("\\images\\river.jpg", 1000, 300));
-        box9.getChildren().addAll(daysPass, arrive, problem, cross, game.spaceText(700));
+        box9.getChildren().add(image("\\images\\river.jpg", 1000, 300));
+        box9.getChildren().addAll(daysPass, arrive, problem, cross, spaceText(700));
 
         Scene sceneFour = new Scene(box9, 1000, 800);
-        return sceneFour; 
+        return sceneFour;
 
     }
 
+    public Scene optionTwoTwo() {
+
+        StackPane box10 = new StackPane();
+        basicPane(box10);
+        // labels
+        Label swim = new Label();
+        Label choice = new Label();
+        Label choiceOne = new Label();
+        Label choiceTwo = new Label();
+        Label choiceThree = new Label();
+        // text
+        swim.setText("You must cross the river");
+        choice.setText("What is your choice?");
+        choiceOne.setText("1 : Swim across it");
+        choiceTwo.setText("2 : Travel around it");
+        choiceThree.setText("3 : Tightrope walk across");
+        // styles text
+        styleText(swim, 150);
+        styleText(choiceOne, 250);
+        choiceOne.setTranslateX(-70);
+        styleText(choiceTwo, 350);
+        choiceTwo.setTranslateX(-55);
+        styleText(choiceThree, 450);
+        styleText(choice, 600);
+        choice.setTranslateX(-40);
+        // input textfield
+        TextField textField = new TextField();
+        TextField option = limitText(textField);
+        option.setMaxSize(100, 10);
+        option.setTranslateY(700);
+
+        box10.getChildren().add(image("\\images\\border2.png", 800, 100));
+        box10.getChildren().addAll(swim, choice, choiceOne, choiceTwo, choiceThree, option);
+        Scene optionTwoScene = new Scene(box10, 1000, 800);
+        return optionTwoScene;
+    }
+
+    public Scene endTravel() {
+        StackPane box11 = new StackPane();
+        basicPane(box11);
+
+        // labels
+        Label traveling = new Label();
+        Label risky = new Label();
+        Label slip = new Label();
+        Label head = new Label();
+        Label dead = new Label();
+        // text
+        traveling.setText("You take a detour through the mountains");
+        risky.setText("The path is dangerous and long");
+        slip.setText("You are half way across when you slip on a rock");
+        head.setText("you fall from 50 feet and hit your head");
+        dead.setText("You have died");
+        // styles text
+        styleText(traveling, 350);
+        styleText(risky, 425);
+        styleText(slip, 500);
+        styleText(head, 575);
+        styleText(dead, 650);
+
+        box11.getChildren().add(image("\\images\\bodyoutline.png", 1000, 300));
+        box11.getChildren().addAll(traveling, risky, slip, head, dead);
+
+        Scene travelOptionScene = new Scene(box11, 1000, 800);
+        return travelOptionScene;
+    }
+
+    public Scene endRope() { // correct option to continue game
+
+        StackPane box12 = new StackPane();
+        basicPane(box12);
+        // labels
+        Label toss = new Label();
+        Label tree = new Label();
+        Label walk = new Label();
+        Label fall = new Label();
+        Label drown = new Label();
+        Label zomb = new Label();
+        // text
+        toss.setText("You make a loop with the rope and throw it across on a tree");
+        tree.setText("You check if it is secure and tie it to another tree");
+        walk.setText("You begin walking the tight rope");
+        fall.setText("You lose your balance and fall into the river");
+        drown.setText("Your sister distraught from the water, scratches you");
+        zomb.setText("You give up and drown as you will turn into a zombie soon");
+        // styles text
+        styleText(toss, 320);
+        styleText(tree, 380);
+        styleText(walk, 440);
+        styleText(fall, 500);
+        styleText(drown, 560);
+        styleText(zomb, 620);
+        smallFont(toss);
+        smallFont(tree);
+        smallFont(walk);
+        smallFont(fall);
+        smallFont(drown);
+        smallFont(zomb);
+
+        box12.getChildren().add(image("\\images\\tightrope.png", 1000, 300));
+        box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb);
+
+        Scene ropeOptionScene = new Scene(box12, 1000, 800);
+        return ropeOptionScene;
+    }
+
+    public Scene swimOption() {
+        StackPane box13 = new StackPane();
+        basicPane(box13);
+        // labels
+        Label safety = new Label();
+        Label tie = new Label();
+        Label swim = new Label();
+        Label river = new Label();
+        // text
+        safety.setText("You blindfold and cover your sisters mouth");
+        tie.setText("You tie her body with yours and begin swimming");
+        swim.setText("Progress is slow but steady");
+        river.setText("You make it safely across the river");
+        // styles text
+        styleText(safety, 350);
+        styleText(tie, 425);
+        styleText(swim, 500);
+        styleText(river, 575);
+
+        box13.getChildren().add(image("\\images\\deepriver.jpg", 1000, 300));
+        box13.getChildren().addAll(safety, tie, swim, river, spaceText(700));
+
+        Scene swimOptionScene = new Scene(box13, 1000, 800);
+        return swimOptionScene;
+    }
+
 }
-
-
