@@ -6,11 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Window;
 
 public class GameScene {
@@ -88,6 +90,8 @@ public class GameScene {
         field.setFont((Font.font("Helvetica", FontWeight.BOLD, 36)));
         field.setEditable(true);
         field.setStyle("-fx-background-color: black;");
+        field.setMaxSize(100,10);
+        field.setTranslateY(700);
 
         field.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
@@ -110,6 +114,21 @@ public class GameScene {
 
         return field;
     }
+
+    // public String valueText(TextField field){
+    //     field.setOnKeyPressed(new EventHandler<KeyEvent>(){
+
+    //         @Override
+    //         public void handle(javafx.scene.input.KeyEvent key) {
+    //             if (key.getCode().equals(KeyCode.ENTER)){
+    //                 field.getText();
+                    
+    //             }
+                
+    //         }});
+    //        return field.getText();
+
+    // }
 
  
 }

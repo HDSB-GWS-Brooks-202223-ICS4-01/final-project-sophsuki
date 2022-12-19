@@ -15,6 +15,9 @@ public class RouteTwo extends GameScene {
     public int kilometers = 51;
     public String date = "November 15th";
     private Group daysPass;
+
+    public TextField textFieldOne = new TextField();
+    public TextField textFieldTwo = new TextField();
    
     DemonTrail trail = new DemonTrail();
     public Scene storyTwoOne() {
@@ -130,13 +133,12 @@ public class RouteTwo extends GameScene {
         styleText(choiceThree, 450);
         styleText(choice, 600);
         // input textfield
-        TextField textField = new TextField();
-        TextField option = limitText(textField);
-        option.setMaxSize(100, 10);
-        option.setTranslateY(700);
+        // TextField textFieldOne = new TextField();
+        TextField optionOne = limitText(textFieldOne);
+        
 
         box4.getChildren().add(image("\\images\\border2.png", 800, 100));
-        box4.getChildren().addAll(bag, choice, choiceOne, choiceTwo, choiceThree, option);
+        box4.getChildren().addAll(bag, choice, choiceOne, choiceTwo, choiceThree, optionOne);
         Scene optionOneScene = new Scene(box4, 1000, 800);
         return optionOneScene;
     }
@@ -305,8 +307,8 @@ public class RouteTwo extends GameScene {
         styleText(choice, 600);
         choice.setTranslateX(-40);
         // input textfield
-        TextField textField = new TextField();
-        TextField option = limitText(textField);
+        // TextField textFieldTwo = new TextField();
+        TextField option = limitText(textFieldTwo);
         option.setMaxSize(100, 10);
         option.setTranslateY(700);
 

@@ -4,6 +4,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
@@ -42,25 +43,29 @@ public class DemonTrail extends Application {
         Scene rTwoOne = rTwo.storyTwoOne();
         Scene rTwoTwo = rTwo.storyTwoTwo();
         Scene rTwoThree = rTwo.storyTwoThree();
-
         //choice scene + endings
         Scene rTwoChoiceOne = rTwo.optionTwoOne();
         Scene rTwoEndGas    = rTwo.endGas();
         Scene rTwoEndMed = rTwo.endMedOne();
         Scene rTwoEndMedTwo = rTwo.endMedTwo();
         Scene rTwoFoodOption = rTwo.foodOption(); 
-
-        //Route 2 scenes continued from food option
+        //Route 2 scenes continued from food option to ending
         Scene rTwoFour = rTwo.storyTwoFour();
         Scene rTwoChoiceTwo = rTwo.optionTwoTwo();
         Scene rTwoEndTravel = rTwo.endTravel();
         Scene rTwoEndRope  = rTwo.endRope();
         Scene rTwofinal = rTwo.swimOption();
+        //Route 2 textfields
+        TextField rTwoTextOne = rTwo.textFieldOne;
+        TextField rTwoTextTwo = rTwo.textFieldTwo;
+        TextField[] rTwoFields = {rTwo.textFieldOne,rTwo.textFieldTwo};
+        //note maybe put all texfields into array and then have big array.keypressed ect. and then in function
+        //manage each indivudal textfield and where it should show scene 
 
         // scene arrays
         Scene[] introScenes = {introOne};
-        Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoEndGas, rTwoEndMed, rTwoEndMedTwo, rTwoFoodOption, rTwoFour,rTwoEndTravel, rTwoEndRope, rTwofinal }; // keep but delete eventually
+        Scene[] rTwoScenes = {introOne, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoEndGas};
+        Scene[] allScenes = { introOne , rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne,rTwoEndGas, rTwoEndMed, rTwoEndMedTwo, rTwoFoodOption, rTwoFour,rTwoEndTravel, rTwoEndRope, rTwofinal }; // keep but delete eventually
         
         
         //note for score board maybe can include how many times player died (increase death count each time on end screen)
@@ -83,8 +88,23 @@ public class DemonTrail extends Application {
                         i++;
                         window.setScene(allScenes[i]);
                     }
+                   
                 }
             });
+            // for input // many problems// fix later
+            rTwoTextOne.setOnKeyPressed(new EventHandler<KeyEvent>(){
+
+                        @Override
+                        public void handle(javafx.scene.input.KeyEvent key) {
+                            if (key.getCode().equals(KeyCode.ENTER)){
+                               System.out.println( rTwoTextOne.getText());
+                               if (rTwoTextOne.getText().equals("1")){
+                                window.setScene(allScenes[i + 1]);
+                               }
+                                
+                            }
+                            
+                        }});
         }
 
         window.setScene(introOne); // change to whatever to test out screens.
