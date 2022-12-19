@@ -378,7 +378,7 @@ public class RouteTwo extends GameScene {
         smallFont(drown);
         smallFont(zomb);
 
-        box12.getChildren().add(image("\\images\\tightrope.png", 1000, 300));
+        box12.getChildren().add(image("\\images\\drowning.jpg", 1000, 300));
         box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb);
 
         Scene ropeOptionScene = new Scene(box12, 1000, 800);
