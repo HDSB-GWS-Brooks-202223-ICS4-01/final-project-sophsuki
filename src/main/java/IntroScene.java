@@ -1,7 +1,9 @@
 import java.util.Timer;
 
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -128,6 +130,8 @@ public class IntroScene extends GameScene {
         StackPane sp4 = new StackPane(); 
         Scene scene = new Scene(sp4, 1000, 800);
 
+        TextField t = new TextField(); 
+
         Label title1 = new Label(); 
         Label title2 = new Label();
         Label c1 = new Label(); 
@@ -152,8 +156,70 @@ public class IntroScene extends GameScene {
         bigFont(c2);
         bigFont(c3);
 
-        sp4.getChildren().addAll(title1, title2, c1, c2, c3);
+        TextField input = game.limitText(t);
+        input.setTranslateY(600);
+
+        sp4.getChildren().addAll(title1, title2, c1, c2, c3, input);
 
         return scene;
     }
+
+    public Scene inChoice1Gas() {
+        StackPane sp5 = new StackPane();
+        Scene scene = new Scene(sp5, 1000, 800);
+
+        basicPane(sp5);
+
+        ImageView border = new ImageView("\\images\\border.png");
+        border.setScaleY(0.5);
+        //border.setTranslateY(100);
+
+        Label text1 = new Label(); 
+        Label text2 = new Label(); 
+
+        text1.setText("We chose to use the car since we brought gas...");
+        text2.setText("The brakes stopped working and we crashed.");
+        
+        styleText(text1, 70);
+        styleText(text2, 110);
+        smallFont(text1);
+        smallFont(text2);
+        text1.setStyle("-fx-text-fill:black;");
+        text2.setStyle("-fx-text-fill:black;");
+
+        sp5.getChildren().add(image("\\images\\crash.gif", 1000, 800));
+        sp5.getChildren().add(border);
+        sp5.getChildren().addAll(text1, text2);
+
+        return scene;
+    }
+
+    public Scene inChoice1MedWater() {
+        StackPane sp6 = new StackPane(); 
+        Scene scene = new Scene(sp6, 1000, 800); 
+
+        basicPane(sp6);
+
+        Label text1 = new Label();
+        Label text2 = new Label();
+        Label text3 = new Label();
+
+        text1.setText("After a few days of walking, we ran into a problem.");
+        text2.setText("Some zombies came out of hiding and started attacking us!");
+        text3.setText("Two strangers came and helped us fight them off");
+
+        styleText(text1, 400);
+        styleText(text2, 500);
+        styleText(text3, 600);
+        smallFont(text1);
+        smallFont(text2);
+        smallFont(text3);
+
+        sp6.getChildren().add(image("\\images\\zombie attack.gif", 1000, 300));
+        sp6.getChildren().addAll(text1, text2, text3);
+
+        return scene;
+
+    }
+    
 }

@@ -36,6 +36,7 @@ public class DemonTrail extends Application {
         Scene introTwo = intro.introTwo(); 
         Scene introThree = intro.introThree(); 
         Scene introFourChoice1 = intro.introFourChoice1();
+        Scene inChoice1Gas = intro.inChoice1Gas(); 
 
         // Route 2 scenes
         RouteTwo rTwo = new RouteTwo();
@@ -47,7 +48,7 @@ public class DemonTrail extends Application {
         // scene arrays
         Scene[] introScenes = {introOne, introTwo, introThree, introFourChoice1};
         Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , introTwo, introThree, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
+        Scene[] allScenes = { introOne , introTwo, introThree, inChoice1Gas, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
         
 
 
@@ -70,4 +71,6 @@ public class DemonTrail extends Application {
         window.setResizable(false);
         window.show();
     }
+
+    
 }
