@@ -48,7 +48,7 @@ public class DemonTrail extends Application {
         // Route 2 textfields 
         TextField rTwoTextOne = rTwo.textFieldOne;
         TextField rTwoTextTwo = rTwo.textFieldTwo;
-        TextField[] rTwoFields = { rTwo.textFieldOne, rTwo.textFieldTwo }; // change to all textfields eventually
+        
         
 
         // note maybe put all texfields into array and then have big array.keypressed
@@ -69,6 +69,7 @@ public class DemonTrail extends Application {
 
         //Button array
         Button [] restartButtons = {rTwo.restartButton, rTwo.restartButtonTwo, rTwo.restartButtonThree, rTwo.restartButtonFour}; 
+        TextField[] inputFields = { rTwo.textFieldOne, rTwo.textFieldTwo }; // add all textfields here
         // add all scenes restart button here
 
         // note for score board maybe can include how many times player died (increase
@@ -77,6 +78,8 @@ public class DemonTrail extends Application {
         // restart button takes back to scene 1 not start screen
         // if reached final good ending, play again button takes to start screen to
         // reset "score" maybe
+
+        
 
         // When space pressed... changes to next scene in array
         //route 2 scenes space bar pressed event
@@ -125,8 +128,8 @@ public class DemonTrail extends Application {
     }
 
         // input from textfields
-        for (int n = 0; n < rTwoFields.length; n++) {
-            rTwoFields[n].setOnKeyPressed(new EventHandler<KeyEvent>() {
+        for (int n = 0; n < inputFields.length; n++) {
+            inputFields[n].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(javafx.scene.input.KeyEvent key) {
