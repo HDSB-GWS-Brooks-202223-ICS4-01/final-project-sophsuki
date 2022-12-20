@@ -17,9 +17,15 @@ public class RouteTwo extends GameScene {
     public String date = "November 15th";
     private Group daysPass;
 
+    //public textField
     public TextField textFieldOne = new TextField();
     public TextField textFieldTwo = new TextField();
+
+    //public buttons
     public Button restartButton = new Button();
+    public Button restartButtonTwo = new Button();
+    public Button restartButtonThree = new Button();
+    public Button restartButtonFour = new Button();
    
     DemonTrail trail = new DemonTrail();
     public Scene storyTwoOne() {
@@ -167,7 +173,6 @@ public class RouteTwo extends GameScene {
         styleText(explode, 400);
         styleText(death, 500);
 
-        // IMPORTANT ADD RESTART BUTTON WHEN POSSIBLE
         box5.getChildren().add(image("\\images\\cargas.gif", 1000, 800));
         box5.getChildren().addAll(car, gasUse, start, explode, death, restart(restartButton));
 
@@ -221,7 +226,7 @@ public class RouteTwo extends GameScene {
         styleText(consume, 625);
 
         box7.getChildren().add(image("\\images\\grave.png", 200, 300));
-        box7.getChildren().addAll(faint, eaten, scream, hunger, consume);
+        box7.getChildren().addAll(faint, eaten, scream, hunger, consume, restart(restartButtonTwo));
 
         Scene medTwoScene = new Scene(box7, 1000, 800);
         return medTwoScene;
@@ -341,7 +346,7 @@ public class RouteTwo extends GameScene {
         styleText(dead, 650);
 
         box11.getChildren().add(image("\\images\\bodyoutline.png", 1000, 300));
-        box11.getChildren().addAll(traveling, risky, slip, head, dead);
+        box11.getChildren().addAll(traveling, risky, slip, head, dead, restart(restartButtonThree));
 
         Scene travelOptionScene = new Scene(box11, 1000, 800);
         return travelOptionScene;
@@ -380,7 +385,7 @@ public class RouteTwo extends GameScene {
         smallFont(zomb);
 
         box12.getChildren().add(image("\\images\\drowning.jpg", 1000, 300));
-        box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb);
+        box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb, restart(restartButtonFour));
 
         Scene ropeOptionScene = new Scene(box12, 1000, 800);
         return ropeOptionScene;
