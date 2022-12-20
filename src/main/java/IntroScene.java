@@ -164,6 +164,7 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+    // if gas picked
     public Scene inChoice1Gas() {
         StackPane sp5 = new StackPane();
         Scene scene = new Scene(sp5, 1000, 800);
@@ -194,6 +195,7 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+    //if medkit or water picked
     public Scene inChoice1MedWater() {
         StackPane sp6 = new StackPane(); 
         Scene scene = new Scene(sp6, 1000, 800); 
@@ -219,7 +221,20 @@ public class IntroScene extends GameScene {
         sp6.getChildren().addAll(text1, text2, text3);
 
         return scene;
+    }
 
+    // if water picked
+    public Scene inChoice1Death() {
+        StackPane sp7 = new StackPane();
+        Scene scene = new Scene(sp7, 1000, 800); 
+
+        basicPane(sp7); 
+
+        Label text1 = new Label(); 
+
+        text1.setText("");
+
+        return scene;
     }
     
 }
