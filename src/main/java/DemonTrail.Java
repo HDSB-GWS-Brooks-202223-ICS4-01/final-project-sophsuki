@@ -45,7 +45,9 @@ public class DemonTrail extends Application {
         Scene rTwoEndTravel = rTwo.endTravel();
         Scene rTwoEndRope = rTwo.endRope();
         Scene rTwoFinal = rTwo.swimOption();
-       
+        // Route 2 textfields 
+        TextField rTwoTextOne = rTwo.textFieldOne;
+        TextField rTwoTextTwo = rTwo.textFieldTwo;
         
         
 
