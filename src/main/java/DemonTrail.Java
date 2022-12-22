@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 public class DemonTrail extends Application {
     private int i = 0;
     private int c = 0;
+    private int n = 0;
     public int deaths = 0;
 
     Stage window;
@@ -63,12 +64,10 @@ public class DemonTrail extends Application {
         // manage each indivudal textfield and where it should show scene
 
         // scene arrays
-       // Scene[] introScenes = {introOne, introTwo, introThree, introFourChoice1};
-       // Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        //Scene[] allScenes = { introOne , introTwo, introThree, inChoice1MedWater, inChoice1Death, inChoice1Pass, inChoice1Gas/* SHOULD GO BEFORE MEDWATER */, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
-
-        // scene arrays
-       Scene[] introScenes = { introOne };
+    
+        Scene[] introScenes = { introOne , introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass}; 
+      //  inChoice1Gas
+        Scene[] waterEnd = {inChoice1MedWater, inChoice1Death};
 
         // rTwo Scenes with correct choices, begining to end...
         Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
@@ -95,6 +94,26 @@ public class DemonTrail extends Application {
 
         // When space pressed... changes to next scene in array
         //route 2 scenes space bar pressed event
+
+        for ( int i = 0; i < introScenes.length; i++){
+
+            introScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+                @Override
+                public void handle(KeyEvent key) {
+                    if (key.getCode().equals(KeyCode.SPACE)) {
+                        n++;
+                        window.setScene(introScenes[n]);
+
+                        // if(introScenes[n] > introScenes.length){
+                        //     window.setScene(rTwoOne);
+                        // }
+                    }
+
+                }
+            });
+
+        }
         for (int j = 0; j < rTwoScenes.length - 1; j++) {
 
             rTwoScenes[j].setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -132,7 +151,7 @@ public class DemonTrail extends Application {
             public void handle(MouseEvent event) {
                 deaths ++; // increase deaths by 1
                 i = 0;
-                window.setScene(rTwoOne);// change to 1 scene after start screen eventually
+                window.setScene(introOne);// change to 1 scene after start screen eventually
 
             }
 
@@ -144,8 +163,23 @@ public class DemonTrail extends Application {
             inputFields[n].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
-                public void handle(javafx.scene.input.KeyEvent key) {
+                public void handle(javafx.scene.input.KeyEvent key) { // REMINDER FIX WHAT WINDOW IT CHANGES TO 
                     if (key.getCode().equals(KeyCode.ENTER)) {
+
+                        if(key.getSource() == introFourChoice1){
+                            if (introFourChoice1.getText().equals("1")) { // if option 1 selected
+                                window.setScene(rTwoEndGas);
+                            } else if (introFourChoice1.getText().equals("2")) {// if option 2 selected
+                                i++;
+                                window.setScene(inChoice1Gas);
+                            } else if (introFourChoice1.getText().equals("3")) {// if option 3 selected
+                                for (int i = 0; i < rTwoMedScenes.length; i++) {
+                                    window.setScene(rTwoEndMed);
+                                }
+                            }
+                        }
+
+                        }
 
                         if (key.getSource() == rTwoTextOne) { // Route 2 first choice textfield
                             if (rTwoTextOne.getText().equals("1")) { // if option 1 selected
@@ -180,7 +214,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(rTwoOne); // change to whatever to test out screens.
+        window.setScene(introOne); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
     }
