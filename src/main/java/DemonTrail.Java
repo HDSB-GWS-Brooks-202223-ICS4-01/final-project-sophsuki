@@ -38,6 +38,8 @@ public class DemonTrail extends Application {
         Scene introFourChoice1 = intro.introFourChoice1();
         Scene inChoice1Gas = intro.inChoice1Gas(); 
         Scene inChoice1MedWater = intro.inChoice1MedWater();
+        Scene inChoice1Death = intro.inChoice1Death();
+        Scene inChoice1Pass = intro.inChoice1Pass();
 
         // Route 2 scenes
         RouteTwo rTwo = new RouteTwo();
@@ -49,7 +51,7 @@ public class DemonTrail extends Application {
         // scene arrays
         Scene[] introScenes = {introOne, introTwo, introThree, introFourChoice1};
         Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , introTwo, introThree, inChoice1MedWater, inChoice1Gas, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
+        Scene[] allScenes = { introOne , introTwo, introThree, inChoice1MedWater, inChoice1Death, inChoice1Pass, inChoice1Gas/* SHOULD GO BEFORE MEDWATER */, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
 
 
         // testing for switching between screens.

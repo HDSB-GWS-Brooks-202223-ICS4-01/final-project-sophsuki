@@ -234,8 +234,35 @@ public class IntroScene extends GameScene {
         text1.setText("You died.");
         text2.setText("You did not bring any medical materials.");
 
+        styleText(text1, 400);
+        styleText(text2, 500);
+        smallFont(text1);
+        smallFont(text2);
+
         sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
         sp7.getChildren().addAll(text1, text2);
+
+        return scene;
+    }
+
+    public Scene inChoice1Pass() {
+        StackPane sp8 = new StackPane();
+        Scene scene = new Scene(sp8, 1000, 800);
+
+        basicPane(sp8);
+
+        Label text1 = new Label();
+        Label text2 = new Label();
+
+        text1.setText("You used your med kit and healed your wounds");
+        text2.setText("You found shelter for the night.");
+
+        styleText(text1, 400);
+        styleText(text2, 500);
+        smallFont(text1);
+        smallFont(text2);
+
+        sp8.getChildren().add(image("\\images\\shelter.png", 1000, 300));
 
         return scene;
     }
