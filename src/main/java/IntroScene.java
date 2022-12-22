@@ -1,6 +1,7 @@
 import java.util.Timer;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -10,6 +11,9 @@ public class IntroScene extends GameScene {
 
     GameScene game = new GameScene();
     Timer timer = new Timer();
+
+    public Button restart = new Button();
+    public Button restart2 = new Button();
 
     // initial scene
     public Scene introOne() {
@@ -188,7 +192,9 @@ public class IntroScene extends GameScene {
 
         sp5.getChildren().add(image("\\images\\crash.gif", 1000, 800));
         sp5.getChildren().add(border);
-        sp5.getChildren().addAll(text1, text2);
+        sp5.getChildren().addAll(text1, text2, restart(restart));
+
+        
 
         return scene;
     }
@@ -240,7 +246,9 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
-        sp7.getChildren().addAll(text1, text2);
+        sp7.getChildren().addAll(text1, text2, restart(restart2));
+
+
 
         return scene;
     }

@@ -63,12 +63,12 @@ public class DemonTrail extends Application {
         // manage each indivudal textfield and where it should show scene
 
         // scene arrays
-        Scene[] introScenes = {introOne, introTwo, introThree, introFourChoice1};
-        Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
-        Scene[] allScenes = { introOne , introTwo, introThree, inChoice1MedWater, inChoice1Death, inChoice1Pass, inChoice1Gas/* SHOULD GO BEFORE MEDWATER */, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
+       // Scene[] introScenes = {introOne, introTwo, introThree, introFourChoice1};
+       // Scene[] rTwoScenes = {rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne};
+        //Scene[] allScenes = { introOne , introTwo, introThree, inChoice1MedWater, inChoice1Death, inChoice1Pass, inChoice1Gas/* SHOULD GO BEFORE MEDWATER */, introFourChoice1, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne }; // keep but delete eventually
 
         // scene arrays
-        Scene[] introScenes = { introOne };
+       Scene[] introScenes = { introOne };
 
         // rTwo Scenes with correct choices, begining to end...
         Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
@@ -80,7 +80,7 @@ public class DemonTrail extends Application {
                                                                                                   // eventually
 
         //Button array
-        Button [] restartButtons = {rTwo.restartButton, rTwo.restartButtonTwo, rTwo.restartButtonThree, rTwo.restartButtonFour}; 
+        Button [] restartButtons = {intro.restart, intro.restart2, rTwo.restartButton, rTwo.restartButtonTwo, rTwo.restartButtonThree, rTwo.restartButtonFour}; 
         TextField[] inputFields = { rTwo.textFieldOne, rTwo.textFieldTwo }; // add all textfields here
         // add all scenes restart button here
 
