@@ -1,10 +1,8 @@
 import java.util.Timer;
 
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
@@ -230,9 +228,14 @@ public class IntroScene extends GameScene {
 
         basicPane(sp7); 
 
-        Label text1 = new Label(); 
+        Label text1 = new Label();
+        Label text2 = new Label(); 
 
-        text1.setText("");
+        text1.setText("You died.");
+        text2.setText("You did not bring any medical materials.");
+
+        sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
+        sp7.getChildren().addAll(text1, text2);
 
         return scene;
     }
