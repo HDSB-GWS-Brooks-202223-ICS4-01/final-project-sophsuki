@@ -15,6 +15,8 @@ public class IntroScene extends GameScene {
     public Button restart = new Button();
     public Button restart2 = new Button();
 
+    public static TextField t = new TextField(); 
+
     // initial scene
     public Scene introOne() {
         StackPane sp1 = new StackPane();
@@ -132,7 +134,6 @@ public class IntroScene extends GameScene {
         StackPane sp4 = new StackPane(); 
         Scene scene = new Scene(sp4, 1000, 800);
 
-        TextField t = new TextField(); 
 
         Label title1 = new Label(); 
         Label title2 = new Label();
@@ -158,7 +159,7 @@ public class IntroScene extends GameScene {
         bigFont(c2);
         bigFont(c3);
 
-        TextField input = game.limitText(t);
+        TextField input = limitText(t);
         input.setTranslateY(600);
 
         sp4.getChildren().addAll(title1, title2, c1, c2, c3, input);
