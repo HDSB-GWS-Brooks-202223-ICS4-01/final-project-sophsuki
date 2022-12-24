@@ -23,59 +23,28 @@ public class DemonTrail extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         window = primaryStage;
-
-        // Intro scenes
+        // Intro 
         IntroScene intro = new IntroScene();
-        Scene introOne = intro.introOne();
-        Scene introTwo = intro.introTwo();
-        Scene introThree = intro.introThree();
-        Scene introFourChoice1 = intro.introFourChoice1();
-        Scene inChoice1Gas = intro.inChoice1Gas();
-        Scene inChoice1MedWater = intro.inChoice1MedWater();
-        Scene inChoice1Death = intro.inChoice1Death();
-        Scene inChoice1Pass = intro.inChoice1Pass();
-        // textfield
-        TextField introInput = IntroScene.t;
-
-        // Route 2 scenes
+        // Route 2 
         RouteTwo rTwo = new RouteTwo();
-        Scene rTwoOne = rTwo.storyTwoOne();
-        Scene rTwoTwo = rTwo.storyTwoTwo();
-        Scene rTwoThree = rTwo.storyTwoThree();
-        // choice 1 scene + endings
-        Scene rTwoChoiceOne = rTwo.optionTwoOne();
-        Scene rTwoEndGas = rTwo.endGas();
-        Scene rTwoEndMed = rTwo.endMedOne();
-        Scene rTwoEndMedTwo = rTwo.endMedTwo();
-        Scene rTwoFoodOption = rTwo.foodOption();
-        // Route 2 scenes continued from food option to ending
-        Scene rTwoFour = rTwo.storyTwoFour();
-        Scene rTwoChoiceTwo = rTwo.optionTwoTwo();
-        Scene rTwoEndTravel = rTwo.endTravel();
-        Scene rTwoEndRope = rTwo.endRope();
-        Scene rTwoFinal = rTwo.swimOption();
-        // Route 2 textfields
-        TextField rTwoInputOne = rTwo.textFieldOne;
-        TextField rTwoInputTwo = rTwo.textFieldTwo;
-
-        //Ending storyline scenes
+        //Ending storyline 
         End end = new End();
-        // maybe add idk
+    
 
         // scene arrays
-        Scene[] introScenes = { introOne, introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass };
-        Scene[] waterEnd = { inChoice1MedWater, inChoice1Death };
+        Scene[] introScenes = { intro.introOne(), intro.introTwo(), intro.introThree(), intro.introFourChoice1(), intro.inChoice1MedWater(), intro.inChoice1Pass() };
+        Scene[] waterEnd = { intro.inChoice1MedWater(), intro.inChoice1Death() };
 
         // rTwo Scenes with correct choices, begining to end...
-        Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
-                rTwoFinal };
-        Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
+        Scene[] rTwoScenes = {rTwo.storyTwoOne(), rTwo.storyTwoTwo(), rTwo.storyTwoThree(), rTwo.optionTwoOne(), rTwo.foodOption(), rTwo.storyTwoFour(), rTwo.optionTwoTwo(),
+                rTwo.swimOption() };
+        Scene[] rTwoMedScenes = { rTwo.endMedOne(), rTwo.endMedTwo() };
 
         // Button array
         Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
                 rTwo.restartThree, rTwo.restartFour };
         // text field array
-        TextField[] inputFields = { introInput, rTwoInputOne, rTwoInputTwo }; 
+        TextField[] inputFields = { IntroScene.t, rTwo.textFieldOne, rTwo.textFieldTwo }; 
 
 
         // note for score board maybe can include how many times player died (increase
@@ -165,7 +134,7 @@ public class DemonTrail extends Application {
                     c = 0; // resets screen # counter to 0
                     m = 0;
                     n = 0;
-                    window.setScene(introOne);
+                    window.setScene(intro.introOne());
 
                 }
 
@@ -180,40 +149,40 @@ public class DemonTrail extends Application {
                 public void handle(javafx.scene.input.KeyEvent key) { 
                     if (key.getCode().equals(KeyCode.ENTER)) { // if enter pressed
 
-                        if (key.getSource() == introInput) {
-                            if (introInput.getText().equals("1")) { // if option 1 selected(correct option)
+                        if (key.getSource() == IntroScene.t) {
+                            if (IntroScene.t.getText().equals("1")) { // if option 1 selected(correct option)
                                 n++;
-                                window.setScene(inChoice1MedWater);
+                                window.setScene(intro.inChoice1MedWater());
                                 choiceMedWaterEnd = false;
-                            } else if (introInput.getText().equals("2")) {// if option 2 selected
-                                window.setScene(inChoice1Gas);
-                            } else if (introInput.getText().equals("3")) {// if option 3 selected
-                                window.setScene(inChoice1MedWater);
+                            } else if (IntroScene.t.getText().equals("2")) {// if option 2 selected
+                                window.setScene(intro.inChoice1Gas());
+                            } else if (IntroScene.t.getText().equals("3")) {// if option 3 selected
+                                window.setScene(intro.inChoice1MedWater());
                                 choiceMedWaterEnd = true;
                             }
                         }
 
-                        else if (key.getSource() == rTwoInputOne) { // Route 2 first choice textfield
-                            if (rTwoInputOne.getText().equals("1")) { // if option 1 selected
-                                window.setScene(rTwoEndGas);
-                            } else if (rTwoInputOne.getText().equals("2")) {// if option 2 selected(correct option)
+                        else if (key.getSource() == rTwo.textFieldOne) { // Route 2 first choice textfield
+                            if (rTwo.textFieldOne.getText().equals("1")) { // if option 1 selected
+                                window.setScene(rTwo.endGas());
+                            } else if (rTwo.textFieldOne.getText().equals("2")) {// if option 2 selected(correct option)
                                 m++;
                                 window.setScene(rTwoScenes[m]);
-                            } else if (rTwoInputOne.getText().equals("3")) {// if option 3 selected
-                                window.setScene(rTwoEndMed);
+                            } else if (rTwo.textFieldOne.getText().equals("3")) {// if option 3 selected
+                                window.setScene(rTwo.endMedOne());
                             }
                         }
 
-                        else if (key.getSource() == rTwoInputTwo) { // Route 2 second choice textfield
-                            if (rTwoInputTwo.getText().equals("1")) {// if option 1 selected(correct choice)
+                        else if (key.getSource() == rTwo.textFieldTwo) { // Route 2 second choice textfield
+                            if (rTwo.textFieldTwo.getText().equals("1")) {// if option 1 selected(correct choice)
                                 m++;
                                 window.setScene(rTwoScenes[m]);
 
-                            } else if (rTwoInputTwo.getText().equals("2")) { // if option 2 selected
-                                window.setScene(rTwoEndTravel);
+                            } else if (rTwo.textFieldTwo.getText().equals("2")) { // if option 2 selected
+                                window.setScene(rTwo.endTravel());
 
-                            } else if (rTwoInputTwo.getText().equals("3")) {// if option 3 selected
-                                window.setScene(rTwoEndRope);
+                            } else if (rTwo.textFieldTwo.getText().equals("3")) {// if option 3 selected
+                                window.setScene(rTwo.endRope());
                             }
 
                         }
@@ -222,7 +191,7 @@ public class DemonTrail extends Application {
                 }
             });
         }
-
+        
         window.setScene(end.endOne()); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();

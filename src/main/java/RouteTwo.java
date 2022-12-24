@@ -12,9 +12,9 @@ import javafx.util.Duration;
 
 public class RouteTwo extends GameScene {
 
-    public int days = 5;
-    public int kilometers = 51;
-    public String date = "November 15th";
+    private int days = 5; // maybe not needed vars?
+    private int kilometers = 51;
+    private String date = "November 15th";
     private Group daysPass;
 
     // public textField
@@ -32,15 +32,11 @@ public class RouteTwo extends GameScene {
         StackPane box1 = new StackPane();
         basicPane(box1);
         // labels
-        Label stats = new Label();
-        Label day = new Label();
-        Label mile = new Label();
-        Label date = new Label();
-        // text
-        stats.setText("Stats");
-        day.setText(" days survived : 5");
-        mile.setText("kilometers walked : 51");
-        date.setText("Date : November 15th");
+        Label stats = new Label("Stats");
+        Label day = new Label(" days survived : 5");
+        Label mile = new Label("kilometers walked : 51");
+        Label date = new Label("Date : November 15th");
+
         // styles text
         styleText(stats, 100);
         title(stats);
@@ -58,13 +54,10 @@ public class RouteTwo extends GameScene {
         StackPane box2 = new StackPane();
         basicPane(box2);
         // labels
-        Label travel = new Label();
-        Label food = new Label();
-        Label gas = new Label();
-        // text
-        travel.setText("Couple of days pass");
-        food.setText("70% of rations have been depleted");
-        gas.setText("Luckily you see a gas station in the distance");
+        Label travel = new Label("Couple of days pass");
+        Label food = new Label("70% of rations have been depleted");
+        Label gas = new Label("Luckily you see a gas station in the distance");
+        
         // styles text
         styleText(travel, 350);
         styleText(food, 450);
@@ -102,9 +95,8 @@ public class RouteTwo extends GameScene {
         StackPane box3 = new StackPane();
         basicPane(box3);
         // label
-        Label gasStation = new Label();
-        // text + styles text
-        gasStation.setText("you arrive at the gas station");
+        Label gasStation = new Label("you arrive at the gas station");
+        //styles text
         styleText(gasStation, 390);
         // loading image and moving it
         ImageView border = image("\\images\\border.png", 615, 100);
@@ -121,17 +113,12 @@ public class RouteTwo extends GameScene {
         StackPane box4 = new StackPane();
         basicPane(box4);
         // labels
-        Label bag = new Label();
-        Label choice = new Label();
-        Label choiceOne = new Label();
-        Label choiceTwo = new Label();
-        Label choiceThree = new Label();
-        // text
-        bag.setText("You may carry one item :");
-        choice.setText("What is your choice?");
-        choiceOne.setText("1 : Gas");
-        choiceTwo.setText("2 : Food and Water");
-        choiceThree.setText("3 : Medical Supplies");
+        Label bag = new Label("You may carry one item :");
+        Label choice = new Label("What is your choice?");
+        Label choiceOne = new Label("1 : Gas");
+        Label choiceTwo = new Label("2 : Food and Water");
+        Label choiceThree = new Label("3 : Medical Supplies");
+     
         // styles text
         styleText(bag, 150);
         styleText(choiceOne, 250);
@@ -153,17 +140,12 @@ public class RouteTwo extends GameScene {
         StackPane box5 = new StackPane();
         basicPane(box5);
         // labels
-        Label car = new Label();
-        Label gasUse = new Label();
-        Label start = new Label();
-        Label explode = new Label();
-        Label death = new Label();
-        // text
-        car.setText("You approach an abanndoned car");
-        gasUse.setText("You pour gas into the car");
-        start.setText("You find the keys and start the car");
-        explode.setText("Something went wrong... the car explodes");
-        death.setText("you have died");
+        Label car = new Label("You approach an abanndoned car");
+        Label gasUse = new Label("You pour gas into the car");
+        Label start = new Label("You find the keys and start the car");
+        Label explode = new Label("Something went wrong... the car explodes");
+        Label death = new Label("you have died");
+
         // styles text
         styleText(car, 100);
         styleText(gasUse, 200);
@@ -183,11 +165,9 @@ public class RouteTwo extends GameScene {
         StackPane box6 = new StackPane();
         basicPane(box6);
         // labels
-        Label travel = new Label();
-        Label noFood = new Label();
-        // text
-        travel.setText("You hike for days... nothing but mountains in sight");
-        noFood.setText("You have used up all your food and water");
+        Label travel = new Label("You hike for days... nothing but mountains in sight");
+        Label noFood = new Label("You have used up all your food and water");
+    
         // styles text
         styleText(travel, 400);
         styleText(noFood, 500);
@@ -205,17 +185,12 @@ public class RouteTwo extends GameScene {
         StackPane box7 = new StackPane();
         basicPane(box7);
         // labels
-        Label faint = new Label();
-        Label eaten = new Label();
-        Label scream = new Label();
-        Label hunger = new Label();
-        Label consume = new Label();
-        // text
-        faint.setText("You pass out due to malnutrion");
-        eaten.setText("Suddenly a sharp pain wakes you up");
-        scream.setText("Your sister broke free of her ropes ");
-        hunger.setText("she is eating you");
-        consume.setText("You have been consumed");
+        Label faint = new Label("You pass out due to malnutrion");
+        Label eaten = new Label("Suddenly a sharp pain wakes you up");
+        Label scream = new Label("Your sister broke free of her ropes ");
+        Label hunger = new Label("she is eating you");
+        Label consume = new Label("You have been consumed");
+     
         // styles text
         styleText(faint, 325);
         styleText(eaten, 400);
@@ -236,13 +211,10 @@ public class RouteTwo extends GameScene {
         StackPane box8 = new StackPane();
         basicPane(box8);
         // labels
-        Label traveling = new Label();
-        Label tired = new Label();
-        Label eat = new Label();
-        // text
-        traveling.setText("You continue walking at a gruelling pace");
-        tired.setText("You are exhausted and stop to rest ");
-        eat.setText("You eat your food and begin walking again");
+        Label traveling = new Label("You continue walking at a gruelling pace");
+        Label tired = new Label("You are exhausted and stop to rest ");
+        Label eat = new Label("You eat your food and begin walking again");
+      
         // styles text
         styleText(traveling, 400);
         styleText(tired, 500);
@@ -261,15 +233,11 @@ public class RouteTwo extends GameScene {
         StackPane box9 = new StackPane();
         basicPane(box9);
         // labels
-        Label daysPass = new Label();
-        Label arrive = new Label();
-        Label problem = new Label();
-        Label cross = new Label();
-        // text
-        daysPass.setText("Couple of days pass");
-        arrive.setText("You arrive at a river");
-        problem.setText("The river stretches for miles");
-        cross.setText("You must cross the river quickly");
+        Label daysPass = new Label("Couple of days pass");
+        Label arrive = new Label("You arrive at a river");
+        Label problem = new Label("The river stretches for miles");
+        Label cross = new Label("You must cross the river quickly");
+        
         // styles text
         styleText(daysPass, 350);
         styleText(arrive, 425);
@@ -289,17 +257,12 @@ public class RouteTwo extends GameScene {
         StackPane box10 = new StackPane();
         basicPane(box10);
         // labels
-        Label swim = new Label();
-        Label choice = new Label();
-        Label choiceOne = new Label();
-        Label choiceTwo = new Label();
-        Label choiceThree = new Label();
-        // text
-        swim.setText("How will you cross?");
-        choice.setText("What is your choice?");
-        choiceOne.setText("1 : Swim across it");
-        choiceTwo.setText("2 : Travel around it");
-        choiceThree.setText("3 : Tightrope walk across");
+        Label swim = new Label("How will you cross?");
+        Label choice = new Label("What is your choice?");
+        Label choiceOne = new Label("1 : Swim across it");
+        Label choiceTwo = new Label("2 : Travel around it");
+        Label choiceThree = new Label("3 : Tightrope walk across");
+     
         // styles text
         styleText(swim, 150);
         styleText(choiceOne, 250);
@@ -325,17 +288,12 @@ public class RouteTwo extends GameScene {
         basicPane(box11);
 
         // labels
-        Label traveling = new Label();
-        Label risky = new Label();
-        Label slip = new Label();
-        Label head = new Label();
-        Label dead = new Label();
-        // text
-        traveling.setText("You take a detour through the mountains");
-        risky.setText("The path is dangerous and long");
-        slip.setText("You are half way across when you slip on a rock");
-        head.setText("you fall from 50 feet and hit your head");
-        dead.setText("You have died");
+        Label traveling = new Label("You take a detour through the mountains");
+        Label risky = new Label("The path is dangerous and long");
+        Label slip = new Label("You are half way across when you slip on a rock");
+        Label head = new Label("you fall from 50 feet and hit your head");
+        Label dead = new Label("You have died");
+        
         // styles text
         styleText(traveling, 350);
         styleText(risky, 425);
@@ -355,19 +313,13 @@ public class RouteTwo extends GameScene {
         StackPane box12 = new StackPane();
         basicPane(box12);
         // labels
-        Label toss = new Label();
-        Label tree = new Label();
-        Label walk = new Label();
-        Label fall = new Label();
-        Label drown = new Label();
-        Label zomb = new Label();
-        // text
-        toss.setText("You make a loop with the rope and throw it across on a tree");
-        tree.setText("You check if it is secure and tie it to another tree");
-        walk.setText("You begin walking the tight rope");
-        fall.setText("You lose your balance and fall into the river");
-        drown.setText("Your sister distraught from the water, scratches you");
-        zomb.setText("You give up and drown as you will turn into a zombie soon");
+        Label toss = new Label("You make a loop with the rope and throw it across on a tree");
+        Label tree = new Label("You check if it is secure and tie it to another tree");
+        Label walk = new Label("You begin walking the tight rope");
+        Label fall = new Label("You lose your balance and fall into the river");
+        Label drown = new Label("Your sister distraught from the water, scratches you");
+        Label zomb = new Label("You give up and drown as you will turn into a zombie soon");
+     
         // styles text
         styleText(toss, 320);
         styleText(tree, 380);
@@ -393,15 +345,11 @@ public class RouteTwo extends GameScene {
         StackPane box13 = new StackPane();
         basicPane(box13);
         // labels
-        Label safety = new Label();
-        Label tie = new Label();
-        Label swim = new Label();
-        Label river = new Label();
-        // text
-        safety.setText("You blindfold and cover your sisters mouth");
-        tie.setText("You tie her body with yours and begin swimming");
-        swim.setText("Progress is slow but steady");
-        river.setText("You make it safely across the river");
+        Label safety = new Label("You blindfold and cover your sisters mouth");
+        Label tie = new Label("You tie her body with yours and begin swimming");
+        Label swim = new Label("Progress is slow but steady");
+        Label river = new Label("You make it safely across the river");
+        
         // styles text
         styleText(safety, 350);
         styleText(tie, 425);
