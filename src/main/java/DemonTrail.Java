@@ -58,6 +58,10 @@ public class DemonTrail extends Application {
         TextField rTwoInputOne = rTwo.textFieldOne;
         TextField rTwoInputTwo = rTwo.textFieldTwo;
 
+        //Ending storyline scenes
+        End end = new End();
+        // maybe add idk
+
         // scene arrays
         Scene[] introScenes = { introOne, introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass };
         Scene[] waterEnd = { inChoice1MedWater, inChoice1Death };
@@ -219,7 +223,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(introOne); // change to whatever to test out screens.
+        window.setScene(end.endOne()); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
     }

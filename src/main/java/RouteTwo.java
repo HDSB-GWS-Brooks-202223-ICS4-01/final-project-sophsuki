@@ -17,17 +17,16 @@ public class RouteTwo extends GameScene {
     public String date = "November 15th";
     private Group daysPass;
 
-    //public textField
+    // public textField
     public TextField textFieldOne = new TextField();
     public TextField textFieldTwo = new TextField();
 
-    //public buttons
+    // public buttons
     public Button restartOne = new Button();
     public Button restartTwo = new Button();
     public Button restartThree = new Button();
     public Button restartFour = new Button();
-   
-    DemonTrail trail = new DemonTrail();
+
     public Scene storyTwoOne() {
 
         StackPane box1 = new StackPane();
@@ -43,7 +42,7 @@ public class RouteTwo extends GameScene {
         mile.setText("kilometers walked : 51");
         date.setText("Date : November 15th");
         // styles text
-       styleText(stats, 100);
+        styleText(stats, 100);
         title(stats);
         styleText(day, 300);
         styleText(mile, 400);
@@ -142,7 +141,6 @@ public class RouteTwo extends GameScene {
         styleText(choice, 600);
         // input textfield
         TextField optionOne = limitText(textFieldOne);
-        
 
         box4.getChildren().add(image("\\images\\border2.png", 800, 100));
         box4.getChildren().addAll(bag, choice, choiceOne, choiceTwo, choiceThree, optionOne);
