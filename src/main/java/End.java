@@ -30,14 +30,15 @@ public class End extends GameScene {
         smallFont(notice);
         smallFont(reach);
 
-        ImageView girl  = image("\\images\\shootgirl.gif", 50, 100);
-        ImageView zomb = image("\\images\\zombrun.gif", 50, 100);
+        ImageView girl  = image("\\images\\shootgirl.gif", 100, 150);
+        ImageView zomb = image("\\images\\zombrun.gif", 100, 150);
 
-        girl.setTranslateY(290);
-        zomb.setTranslateY(290);
-        zomb.setTranslateX(400);
+        girl.setTranslateY(200);
+        zomb.setTranslateY(200);
+        zomb.setTranslateX(-200);
 
         box1.getChildren().addAll(image("\\images\\citydist.png", 1000, 300), girl, zomb);
+        box1.getChildren().addAll(time, skin, notice, reach);
         Scene sceneOne = new Scene(box1, 1000, 800);
         return sceneOne;
     }
