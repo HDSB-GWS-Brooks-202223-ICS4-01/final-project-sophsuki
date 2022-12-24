@@ -1,21 +1,17 @@
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DemonTrail extends Application {
     private int m = 0; // route 2 var
     private int c = 0; // route 2 var
     private int n = 0; // intro var
-    private int b = 0; // intro var
     public int deaths = 0;
 
     Boolean choiceMedWaterEnd = false;
@@ -29,18 +25,17 @@ public class DemonTrail extends Application {
         window = primaryStage;
 
         // Intro scenes
-
         IntroScene intro = new IntroScene();
         Scene introOne = intro.introOne();
-        Scene introTwo = intro.introTwo(); 
-        Scene introThree = intro.introThree(); 
+        Scene introTwo = intro.introTwo();
+        Scene introThree = intro.introThree();
         Scene introFourChoice1 = intro.introFourChoice1();
-        Scene inChoice1Gas = intro.inChoice1Gas(); 
+        Scene inChoice1Gas = intro.inChoice1Gas();
         Scene inChoice1MedWater = intro.inChoice1MedWater();
         Scene inChoice1Death = intro.inChoice1Death();
         Scene inChoice1Pass = intro.inChoice1Pass();
-        //textfield
-        TextField introText = IntroScene.t;
+        // textfield
+        TextField introInput = IntroScene.t;
 
         // Route 2 scenes
         RouteTwo rTwo = new RouteTwo();
@@ -59,34 +54,25 @@ public class DemonTrail extends Application {
         Scene rTwoEndTravel = rTwo.endTravel();
         Scene rTwoEndRope = rTwo.endRope();
         Scene rTwoFinal = rTwo.swimOption();
-        // Route 2 textfields 
-        TextField rTwoTextOne = rTwo.textFieldOne;
-        TextField rTwoTextTwo = rTwo.textFieldTwo;
-        
-        
-
-        // note maybe put all texfields into array and then have big array.keypressed
-        // ect. and then in function
-        // manage each indivudal textfield and where it should show scene
+        // Route 2 textfields
+        TextField rTwoInputOne = rTwo.textFieldOne;
+        TextField rTwoInputTwo = rTwo.textFieldTwo;
 
         // scene arrays
-    
-        Scene[] introScenes = { introOne , introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass}; 
-        Scene[] waterEnd = {inChoice1MedWater, inChoice1Death};
+        Scene[] introScenes = { introOne, introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass };
+        Scene[] waterEnd = { inChoice1MedWater, inChoice1Death };
 
         // rTwo Scenes with correct choices, begining to end...
         Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
                 rTwoFinal };
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
 
-        Scene[] allScenes = { introOne, rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoEndGas, rTwoEndMed,
-                rTwoEndMedTwo, rTwoFoodOption, rTwoFour, rTwoEndTravel, rTwoEndRope, rTwoFinal }; // keep but delete
-                                                                                                  // eventually
+        // Button array
+        Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
+                rTwo.restartThree, rTwo.restartFour };
+        // text field array
+        TextField[] inputFields = { introInput, rTwoInputOne, rTwoInputTwo }; 
 
-        //Button array
-        Button [] restartButtons = {intro.restart, intro.restart2, rTwo.restartButton, rTwo.restartButtonTwo, rTwo.restartButtonThree, rTwo.restartButtonFour}; 
-        TextField[] inputFields = {introText, rTwo.textFieldOne, rTwo.textFieldTwo }; // add all textfields here
-        // add all scenes restart button here
 
         // note for score board maybe can include how many times player died (increase
         // death count each time on end screen)
@@ -95,24 +81,22 @@ public class DemonTrail extends Application {
         // if reached final good ending, play again button takes to start screen to
         // reset "score" maybe
 
-        
-
         // When space pressed... changes to next scene in array
-        //route 2 scenes space bar pressed event
 
-        for ( int i = 0; i < introScenes.length -1; i++){
+        for (int i = 0; i < introScenes.length; i++) {
 
             introScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        n++;
-                        window.setScene(introScenes[n]);
-
-                        // if(introScenes[n] > introScenes.length){
-                        //     window.setScene(rTwoOne);
-                        // }
+                        if (n < 5) {
+                            n++;
+                            window.setScene(introScenes[n]);
+                        } else {
+                            window.setScene(rTwoScenes[m]);
+                            n = 0;
+                        }
                     }
 
                 }
@@ -120,32 +104,27 @@ public class DemonTrail extends Application {
 
         }
 
-        
         for (int i = 0; i < waterEnd.length - 1; i++) {
             waterEnd[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                       if (choiceMedWaterEnd) {
-                        window.setScene(waterEnd[1]);
+                        if (choiceMedWaterEnd) {
+                            window.setScene(waterEnd[1]);
+                        } else {
+                            n++;
+                            window.setScene(introScenes[n]);
+                        }
                     }
-                    else {
-                        n++;
-                        window.setScene(introScenes[n]);
-                    }
-                }
 
                 }
 
             });
         }
-    
 
-
-        for (int j = 0; j < rTwoScenes.length - 1; j++) {
-
-            rTwoScenes[j].setOnKeyPressed(new EventHandler<KeyEvent>() {
+        for (int i = 0; i < rTwoScenes.length - 1; i++) {
+            rTwoScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
@@ -157,7 +136,7 @@ public class DemonTrail extends Application {
                 }
             });
         }
-        //med scenes space bar pressed event
+        // med ending scenes space bar pressed event
         for (int i = 0; i < rTwoMedScenes.length - 1; i++) {
             rTwoMedScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -174,69 +153,69 @@ public class DemonTrail extends Application {
         }
 
         // button event, if restart button clicked
-        for (int j = 0; j < restartButtons.length; j ++){
-        restartButtons[j].setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                deaths ++; // increase deaths by 1
-                m = 0;
-                n = 0;
-                window.setScene(introOne);// change to 1 scene after start screen eventually
+        for (int j = 0; j < restartButtons.length; j++) {
+            restartButtons[j].setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    deaths++; // increase deaths by 1
+                    c = 0; // resets screen # counter to 0
+                    m = 0;
+                    n = 0;
+                    window.setScene(introOne);
 
-            }
+                }
 
-        });
-    }
+            });
+        }
 
         // input from textfields
         for (int j = 0; j < inputFields.length; j++) {
             inputFields[j].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
-                public void handle(javafx.scene.input.KeyEvent key) { // REMINDER FIX WHAT WINDOW IT CHANGES TO 
-                    if (key.getCode().equals(KeyCode.ENTER)) {
+                public void handle(javafx.scene.input.KeyEvent key) { 
+                    if (key.getCode().equals(KeyCode.ENTER)) { // if enter pressed
 
-                        if(key.getSource() == introText){
-                            if (introText.getText().equals("1")) { // if option 1 selected
+                        if (key.getSource() == introInput) {
+                            if (introInput.getText().equals("1")) { // if option 1 selected(correct option)
                                 n++;
                                 window.setScene(inChoice1MedWater);
                                 choiceMedWaterEnd = false;
-                            } else if (introText.getText().equals("2")) {// if option 2 selected
+                            } else if (introInput.getText().equals("2")) {// if option 2 selected
                                 window.setScene(inChoice1Gas);
-                            } else if (introText.getText().equals("3")) {// if option 3 selected
-                                    window.setScene(inChoice1MedWater);
-                                    choiceMedWaterEnd = true;
+                            } else if (introInput.getText().equals("3")) {// if option 3 selected
+                                window.setScene(inChoice1MedWater);
+                                choiceMedWaterEnd = true;
                             }
                         }
 
-                        }
-
-                        else if (key.getSource() == rTwoTextOne) { // Route 2 first choice textfield
-                            if (rTwoTextOne.getText().equals("1")) { // if option 1 selected
+                        else if (key.getSource() == rTwoInputOne) { // Route 2 first choice textfield
+                            if (rTwoInputOne.getText().equals("1")) { // if option 1 selected
                                 window.setScene(rTwoEndGas);
-                            } else if (rTwoTextOne.getText().equals("2")) {// if option 2 selected(correct option)
+                            } else if (rTwoInputOne.getText().equals("2")) {// if option 2 selected(correct option)
                                 m++;
                                 window.setScene(rTwoScenes[m]);
-                            } else if (rTwoTextOne.getText().equals("3")) {// if option 3 selected
-                                    window.setScene(rTwoEndMed);
+                            } else if (rTwoInputOne.getText().equals("3")) {// if option 3 selected
+                                window.setScene(rTwoEndMed);
                             }
                         }
 
-                        else if (key.getSource() == rTwoTextTwo) { // Route 2 second choice textfield
-                            if (rTwoTextTwo.getText().equals("1")) {// if option 1 selected(correct choice)
+                        else if (key.getSource() == rTwoInputTwo) { // Route 2 second choice textfield
+                            if (rTwoInputTwo.getText().equals("1")) {// if option 1 selected(correct choice)
                                 m++;
                                 window.setScene(rTwoScenes[m]);
 
-                            } else if (rTwoTextTwo.getText().equals("2")) { // if option 2 selected
+                            } else if (rTwoInputTwo.getText().equals("2")) { // if option 2 selected
                                 window.setScene(rTwoEndTravel);
 
-                            } else if (rTwoTextTwo.getText().equals("3")) {// if option 3 selected
+                            } else if (rTwoInputTwo.getText().equals("3")) {// if option 3 selected
                                 window.setScene(rTwoEndRope);
                             }
 
                         }
+                    }
 
-                    }                
+                }
             });
         }
 

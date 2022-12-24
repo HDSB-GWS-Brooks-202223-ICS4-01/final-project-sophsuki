@@ -22,10 +22,10 @@ public class RouteTwo extends GameScene {
     public TextField textFieldTwo = new TextField();
 
     //public buttons
-    public Button restartButton = new Button();
-    public Button restartButtonTwo = new Button();
-    public Button restartButtonThree = new Button();
-    public Button restartButtonFour = new Button();
+    public Button restartOne = new Button();
+    public Button restartTwo = new Button();
+    public Button restartThree = new Button();
+    public Button restartFour = new Button();
    
     DemonTrail trail = new DemonTrail();
     public Scene storyTwoOne() {
@@ -174,7 +174,7 @@ public class RouteTwo extends GameScene {
         styleText(death, 500);
 
         box5.getChildren().add(image("\\images\\cargas.gif", 1000, 800));
-        box5.getChildren().addAll(car, gasUse, start, explode, death, restart(restartButton));
+        box5.getChildren().addAll(car, gasUse, start, explode, death, restart(restartOne));
 
         Scene endGasScene = new Scene(box5, 1000, 800);
         return endGasScene;
@@ -226,7 +226,7 @@ public class RouteTwo extends GameScene {
         styleText(consume, 625);
 
         box7.getChildren().add(image("\\images\\grave.png", 200, 300));
-        box7.getChildren().addAll(faint, eaten, scream, hunger, consume, restart(restartButtonTwo));
+        box7.getChildren().addAll(faint, eaten, scream, hunger, consume, restart(restartTwo));
 
         Scene medTwoScene = new Scene(box7, 1000, 800);
         return medTwoScene;
@@ -346,7 +346,7 @@ public class RouteTwo extends GameScene {
         styleText(dead, 650);
 
         box11.getChildren().add(image("\\images\\bodyoutline.png", 1000, 300));
-        box11.getChildren().addAll(traveling, risky, slip, head, dead, restart(restartButtonThree));
+        box11.getChildren().addAll(traveling, risky, slip, head, dead, restart(restartThree));
 
         Scene travelOptionScene = new Scene(box11, 1000, 800);
         return travelOptionScene;
@@ -385,7 +385,7 @@ public class RouteTwo extends GameScene {
         smallFont(zomb);
 
         box12.getChildren().add(image("\\images\\drowning.jpg", 1000, 300));
-        box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb, restart(restartButtonFour));
+        box12.getChildren().addAll(toss, tree, walk, fall, drown, zomb, restart(restartFour));
 
         Scene ropeOptionScene = new Scene(box12, 1000, 800);
         return ropeOptionScene;

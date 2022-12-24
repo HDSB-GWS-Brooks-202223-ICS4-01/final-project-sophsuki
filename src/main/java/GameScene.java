@@ -6,26 +6,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.stage.Window;
 
 public class GameScene {
     // class worked on together - Sophia & Jelena
 
     ActionEvent KeyEvent;
-
-    public VBox basic(VBox box) { // creates vbox
-        box.setStyle("-fx-background: black;");
-        box.setAlignment(Pos.TOP_CENTER);
-
-        return box;
-    }
 
     public StackPane basicPane(StackPane box) {
         box.setStyle("-fx-background: black;");
