@@ -66,7 +66,9 @@ public class DemonTrail extends Application {
         Scene endThree = end.endThree();
         Scene endChoice = end.endChoice();
         Scene endBad = end.endBad();
+        Scene endGood = end.endGood();
         Scene endStats = end.endStats();
+
 
         // textfield
         TextField endInput = end.finalChoice;
@@ -81,11 +83,13 @@ public class DemonTrail extends Application {
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
 
         // endscene array
-        Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endStats };
+        Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endGood};
 
-        // Button array
+        // restart button array
         Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
                 rTwo.restartThree, rTwo.restartFour };
+        // play again button array
+        Button[] playAgain = {end.playAgain, end.playAgainTwo};
 
         // text field array
         TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo };
@@ -145,8 +149,14 @@ public class DemonTrail extends Application {
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        m++;
-                        window.setScene(rTwoScenes[m]);
+                        if (m < 5) {
+                            m++;
+                            window.setScene(rTwoScenes[m]);
+                        } else {
+                            window.setScene(endScenes[d]); // change to route 3 eventually then creatse same sthing
+                                                            // to move from route 3 to end route
+                            m = 0;
+                        }
                     }
 
                 }
@@ -168,7 +178,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        for (int i = 0; i < endScenes.length; i++) {
+        for (int i = 0; i < endScenes.length - 1; i++) {
             endScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
@@ -199,7 +209,8 @@ public class DemonTrail extends Application {
             });
         }
         // button event if play again button clicked
-        end.restart.setOnMousePressed(new EventHandler<MouseEvent>() {
+        for(int i = 0; i < playAgain.length; i++){
+        playAgain[i].setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 deaths = 0; // deaths set to 0
@@ -211,6 +222,7 @@ public class DemonTrail extends Application {
             }
 
         });
+    }
 
         // input from textfields
         for (int j = 0; j < inputFields.length; j++) {
@@ -271,7 +283,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(endOne); // change to whatever to test out screens.
+        window.setScene(introOne); // change to whatever to test out screens.
         window.setResizable(false);
         window.show();
     }

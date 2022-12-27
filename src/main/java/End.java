@@ -12,7 +12,8 @@ public class End extends GameScene {
     public String finalDate = "November 30";
 
     public TextField finalChoice = new TextField();
-    public Button restart = new Button();
+    public Button playAgain = new Button();
+    public Button playAgainTwo = new Button();
 
     public Scene endOne() {
 
@@ -38,7 +39,7 @@ public class End extends GameScene {
         ImageView girl = image("\\images\\shootgirl.gif", 100, 150);
         ImageView zomb = image("\\images\\zombrun.gif", 150, 200);
 
-        // move image
+        // changes image location
         girl.setTranslateY(190);
         zomb.setTranslateY(150);
         zomb.setTranslateX(-200);
@@ -124,6 +125,7 @@ public class End extends GameScene {
         styleText(choiceTwo, 350);
         styleText(choiceThree, 450);
         styleText(choice, 600);
+
         // input textfield
         TextField optionOne = limitText(finalChoice);
 
@@ -136,13 +138,13 @@ public class End extends GameScene {
 
         StackPane box5 = new StackPane();
         basicPane(box5);
+
         // labels
         Label wrong = new Label("You were wrong");
         Label zombie = new Label("Unable to find another cure, your sister fully turned");
         Label sad = new Label("The world is dark and dull without her");
         Label why = new Label("You wonder if theres anything left for you in this world");
-        
-     
+    
         // styles text
         styleText(wrong, 350);
         styleText(zombie, 450);
@@ -153,22 +155,45 @@ public class End extends GameScene {
         smallFont(sad);
         smallFont(why);
        
-        restart(restart);
-        restart.setText("Play Again");
+        restart(playAgain);
+        playAgain.setText("Play Again");
 
         box5.getChildren().add(image("\\images\\gameover.gif", 1000, 300));
-        box5.getChildren().addAll(wrong, zombie, sad, why, restart );
+        box5.getChildren().addAll(wrong, zombie, sad, why, playAgain);
         Scene badEndScene = new Scene(box5, 1000, 800);
         return badEndScene;
     }
+
+    public Scene endGood(){
+        StackPane box7 = new StackPane();
+        basicPane(box7);
+
+        // labels
+        Label right = new Label("You were right");
+        Label cure = new Label("You secured the cure just in time");
+        Label happy = new Label("Your sister was treated and made a fully recovery ");
+        Label peace = new Label("Finally you are at peace");
     
+        // styles text
+        styleText(right, 350);
+        styleText(cure, 425);
+        styleText(happy, 500);
+        styleText(peace, 575);
+       
+        restart(playAgainTwo);
+        playAgainTwo.setText("Play Again");
+
+        box7.getChildren().add(image("\\images\\gamefinished.gif", 1000, 300));
+        box7.getChildren().addAll(right, cure, happy, peace, playAgainTwo);
+        Scene goodEndScene = new Scene(box7, 1000, 800);
+        return goodEndScene;
+    }
 
 
+    public Scene endStats() { // maybe delete
 
-    public Scene endStats() { // move all the way to the end when reached the end
-
-        StackPane box6 = new StackPane();
-        basicPane(box6);
+        StackPane box7 = new StackPane();
+        basicPane(box7);
         // labels
         Label stats = new Label();
         Label day = new Label();
@@ -186,8 +211,8 @@ public class End extends GameScene {
         styleText(mile, 400);
         styleText(date, 500);
 
-        box6.getChildren().addAll(spaceText(700), stats, day, mile, date);
-        Scene sceneOne = new Scene(box6, 1000, 800);
+        box7.getChildren().addAll(spaceText(700), stats, day, mile, date);
+        Scene sceneOne = new Scene(box7, 1000, 800);
         return sceneOne;
     }
 
