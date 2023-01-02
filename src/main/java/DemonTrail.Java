@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -8,7 +9,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
 
 public class DemonTrail extends Application {
     private int m = 0; // route 2 scene # var
@@ -16,6 +20,9 @@ public class DemonTrail extends Application {
     private int n = 0; // intro 2 scene #var
     private int d = 0; // end scene # var
     public int deaths = 0;
+
+    Media bgMusic = new Media(getClass().getResource("/music.mp3").toExternalForm());
+    MediaPlayer mediaPlayer = new MediaPlayer(bgMusic);
 
     Boolean choiceMedWaterEnd = false;
     // Start screen
@@ -27,7 +34,8 @@ public class DemonTrail extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        mediaPlayer.setVolume(0.10);
+        mediaPlayer.play();
         window = primaryStage;
 
         // Intro scenes
@@ -274,7 +282,7 @@ public class DemonTrail extends Application {
                             } else if (endInput.getText().equals("3")) {// if option 3 selected(correct choice)
                                 d++;
                                 window.setScene(endScenes[d]); // change to win scene
-                                System.out.println(deaths);
+                                System.out.println(deaths); // DELETE EVENTUALLY
                             }
                         }
                     }
@@ -288,6 +296,9 @@ public class DemonTrail extends Application {
         window.setResizable(false);
         window.show();
     }
+
+    
+
 
     private Scene startScreen(Scene intro, Scene instructions) {
         deaths = 0; // deaths set to 0
