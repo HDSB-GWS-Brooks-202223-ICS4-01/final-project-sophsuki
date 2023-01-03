@@ -4,16 +4,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class RouteThree extends GameScene{
     GameScene game = new GameScene();
     Timer timer = new Timer();
 
-    public Button restart = new Button();
+    public Button restart1 = new Button();
     public Button restart2 = new Button();
 
-    public static TextField t = new TextField(); 
+    public static TextField textField = new TextField(); 
 
     public Scene r3Stats() {
         StackPane sp = new StackPane();
@@ -89,7 +91,7 @@ public class RouteThree extends GameScene{
         styleText(c3, 500);
         bigFont(title);
 
-        TextField input = limitText(t);
+        TextField input = limitText(textField);
         input.setTranslateY(600);
         
         sp2.getChildren().addAll(title, c1, c2, c3, input); 
@@ -130,14 +132,56 @@ public class RouteThree extends GameScene{
         basicPane(sp4); 
 
         Label t1 = new Label(); 
+        Label t2 = new Label(); 
+        Label t3 = new Label(); 
 
-        t1.setText("You let your sister out of her cage slowly");
+        t1.setText("You let your sister out of her cage slowly.");
+        t2.setText("She runs far into the woods");
+        t3.setText("After several hours she doesn't come back");
 
         styleText(t1, 400);
         smallFont(t1); 
 
-        sp4.getChildren().add(image("\\images\\.", 1000, 300));
-        sp4.getChildren().addAll(t1, t2);
+        Image pic = new Image("\\images\\cage.png");
+        ImageView cage = new ImageView(pic);
+        cage.setTranslateX(-90);
+        cage.setTranslateY(65);
+        cage.setFitWidth(300);
+        cage.setFitHeight(255);
+
+        sp4.getChildren().add(image("\\images\\r31.png", 1000, 300));
+        sp4.getChildren().add(cage);
+        sp4.getChildren().addAll(t1, t2, t3, restart(restart2));
+
+        return scene;
+    }
+
+    public Scene r3Starve() {
+        StackPane sp5 = new StackPane();
+        Scene scene = new Scene(sp5, 1000, 800); 
+
+        Label t1 = new Label(); 
+        Label t2 = new Label(); 
+        Label t3 = new Label(); 
+
+        t1.setText("You don't let your sister out.");
+        t2.setText("After a few hours resting she gets extremely resteless.");
+        t3.setText("She escapes from her cage and eats you!");
+
+        //TODO:  maybe add timed image where blood covers screen
+
+        Image pic = new Image("\\images\\cage.png");
+        ImageView cage = new ImageView(pic);
+        cage.setTranslateX(-90);
+        cage.setTranslateY(65);
+        cage.setFitWidth(300);
+        cage.setFitHeight(255);
+
+        sp5.getChildren().add(image("\\images\\r31.png", 1000, 300));
+        sp5.getChildren().add(cage);
+
+        sp5.getChildren().addAll(t1,t2,t3, restart(restart1));
+
         return scene;
     }
     

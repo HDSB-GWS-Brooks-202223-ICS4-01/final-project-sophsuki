@@ -63,6 +63,11 @@ public class DemonTrail extends Application {
         Scene r3Stats = r3.r3Stats();
         Scene r3One = r3.r3One();
         Scene r3Choice = r3.r3Choice();
+        Scene r3Feed = r3.r3Feed();
+        Scene r3Free = r3.r3Free();
+        Scene r3Starve = r3.r3Starve();
+        //route 3 text fields
+        TextField r3Input = r3.textField;
 
         End test = new End();
 
@@ -75,13 +80,13 @@ public class DemonTrail extends Application {
                 rTwoFinal };
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
         //rThree scenes
-        Scene[] rThreeScenes = {r3Stats, r3One, r3Choice};
+        Scene[] rThreeScenes = {r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve};
 
         // Button array
         Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
-                rTwo.restartThree, rTwo.restartFour };
+                rTwo.restartThree, rTwo.restartFour, r3.restart1, r3.restart2 };
         // text field array
-        TextField[] inputFields = { introInput, rTwoInputOne, rTwoInputTwo }; 
+        TextField[] inputFields = { introInput, rTwoInputOne, rTwoInputTwo, r3Input }; 
 
         // note for score board maybe can include how many times player died (increase
         // death count each time on end screen)
@@ -234,7 +239,17 @@ public class DemonTrail extends Application {
                             } else if (rTwoInputTwo.getText().equals("3")) {// if option 3 selected
                                 window.setScene(rTwoEndRope);
                             }
+                        }
 
+                        else if (key.getSource() == r3Input) {
+                            if (r3Input.getText().equals("1")) {//CORRECT OPTION
+                                k++;
+                                window.setScene(null); //TODO: ADD END SCENE, do i need to add different array for endings?
+                            } else if (r3Input.getText().equals("2")) {
+                                window.setScene(null);
+                            } else if (r3Input.getText().equals("2")) {
+                                window.setScene(null);
+                            }
                         }
                     }
 
