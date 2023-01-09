@@ -314,7 +314,8 @@ public class DemonTrail extends Application {
                             } else if (r3Input.getText().equals("2")) {
                                 window.setScene(null);
                                 
-                        } else if (key.getSource() == endInput) {
+                        } }
+                        else if (key.getSource() == endInput) {
                             if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 //
                                                                                                    // selected
                                 window.setScene(endBad);
