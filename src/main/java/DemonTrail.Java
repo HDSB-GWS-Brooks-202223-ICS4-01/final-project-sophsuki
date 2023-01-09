@@ -18,6 +18,7 @@ public class DemonTrail extends Application {
     private int m = 0; // route 2 scene # var
     private int c = 0; // route 2 scene #var
     private int n = 0; // intro 2 scene #var
+    private int k = 0; // route 3 scene # var
     private int d = 0; // end scene # var
     public int deaths = 0;
 
@@ -71,6 +72,16 @@ public class DemonTrail extends Application {
         // Route 2 textfields
         TextField rTwoInputOne = rTwo.textFieldOne;
         TextField rTwoInputTwo = rTwo.textFieldTwo;
+        //Route 3 Scenes
+        RouteThree r3 = new RouteThree();
+        Scene r3Stats = r3.r3Stats();
+        Scene r3One = r3.r3One();
+        Scene r3Choice = r3.r3Choice();
+        Scene r3Feed = r3.r3Feed();
+        Scene r3Free = r3.r3Free();
+        Scene r3Starve = r3.r3Starve();
+        //route 3 text fields
+        TextField r3Input = r3.textField;
 
         // ending scenes
         End end = new End();
@@ -92,18 +103,21 @@ public class DemonTrail extends Application {
         Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
                 rTwoFinal };
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
+        //rThree scenes
+        Scene[] rThreeScenes = {r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve};
 
         // endscene array
         Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endGood };
 
         // restart button array
         Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
-                rTwo.restartThree, rTwo.restartFour };
+                rTwo.restartThree, rTwo.restartFour, r3.restart1, r3.restart2 };
+
         // play again button array
         Button[] playAgain = { end.playAgain, end.playAgainTwo };
 
         // text field array
-        TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo };
+       TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo , r3Input};
 
         // note for score board maybe can include how many times player died (increase
         // death count each time on end screen)
@@ -188,6 +202,20 @@ public class DemonTrail extends Application {
 
             });
         }
+        //route 3 Scenes
+        for (int i = 0; i < rThreeScenes.length - 1; i++) {
+            rThreeScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+                @Override
+                public void handle(KeyEvent key) {
+                    if (key.getCode().equals(KeyCode.SPACE)) {
+                        k++;
+                        window.setScene(rThreeScenes[k]);
+                    }
+
+                }
+            });
+        }
 
         for (int i = 0; i < endScenes.length - 1; i++) {
             endScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -214,6 +242,7 @@ public class DemonTrail extends Application {
                     m = 0;
                     n = 0;
                     d = 0;
+                    k = 0;
                     window.setScene(introOne);
 
                 }
@@ -274,8 +303,19 @@ public class DemonTrail extends Application {
                             } else if (rTwoInputTwo.getText().equals("3")) {// if option 3 selected
                                 window.setScene(rTwoEndRope);
                             }
-
-                        } else if (key.getSource() == endInput) {
+                        }
+                        //ROUTE 3
+                        else if (key.getSource() == r3Input) {
+                            if (r3Input.getText().equals("1")) {//CORRECT OPTION
+                                k++;
+                                window.setScene(null); //TODO: ADD END SCENE, do i need to add different array for endings?
+                            } else if (r3Input.getText().equals("2")) {
+                                window.setScene(null);
+                            } else if (r3Input.getText().equals("2")) {
+                                window.setScene(null);
+                                
+                        } }
+                        else if (key.getSource() == endInput) {
                             if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 //
                                                                                                    // selected
                                 window.setScene(endBad);
