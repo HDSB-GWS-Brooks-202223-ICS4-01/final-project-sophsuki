@@ -18,8 +18,8 @@ public class DemonTrail extends Application {
     private int m = 0; // route 2 scene # var
     private int c = 0; // route 2 scene #var
     private int n = 0; // intro 2 scene #var
-    private int d = 0; // end scene # var
     private int k = 0; // route 3 scene # var
+    private int d = 0; // end scene # var
     public int deaths = 0;
 
     Media bgMusic = new Media(getClass().getResource("/music.mp3").toExternalForm());
@@ -112,14 +112,12 @@ public class DemonTrail extends Application {
         // restart button array
         Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
                 rTwo.restartThree, rTwo.restartFour, r3.restart1, r3.restart2 };
-        // text field array
-        TextField[] inputFields = { introInput, rTwoInputOne, rTwoInputTwo, r3Input }; 
-                rTwo.restartThree, rTwo.restartFour };
+
         // play again button array
         Button[] playAgain = { end.playAgain, end.playAgainTwo };
 
         // text field array
-        TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo };
+       TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo , r3Input};
 
         // note for score board maybe can include how many times player died (increase
         // death count each time on end screen)
@@ -244,6 +242,7 @@ public class DemonTrail extends Application {
                     m = 0;
                     n = 0;
                     d = 0;
+                    k = 0;
                     window.setScene(introOne);
 
                 }
@@ -314,9 +313,8 @@ public class DemonTrail extends Application {
                                 window.setScene(null);
                             } else if (r3Input.getText().equals("2")) {
                                 window.setScene(null);
+                                
                         } else if (key.getSource() == endInput) {
-
-
                             if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 //
                                                                                                    // selected
                                 window.setScene(endBad);
