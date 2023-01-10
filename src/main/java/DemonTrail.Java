@@ -13,11 +13,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-
 public class DemonTrail extends Application {
     private int m = 0; // route 2 scene # var
-    private int c = 0; // route 2 scene #var
-    private int n = 0; // intro 2 scene #var
+    private int c = 0; // route 2 medscene #var
+    private int n = 0; // intro scene #var
     private int k = 0; // route 3 scene # var
     private int d = 0; // end scene # var
     public int deaths = 0;
@@ -72,7 +71,8 @@ public class DemonTrail extends Application {
         // Route 2 textfields
         TextField rTwoInputOne = rTwo.textFieldOne;
         TextField rTwoInputTwo = rTwo.textFieldTwo;
-        //Route 3 Scenes
+
+        // Route 3 Scenes
         RouteThree r3 = new RouteThree();
         Scene r3Stats = r3.r3Stats();
         Scene r3One = r3.r3One();
@@ -80,7 +80,7 @@ public class DemonTrail extends Application {
         Scene r3Feed = r3.r3Feed();
         Scene r3Free = r3.r3Free();
         Scene r3Starve = r3.r3Starve();
-        //route 3 text fields
+        // route 3 text fields
         TextField r3Input = r3.textField;
 
         // ending scenes
@@ -92,7 +92,7 @@ public class DemonTrail extends Application {
         Scene endBad = end.endBad();
         Scene endGood = end.endGood();
         Scene endStats = end.endStats();
-        // textfield
+        // end textfield
         TextField endInput = end.finalChoice;
 
         // introscene arrays
@@ -103,8 +103,8 @@ public class DemonTrail extends Application {
         Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
                 rTwoFinal };
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
-        //rThree scenes
-        Scene[] rThreeScenes = {r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve};
+        // rThree scenes
+        Scene[] rThreeScenes = { r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve };
 
         // endscene array
         Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endGood };
@@ -117,7 +117,7 @@ public class DemonTrail extends Application {
         Button[] playAgain = { end.playAgain, end.playAgainTwo };
 
         // text field array
-       TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo , r3Input};
+        TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo, r3Input };
 
         // note for score board maybe can include how many times player died (increase
         // death count each time on end screen)
@@ -135,12 +135,13 @@ public class DemonTrail extends Application {
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        if (n < 5) {
+                        if (n < introScenes.length - 1) {
                             n++;
                             window.setScene(introScenes[n]);
                         } else {
                             window.setScene(rTwoScenes[m]);
                             n = 0;
+
                         }
                     }
 
@@ -168,19 +169,19 @@ public class DemonTrail extends Application {
             });
         }
 
-        for (int i = 0; i < rTwoScenes.length - 1; i++) {
+        for (int i = 0; i < rTwoScenes.length; i++) {
             rTwoScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        if (m < 5) {
+                        if (m < rTwoScenes.length - 1) {
                             m++;
                             window.setScene(rTwoScenes[m]);
                         } else {
-                            window.setScene(endScenes[d]); // change to route 3 eventually then creatse same sthing
-                                                           // to move from route 3 to end route
+                            window.setScene(rThreeScenes[k]);
                             m = 0;
+
                         }
                     }
 
@@ -202,15 +203,20 @@ public class DemonTrail extends Application {
 
             });
         }
-        //route 3 Scenes
-        for (int i = 0; i < rThreeScenes.length - 1; i++) {
+        // route 3 Scenes
+        for (int i = 0; i < rThreeScenes.length; i++) {
             rThreeScenes[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        k++;
-                        window.setScene(rThreeScenes[k]);
+                        if (k < rThreeScenes.length - 1) {
+                            k++;
+                            window.setScene(rThreeScenes[k]);
+                        } else {
+                            window.setScene(endScenes[d]);
+                            k = 0;
+                        }
                     }
 
                 }
@@ -223,7 +229,7 @@ public class DemonTrail extends Application {
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        
+
                         d++;
                         window.setScene(endScenes[d]);
                     }
@@ -254,7 +260,8 @@ public class DemonTrail extends Application {
             playAgain[i].setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    window.setScene(startScreen(introOne,rTwoOne)); // change rTwoOne to instruction screen when made
+                    window.setScene(startScreen(introOne, rTwoOne)); // change rTwoOne to instruction screen when made
+                                                                     // @@@JELENA LOOK HERE
                 }
 
             });
@@ -304,25 +311,25 @@ public class DemonTrail extends Application {
                                 window.setScene(rTwoEndRope);
                             }
                         }
-                        //ROUTE 3
+                        // ROUTE 3
                         else if (key.getSource() == r3Input) {
-                            if (r3Input.getText().equals("1")) {//CORRECT OPTION
+                            if (r3Input.getText().equals("1")) {// CORRECT OPTION
                                 k++;
-                                window.setScene(null); //TODO: ADD END SCENE, do i need to add different array for endings?
+                                window.setScene(null); // TODO: ADD END SCENE, do i need to add different array for
+                                                       // endings? //remindersop u dont need to, u can just add final scene like i attampted to feed her blah blah she enjoyed the meal
+                                                       // and then my beginning scene for end route " is finally calm and full we decide to blah blah "so it will pick up from ur scene.
                             } else if (r3Input.getText().equals("2")) {
                                 window.setScene(null);
                             } else if (r3Input.getText().equals("2")) {
                                 window.setScene(null);
-                                
-                        } }
-                        else if (key.getSource() == endInput) {
-                            if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 //
-                                                                                                   // selected
+
+                            }
+                        } else if (key.getSource() == endInput) {
+                            if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 selected                                                                    
                                 window.setScene(endBad);
                             } else if (endInput.getText().equals("3")) {// if option 3 selected(correct choice)
                                 d++;
-                                window.setScene(endScenes[d]); // change to win scene
-                                System.out.println(deaths); // DELETE EVENTUALLY
+                                window.setScene(endScenes[d]); // good ending
                             }
                         }
                     }
@@ -331,14 +338,12 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(startScreen(introOne,rTwoOne)); // change to whatever to test out screens. // when final screen change 
-        //change rTwoOne with instructions screen
+        window.setScene(startScreen(introOne, rTwoOne)); // change to whatever to test out screens. // when final screen
+                                                         // change
+        // change rTwoOne with instructions screen
         window.setResizable(false);
         window.show();
     }
-
-    
-
 
     private Scene startScreen(Scene intro, Scene instructions) {
         deaths = 0; // deaths set to 0
@@ -346,6 +351,7 @@ public class DemonTrail extends Application {
         m = 0;
         n = 0;
         d = 0;
+        k = 0;
         StackPane box = new StackPane();
         game.basicPane(box);
         // labels
@@ -372,8 +378,8 @@ public class DemonTrail extends Application {
 
         box.getChildren().addAll(begin, howToPlay, title);
         Scene sceneOne = new Scene(box, 1000, 800);
-        
-        //if start button pressed...
+
+        // if start button pressed...
         begin.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -381,7 +387,7 @@ public class DemonTrail extends Application {
             }
 
         });
-        // if how to play betton pressed...
+        // if how to play button pressed...
         howToPlay.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
