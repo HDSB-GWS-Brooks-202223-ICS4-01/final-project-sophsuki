@@ -41,6 +41,8 @@ public class IntroScene extends GameScene {
         smallFont(inTwo3);
         smallFont(inTwo4);
 
+        spaceText(650);
+
         sp1.getChildren().add(image("\\images\\city.gif", 1000, 300));
         sp1.getChildren().addAll(inTwo1, inTwo2, inTwo3, inTwo4);
 
@@ -83,6 +85,8 @@ public class IntroScene extends GameScene {
         smallFont(inTwo2);
         smallFont(inTwo3);
         smallFont(inTwo4);
+
+        spaceText(650);
 
         sp2.getChildren().add(image("\\images\\red city.gif", 1000, 300));
         sp2.getChildren().add(inTwo1);
@@ -272,6 +276,7 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp8.getChildren().add(image("\\images\\shelter.png", 1000, 300));
+        sp8.getChildren().addAll(text1,text2); 
 
         return scene;
     }

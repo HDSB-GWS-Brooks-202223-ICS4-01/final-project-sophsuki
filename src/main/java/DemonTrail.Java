@@ -1,6 +1,7 @@
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -260,7 +261,7 @@ public class DemonTrail extends Application {
             playAgain[i].setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    window.setScene(startScreen(introOne, rTwoOne)); // change rTwoOne to instruction screen when made
+                    window.setScene(startScreen(introOne, instructionsScene())); // change rTwoOne to instruction screen when made
                                                                      // @@@JELENA LOOK HERE
                 }
 
@@ -315,7 +316,7 @@ public class DemonTrail extends Application {
                         else if (key.getSource() == r3Input) {
                             if (r3Input.getText().equals("1")) {// CORRECT OPTION
                                 k++;
-                                window.setScene(null); // TODO: ADD END SCENE, do i need to add different array for
+                                window.setScene(null); 
                                                        // endings? //remindersop u dont need to, u can just add final scene like i attampted to feed her blah blah she enjoyed the meal
                                                        // and then my beginning scene for end route " is finally calm and full we decide to blah blah "so it will pick up from ur scene.
                             } else if (r3Input.getText().equals("2")) {
@@ -338,7 +339,7 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(startScreen(introOne, rTwoOne)); // change to whatever to test out screens. // when final screen
+        window.setScene(startScreen(introOne, instructionsScene())); // change to whatever to test out screens. // when final screen
                                                          // change
         // change rTwoOne with instructions screen
         window.setResizable(false);
@@ -398,5 +399,59 @@ public class DemonTrail extends Application {
 
         return sceneOne;
 
+    }
+
+    private Scene instructionsScene() {
+
+        StackPane sp = new StackPane();
+        Scene sceneInstructions = new Scene(sp, 1000, 800); 
+        game.basicPane(sp); 
+
+        Button start = new Button(); 
+        start.setTranslateY(640);
+        start.setMaxSize(300, 75);
+        start.setAlignment(Pos.CENTER);
+        start.setText("Return");
+        start.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+
+        Label title = new Label();
+        Label t1 = new Label();
+        Label t2 = new Label();
+        Label t3 = new Label(); 
+        Label t4 = new Label(); 
+        Label t5 = new Label(); 
+
+        title.setText("How to Play");
+        t1.setText("Press space to move from scene to scene.");
+        t2.setText("When you come across a choice,");
+        t3.setText("type in a single number and press enter.");
+        t4.setText("And remember,");
+        t5.setText("your choices matter...");
+
+        game.title(title);
+        game.styleText(title, 80);
+        game.styleText(t1, 300); 
+        game.styleText(t2, 350); 
+        game.styleText(t3, 400); 
+        game.styleText(t4, 480); 
+        game.styleText(t5, 530); 
+        game.smallFont(t1);
+        game.smallFont(t2);
+        game.smallFont(t3);
+        game.bigFont(t4);
+        game.bigFont(t5);
+
+        sp.getChildren().addAll(title, t1, t2, t3, t4, t5, start);
+        
+        // go back button pressed
+        start.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                window.setScene(startScreen(instructionsScene(), instructionsScene())); // sets screen instructions screen
+            }
+
+        });
+
+        return sceneInstructions; 
     }
 }
