@@ -1,4 +1,15 @@
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+
+import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -14,6 +25,12 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class DemonTrail extends Application {
+
+    Media bgMusic = new Media(getClass().getResource("/music.mp3").toExternalForm());
+    MediaPlayer mediaPlayer = new MediaPlayer(bgMusic);
+
+    int score = 1000;
+
     private int m = 0; // route 2 scene # var
     private int c = 0; // route 2 medscene #var
     private int n = 0; // intro scene #var
@@ -21,10 +38,8 @@ public class DemonTrail extends Application {
     private int d = 0; // end scene # var
     public int deaths = 0;
 
-    Media bgMusic = new Media(getClass().getResource("/music.mp3").toExternalForm());
-    MediaPlayer mediaPlayer = new MediaPlayer(bgMusic);
-
     Boolean choiceMedWaterEnd = false;
+
     // Start screen
     Button start = new Button();
     Button instruction = new Button();
@@ -249,6 +264,7 @@ public class DemonTrail extends Application {
                     n = 0;
                     d = 0;
                     k = 0;
+                    writeFile();
                     window.setScene(introOne);
 
                 }
@@ -399,4 +415,28 @@ public class DemonTrail extends Application {
         return sceneOne;
 
     }
-}
+
+    public void writeFile(){
+        
+        try {
+
+            // score = 1000 - (deaths*100);
+            // String write = Integer.toString(score);
+            // Files.write(poin, write);
+            // FileWriter fw;
+            //  fw = new FileWriter("score.txt");
+            //  BufferedWriter br = new BufferedWriter(fw);
+            //  score = 1000 - (deaths*100);
+            //  br.write(Integer.toString(score));
+            // br.close();
+            // System.out.println(score);
+        }
+      catch(IOException exc) {
+            System.out.println("Cannot open file.");
+            return ;
+      }
+    
+        }
+
+    }
+
