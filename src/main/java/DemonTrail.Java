@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
 
@@ -419,10 +420,13 @@ public class DemonTrail extends Application {
     public void writeFile(){
         
         try {
-
-            // score = 1000 - (deaths*100);
-            // String write = Integer.toString(score);
-            // Files.write(poin, write);
+            
+          
+             score = 1000 - (deaths*100);
+             String write = Integer.toString(score);
+            FileWriter fw = new FileWriter("points.txt");
+            fw.write(write);
+            fw.close();
             // FileWriter fw;
             //  fw = new FileWriter("score.txt");
             //  BufferedWriter br = new BufferedWriter(fw);
