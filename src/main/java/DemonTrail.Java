@@ -105,7 +105,7 @@ public class DemonTrail extends Application {
                 rTwoFinal };
         Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
         // rThree scenes
-        Scene[] rThreeScenes = { r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve };
+        Scene[] rThreeScenes = { r3Stats, r3One, r3Choice, r3Feed };
 
         // endscene array
         Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endGood };
@@ -315,14 +315,11 @@ public class DemonTrail extends Application {
                         // ROUTE 3
                         else if (key.getSource() == r3Input) {
                             if (r3Input.getText().equals("1")) {// CORRECT OPTION
-                                k++;
-                                window.setScene(null); 
-                                                       // endings? //remindersop u dont need to, u can just add final scene like i attampted to feed her blah blah she enjoyed the meal
-                                                       // and then my beginning scene for end route " is finally calm and full we decide to blah blah "so it will pick up from ur scene.
-                            } else if (r3Input.getText().equals("2")) {
-                                window.setScene(null);
-                            } else if (r3Input.getText().equals("2")) {
-                                window.setScene(null);
+                                window.setScene(r3Feed); 
+                            } else if (r3Input.getText().equals("2")) {// if option 2 clicked
+                                window.setScene(r3Free);
+                            } else if (r3Input.getText().equals("3")) {//if option 3 clicked
+                                window.setScene(r3Starve);
 
                             }
                         } else if (key.getSource() == endInput) {
@@ -402,6 +399,7 @@ public class DemonTrail extends Application {
     }
 
     private Scene instructionsScene() {
+        IntroScene intro = new IntroScene(); 
 
         StackPane sp = new StackPane();
         Scene sceneInstructions = new Scene(sp, 1000, 800); 
@@ -447,7 +445,7 @@ public class DemonTrail extends Application {
         start.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(startScreen(instructionsScene(), instructionsScene())); // sets screen instructions screen
+                window.setScene(startScreen(intro.introOne(), instructionsScene())); // sets screen instructions screen
             }
 
         });

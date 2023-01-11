@@ -84,7 +84,7 @@ public class End extends GameScene {
         basicPane(box3);
 
         //labels + text
-        Label shop = new Label("The paper plane lands inside a coffe shop");
+        Label shop = new Label("The paper plane lands inside a coffee shop");
         Label hide = new Label("You tie and hide your sister outside in a nearby allyway to not scare the people");
         Label enter = new Label("You enter the coffe shop, take a seat and begin reading the flyer");
         Label woman = new Label("Soon after a mysterious woman approches you");

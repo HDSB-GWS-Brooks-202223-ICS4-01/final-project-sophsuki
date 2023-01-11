@@ -41,10 +41,8 @@ public class IntroScene extends GameScene {
         smallFont(inTwo3);
         smallFont(inTwo4);
 
-        spaceText(650);
-
         sp1.getChildren().add(image("\\images\\city.gif", 1000, 300));
-        sp1.getChildren().addAll(inTwo1, inTwo2, inTwo3, inTwo4);
+        sp1.getChildren().addAll(spaceText(650), inTwo1, inTwo2, inTwo3, inTwo4);
 
         //      FOR TIMER 
         // sp1.getChildren().add(inTwo1);
@@ -86,15 +84,13 @@ public class IntroScene extends GameScene {
         smallFont(inTwo3);
         smallFont(inTwo4);
 
-        spaceText(650);
-
         sp2.getChildren().add(image("\\images\\red city.gif", 1000, 300));
         sp2.getChildren().add(inTwo1);
         sp2.getChildren().add(inTwo2);
         sp2.getChildren().add(inTwo3);
         //LONG PAUSE
         sp2.getChildren().add(image("\\images\\zombie sister.png", 400, 300));
-        sp2.getChildren().add(inTwo4);
+        sp2.getChildren().addAll(inTwo4, spaceText(650));
 
         return scene;
     }
@@ -129,7 +125,7 @@ public class IntroScene extends GameScene {
         smallFont(inThree5); 
 
         sp3.getChildren().add(image("\\images\\radio.jpg", 1000, 300));
-        sp3.getChildren().addAll(inThree1, inThree2, inThree3, inThree4, inThree5);
+        sp3.getChildren().addAll(spaceText(650),inThree1, inThree2, inThree3, inThree4, inThree5);
 
         return scene;
     }
@@ -227,7 +223,7 @@ public class IntroScene extends GameScene {
         smallFont(text3);
 
         sp6.getChildren().add(image("\\images\\zombie attack.gif", 1000, 300));
-        sp6.getChildren().addAll(text1, text2, text3);
+        sp6.getChildren().addAll(spaceText(650),text1, text2, text3);
 
         return scene;
     }
@@ -251,7 +247,7 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
-        sp7.getChildren().addAll(text1, text2, restart(restart2));
+        sp7.getChildren().addAll(spaceText(650),text1, text2, restart(restart2));
 
 
 
@@ -276,7 +272,7 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp8.getChildren().add(image("\\images\\shelter.png", 1000, 300));
-        sp8.getChildren().addAll(text1,text2); 
+        sp8.getChildren().addAll(spaceText(650),text1,text2); 
 
         return scene;
     }
