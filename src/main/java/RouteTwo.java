@@ -11,10 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 public class RouteTwo extends GameScene {
-
-    private int days = 5; // maybe not needed vars?
-    private int kilometers = 51;
-    private String date = "November 15th";
     private Group daysPass;
 
     // public textField

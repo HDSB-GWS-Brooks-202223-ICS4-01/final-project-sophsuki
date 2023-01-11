@@ -6,11 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 public class End extends GameScene {
-
-    public int finalDays = 20;
-    public int finalKilometers = 199;
-    public String finalDate = "November 30";
-
+    
     public TextField finalChoice = new TextField();
     public Button playAgain = new Button();
     public Button playAgainTwo = new Button();
