@@ -1,13 +1,14 @@
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -130,7 +131,7 @@ public class DemonTrail extends Application {
         routeThreeNextScene();
         endNextScene();
 
-        // button event, if restart button clicked 
+        // button event, if restart button clicked
         for (int j = 0; j < restartButtons.length; j++) {
             restartButtons[j].setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
@@ -167,7 +168,7 @@ public class DemonTrail extends Application {
                 public void handle(javafx.scene.input.KeyEvent key) {
                     if (key.getCode().equals(KeyCode.ENTER)) { // if enter pressed
 
-                        if (key.getSource() == introInput) {
+                        if (key.getSource() == introInput) { // if on intro screen choice 
                             if (introInput.getText().equals("1")) { // if option 1 selected(correct option)
                                 n++;
                                 window.setScene(inChoice1MedWater);
@@ -372,9 +373,27 @@ public class DemonTrail extends Application {
         mediaPlayer.play();
     }
 
-    //  private void readFile(){
-       // need to add and sort to highscore
-    //  }
+    private String readFile() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        try {
+
+            Scanner file = new Scanner(new File("Score.txt"));
+
+            while (file.hasNext()) {
+                if (file.hasNextInt())
+                    list.add(file.nextInt());
+                else
+                    file.next();
+            }
+            Collections.sort(list);
+            Collections.reverse(list);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return list.get(0).toString();
+    }
 
     private void writeFile() {
         try {
@@ -382,7 +401,7 @@ public class DemonTrail extends Application {
             BufferedWriter br = new BufferedWriter(fw);
 
             if (score >= 0) {
-                score = 1000 - (deaths * 100);
+                score = 1000 - (deaths * 75);
             } else {
                 score = 0;
             }
@@ -399,6 +418,7 @@ public class DemonTrail extends Application {
     }
 
     private Scene startScreen() {
+
         playMusic(); // starts music
         c = 0; // resets screen # counter to 0
         m = 0;
@@ -409,9 +429,10 @@ public class DemonTrail extends Application {
         StackPane box = new StackPane();
         game.basicPane(box);
         // labels
-        Label title = new Label();
+        Label title = new Label("Demon Trail");
+        Label highScore = new Label("HighScore :" + readFile());
         // text
-        title.setText("Demon Trail");
+        game.styleText(highScore, 250);
         game.styleText(title, 100);
         game.title(title);
 
@@ -426,7 +447,7 @@ public class DemonTrail extends Application {
         howToPlay.setText("How To Play");
         howToPlay.setTranslateY(600);
 
-        box.getChildren().addAll(begin, howToPlay, title);
+        box.getChildren().addAll(begin, howToPlay, title, highScore);
         Scene sceneOne = new Scene(box, 1000, 800);
 
         // if start button pressed...
