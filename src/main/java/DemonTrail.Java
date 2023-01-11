@@ -1,13 +1,10 @@
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 import javafx.application.Application;
@@ -168,7 +165,7 @@ public class DemonTrail extends Application {
                 public void handle(javafx.scene.input.KeyEvent key) {
                     if (key.getCode().equals(KeyCode.ENTER)) { // if enter pressed
 
-                        if (key.getSource() == introInput) { // if on intro screen choice 
+                        if (key.getSource() == introInput) { // if on intro screen choice
                             if (introInput.getText().equals("1")) { // if option 1 selected(correct option)
                                 n++;
                                 window.setScene(inChoice1MedWater);
@@ -208,13 +205,7 @@ public class DemonTrail extends Application {
                         else if (key.getSource() == r3Input) {
                             if (r3Input.getText().equals("1")) {// CORRECT OPTION
                                 k++;
-                                window.setScene(null); // TODO: ADD END SCENE, do i need to add different array for
-                                                       // endings? //remindersop u dont need to, u can just add final
-                                                       // scene like i attampted to feed her blah blah she enjoyed the
-                                                       // meal
-                                                       // and then my beginning scene for end route " is finally calm
-                                                       // and full we decide to blah blah "so it will pick up from ur
-                                                       // scene.
+                                window.setScene(null);
                             } else if (r3Input.getText().equals("2")) {
                                 window.setScene(null);
                             } else if (r3Input.getText().equals("2")) {
@@ -233,6 +224,7 @@ public class DemonTrail extends Application {
                             }
                             writeFile();
                             deaths = 0;
+                            
                         }
                     }
 
@@ -240,6 +232,7 @@ public class DemonTrail extends Application {
             });
         }
 
+        //window.setOnCloseRequest
         window.setScene(startScreen()); // change to whatever to test out screens.
 
         window.setResizable(false);
@@ -371,34 +364,39 @@ public class DemonTrail extends Application {
 
         mediaPlayer.setVolume(0.10);
         mediaPlayer.play();
+
+        // window.setOnCloseRequest(e ->{
+        //     mediaPlayer.stop();
+        // }); maybe delete 
+
+        
     }
 
     private String readFile() {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> numList = new ArrayList<Integer>();
         try {
-
             Scanner file = new Scanner(new File("Score.txt"));
 
             while (file.hasNext()) {
                 if (file.hasNextInt())
-                    list.add(file.nextInt());
+                    numList.add(file.nextInt());
                 else
                     file.next();
             }
-            Collections.sort(list);
-            Collections.reverse(list);
+            Collections.sort(numList);
+            Collections.reverse(numList);
 
         } catch (Exception e) {
             e.printStackTrace();
 
         }
-        return list.get(0).toString();
+        return numList.get(0).toString();
     }
 
     private void writeFile() {
         try {
             FileWriter fw = new FileWriter("Score.txt", true);
-            BufferedWriter br = new BufferedWriter(fw);
+            BufferedWriter writer = new BufferedWriter(fw);
 
             if (score >= 0) {
                 score = 1000 - (deaths * 75);
@@ -406,9 +404,9 @@ public class DemonTrail extends Application {
                 score = 0;
             }
 
-            br.newLine();
-            br.write(Integer.toString(score));
-            br.close();
+            writer.newLine();
+            writer.write(Integer.toString(score));
+            writer.close();
 
         } catch (IOException exc) {
             System.out.println("Cannot open file.");
@@ -416,6 +414,27 @@ public class DemonTrail extends Application {
         }
 
     }
+
+    // public void resetFile() {
+
+    //     try {
+    //         FileWriter fw = new FileWriter("Score.txt", true);
+    //         BufferedWriter writer = new BufferedWriter(fw);
+            
+    //         Scanner file = new Scanner(new File("Score.txt"));
+
+    //         while (file.hasNext()) {
+    //             if (file.hasNextLine())
+    //                 writer.write("");
+    //             else
+    //                 file.next();
+    //         }
+
+    //         writer.flush();
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     private Scene startScreen() {
 
@@ -433,21 +452,26 @@ public class DemonTrail extends Application {
         Label highScore = new Label("HighScore :" + readFile());
         // text
         game.styleText(highScore, 250);
-        game.styleText(title, 100);
+        game.styleText(title, 75);
         game.title(title);
 
         // Start screen buttons
         Button begin = new Button();
         game.restart(begin);
         begin.setText("Start");
-        begin.setTranslateY(400);
+        begin.setTranslateY(350);
 
         Button howToPlay = new Button();
         game.restart(howToPlay);
         howToPlay.setText("How To Play");
-        howToPlay.setTranslateY(600);
+        howToPlay.setTranslateY(500);
 
-        box.getChildren().addAll(begin, howToPlay, title, highScore);
+        Button resetScore = new Button();
+        game.restart(resetScore);
+        resetScore.setText("Reset Score");
+        resetScore.setTranslateY(650);
+
+        box.getChildren().addAll(begin, howToPlay, title, highScore, resetScore);
         Scene sceneOne = new Scene(box, 1000, 800);
 
         // if start button pressed...
@@ -466,6 +490,13 @@ public class DemonTrail extends Application {
             }
         });
 
+        //if resetScore button pressed...
+        resetScore.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+               // resetFile();
+            }
+        });
         return sceneOne;
 
     }
