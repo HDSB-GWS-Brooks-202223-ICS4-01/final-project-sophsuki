@@ -1,4 +1,3 @@
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,15 +13,12 @@ import javafx.scene.text.FontWeight;
 public class GameScene {
     // class worked on together - Sophia & Jelena
 
-    ActionEvent KeyEvent;
-
     public StackPane basicPane(StackPane box) {
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.TOP_CENTER);
         return box;
     }
 
-    
     public Label styleText(Label text, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
@@ -51,7 +47,7 @@ public class GameScene {
     public Label spaceText(int y) { // creates click space text for all scenes
         Label space = new Label();
         space.setText("Press Space Bar To Continue");
-        space.setTranslateX(0); // delete?
+        space.setTranslateX(0); 
         space.setTranslateY(y);
         space.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         space.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
