@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,6 +22,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class DemonTrail extends Application {
     Stage window;
@@ -232,11 +234,23 @@ public class DemonTrail extends Application {
             });
         }
 
-        //window.setOnCloseRequest
+        
         window.setScene(startScreen()); // change to whatever to test out screens.
 
         window.setResizable(false);
         window.show();
+
+        // window.setOnCloseRequest(new EventHandler<WindowEvent>() {
+
+        //     @Override
+        //     public void handle(WindowEvent event) {
+        //         // TODO Auto-generated method stub
+                
+        //     }
+            
+        // });
+
+        
     }
 
     private void introNextScene() {
@@ -368,9 +382,19 @@ public class DemonTrail extends Application {
         // window.setOnCloseRequest(e ->{
         //     mediaPlayer.stop();
         // }); maybe delete 
+        window.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
+            @Override
+            public void handle(WindowEvent event) {
+                mediaPlayer.stop();
+                Platform.exit();
+                System.exit(0);
+            }
+        });
         
     }
+
+   
 
     private String readFile() {
         ArrayList<Integer> numList = new ArrayList<Integer>();
