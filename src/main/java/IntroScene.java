@@ -7,6 +7,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
+/**
+* If
+*
+* @author  Jelena
+* @version 1.0
+* @since   2014-03-31 
+*/
 public class IntroScene extends GameScene {
 
     GameScene game = new GameScene();
