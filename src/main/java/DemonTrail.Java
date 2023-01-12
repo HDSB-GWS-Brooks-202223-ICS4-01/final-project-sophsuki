@@ -486,7 +486,7 @@ public class DemonTrail extends Application {
         howToPlay.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(introOne); // change to instruction scene
+                window.setScene(instructionsScene()); // change to instruction scene
             }
         });
 
@@ -502,7 +502,6 @@ public class DemonTrail extends Application {
     }
 
     private Scene instructionsScene() {
-        IntroScene intro = new IntroScene(); 
 
         StackPane sp = new StackPane();
         Scene sceneInstructions = new Scene(sp, 1000, 800); 
@@ -548,7 +547,7 @@ public class DemonTrail extends Application {
         start.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(startScreen(intro.introOne(), instructionsScene())); // sets screen instructions screen
+                window.setScene(startScreen()); // sets screen instructions screen
             }
 
         });
