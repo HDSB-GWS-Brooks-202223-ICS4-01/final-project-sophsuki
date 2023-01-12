@@ -386,11 +386,17 @@ public class DemonTrail extends Application {
             Collections.sort(numList);
             Collections.reverse(numList);
 
+
         } catch (Exception e) {
             e.printStackTrace();
 
         }
+
+        if(numList.isEmpty()){
+            return "0";
+          } else {
         return numList.get(0).toString();
+          }
     }
 
     private void writeFile() {
@@ -403,6 +409,8 @@ public class DemonTrail extends Application {
             } else {
                 score = 0;
             }
+
+            
 
             writer.newLine();
             writer.write(Integer.toString(score));
@@ -491,17 +499,18 @@ public class DemonTrail extends Application {
         });
 
         //if resetScore button pressed...
-        resetScore.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-               // resetFile();
-            }
-        });
+        // resetScore.setOnMousePressed(new EventHandler<MouseEvent>() {
+        //     @Override
+        //     public void handle(MouseEvent event) {
+        //        // resetFile();
+        //     }
+        // });
         return sceneOne;
 
     }
 
     private Scene instructionsScene() {
+        
 
         StackPane sp = new StackPane();
         Scene sceneInstructions = new Scene(sp, 1000, 800); 
