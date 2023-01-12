@@ -386,11 +386,17 @@ public class DemonTrail extends Application {
             Collections.sort(numList);
             Collections.reverse(numList);
 
+
         } catch (Exception e) {
             e.printStackTrace();
 
         }
+
+        if(numList.isEmpty()){
+            return "0";
+          } else {
         return numList.get(0).toString();
+          }
     }
 
     private void writeFile() {
@@ -403,6 +409,8 @@ public class DemonTrail extends Application {
             } else {
                 score = 0;
             }
+
+            
 
             writer.newLine();
             writer.write(Integer.toString(score));
@@ -486,23 +494,23 @@ public class DemonTrail extends Application {
         howToPlay.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(introOne); // change to instruction scene
+                window.setScene(instructionsScene()); // change to instruction scene
             }
         });
 
         //if resetScore button pressed...
-        resetScore.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-               // resetFile();
-            }
-        });
+        // resetScore.setOnMousePressed(new EventHandler<MouseEvent>() {
+        //     @Override
+        //     public void handle(MouseEvent event) {
+        //        // resetFile();
+        //     }
+        // });
         return sceneOne;
 
     }
 
     private Scene instructionsScene() {
-        IntroScene intro = new IntroScene(); 
+        
 
         StackPane sp = new StackPane();
         Scene sceneInstructions = new Scene(sp, 1000, 800); 
@@ -548,7 +556,7 @@ public class DemonTrail extends Application {
         start.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(startScreen(intro.introOne(), instructionsScene())); // sets screen instructions screen
+                window.setScene(startScreen()); // sets screen instructions screen
             }
 
         });
