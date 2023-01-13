@@ -24,6 +24,11 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+* Main class. Controls input and scene changes. Uses methods from IntroScene, RouteTwo, RouteThree, End, and GameScene.
+*
+* @author Sophia & Jelena
+*/
 public class DemonTrail extends Application {
     Stage window;
     GameScene game = new GameScene();
@@ -38,7 +43,7 @@ public class DemonTrail extends Application {
     Scene inChoice1MedWater = intro.inChoice1MedWater();
     Scene inChoice1Death = intro.inChoice1Death();
     Scene inChoice1Pass = intro.inChoice1Pass();
-    // textfield
+    // textfield for into
     TextField introInput = IntroScene.t;
 
     // Route 2 scenes
@@ -117,8 +122,9 @@ public class DemonTrail extends Application {
     private int k = 0; // route 3 scene # var
     private int d = 0; // end scene # var
 
-    private int score = 1000;
-    private int deaths = 0;
+    private int score = 1000; //initial score starts off at 1000
+    private int deaths = 0; //0 initial deaths
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -175,15 +181,15 @@ public class DemonTrail extends Application {
                     if (key.getCode().equals(KeyCode.ENTER)) { // if enter pressed
 
                         if (key.getSource() == introInput) { // if on intro screen choice
-                            if (introInput.getText().equals("1")) { // if option 1 selected(correct option)
+                            if (introInput.getText().equals("1")) { // if option 1 selected(medkit, correct option)
                                 n++;
                                 window.setScene(inChoice1MedWater);
-                                choiceMedWaterEnd = false;
+                                choiceMedWaterEnd = false; //med kit end
                             } else if (introInput.getText().equals("2")) {// if option 2 selected
                                 window.setScene(inChoice1Gas);
-                            } else if (introInput.getText().equals("3")) {// if option 3 selected
+                            } else if (introInput.getText().equals("3")) {// if option 3 selected (water)
                                 window.setScene(inChoice1MedWater);
-                                choiceMedWaterEnd = true;
+                                choiceMedWaterEnd = true; //water end
                             }
                         }
 
@@ -241,6 +247,9 @@ public class DemonTrail extends Application {
         window.show();
     }
 
+/**
+ * Controls input for the intro scenes. Input from space bar to switch from scene to scene. 
+ */
     private void introNextScene() {
         for (int i = 0; i < introScenes.length; i++) {
 
@@ -248,12 +257,12 @@ public class DemonTrail extends Application {
 
                 @Override
                 public void handle(KeyEvent key) {
-                    if (key.getCode().equals(KeyCode.SPACE)) {
-                        if (n < introScenes.length - 1) {
-                            n++;
-                            window.setScene(introScenes[n]);
+                    if (key.getCode().equals(KeyCode.SPACE)) { // if space is pressed, move to the next scene in the array
+                        if (n < introScenes.length - 1) { //if the array item we are on isn't the last scene, 
+                            n++; // move to the next array item
+                            window.setScene(introScenes[n]);//sets the scene to that array item
                         } else {
-                            window.setScene(rTwoScenes[m]);
+                            window.setScene(rTwoScenes[m]); //if the array item is the last scene, then move to route two scenes.
 
                         }
                     }
@@ -262,17 +271,18 @@ public class DemonTrail extends Application {
             });
         }
 
+        //water ending has multiple scenes
         for (int i = 0; i < waterEnd.length - 1; i++) {
             waterEnd[i].setOnKeyPressed(new EventHandler<KeyEvent>() {
 
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-                        if (choiceMedWaterEnd) {
-                            window.setScene(waterEnd[1]);
+                        if (choiceMedWaterEnd) {// if the user chose water out of water and medkit
+                            window.setScene(waterEnd[1]); // the water end will play
                         } else {
                             n++;
-                            window.setScene(introScenes[n]);
+                            window.setScene(introScenes[n]); //or it will keep going through the introscene array to reach the medkit ending (pass ending)
                         }
                     }
 
@@ -510,6 +520,12 @@ public class DemonTrail extends Application {
 
     }
 
+/**
+ * Creates scene for the instructions menu using text and images. Uses methods from GameScene.java.
+ *  Adds return button that will change scene back to start.
+ * 
+ * @return Scene 
+ */
     private Scene instructionsScene() {
 
         StackPane sp = new StackPane();
