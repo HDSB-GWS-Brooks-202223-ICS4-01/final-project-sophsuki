@@ -8,23 +8,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 /**
-* If
+* All scenes for the first section of the game (intro)
 *
 * @author  Jelena
-* @version 1.0
-* @since   2014-03-31 
 */
 public class IntroScene extends GameScene {
 
     GameScene game = new GameScene();
     Timer timer = new Timer();
 
-    public Button restart = new Button();
+    public Button restart = new Button(); // buttons to restart after choice
     public Button restart2 = new Button();
 
-    public static TextField t = new TextField(); 
+    public static TextField t = new TextField(); //text field for input
 
-    // initial scene
+/**
+ * First scene
+ * 
+ * @param Scene 
+ */
     public Scene introOne() {
         StackPane sp1 = new StackPane();
 
@@ -64,6 +66,11 @@ public class IntroScene extends GameScene {
 
     }
 
+/**
+ * Second scene
+ * 
+ * @param Scene 
+ */
     public Scene introTwo() {
         StackPane sp2 = new StackPane();
         Scene scene = new Scene(sp2, 1000, 800);
@@ -102,6 +109,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+/**
+ * Third scene
+ * 
+ * @param Scene 
+ */
     public Scene introThree() {
 
         StackPane sp3 = new StackPane(); 
@@ -137,6 +149,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+/**
+ * First choice scene
+ * 
+ * @param Scene 
+ */
     public Scene introFourChoice1() {
         StackPane sp4 = new StackPane(); 
         Scene scene = new Scene(sp4, 1000, 800);
@@ -174,7 +191,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
-    // if gas picked
+/**
+ * I
+ * 
+ * @param Scene 
+ */
     public Scene inChoice1Gas() {
         StackPane sp5 = new StackPane();
         Scene scene = new Scene(sp5, 1000, 800);
@@ -254,7 +275,7 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
-        sp7.getChildren().addAll(spaceText(650),text1, text2, restart(restart2));
+        sp7.getChildren().addAll(text1, text2, restart(restart2));
 
 
 
