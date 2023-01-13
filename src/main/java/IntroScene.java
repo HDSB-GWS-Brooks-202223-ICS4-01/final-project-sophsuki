@@ -38,7 +38,7 @@ public class IntroScene extends GameScene {
         inTwo1.setText("It's November 10th, we've been in the apocalypse for 3 years now.");
         inTwo2.setText("An evil scientists released the zombie plague which infected over half the city.");
         inTwo3.setText("My sister and I barely survived the first year before she started getting rebellious.");
-        inTwo4.setText("One day she went out into the city on our own and got bit...");
+        inTwo4.setText("One day she went out into the city on her own and got bit...");
 
         basicPane(sp1);
         styleText(inTwo1, 350);
