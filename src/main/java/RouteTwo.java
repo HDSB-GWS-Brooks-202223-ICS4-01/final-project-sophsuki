@@ -23,6 +23,12 @@ public class RouteTwo extends GameScene {
     public Button restartThree = new Button();
     public Button restartFour = new Button();
 
+    /**
+     * Creates first scene of route two using methods from GameScene class and
+     * text/images.
+     * 
+     * @returns Scene
+     */
     public Scene storyTwoOne() {
 
         StackPane box1 = new StackPane();
@@ -32,7 +38,6 @@ public class RouteTwo extends GameScene {
         Label day = new Label(" days survived : 5");
         Label mile = new Label("kilometers walked : 51");
         Label date = new Label("Date : November 15th");
-
         // styles text
         styleText(stats, 100);
         title(stats);
@@ -45,6 +50,14 @@ public class RouteTwo extends GameScene {
         return sceneOne;
     }
 
+    /**
+     * Creates second scene of route two using methods from GameScene class and
+     * text/images.Also animates images to create many days passing effect by
+     * cycling through
+     * day and night images.
+     * 
+     * @returns Scene
+     */
     public Scene storyTwoTwo() {
 
         StackPane box2 = new StackPane();
@@ -53,7 +66,6 @@ public class RouteTwo extends GameScene {
         Label travel = new Label("Couple of days pass");
         Label food = new Label("70% of rations have been depleted");
         Label gas = new Label("Luckily you see a gas station in the distance");
-        
         // styles text
         styleText(travel, 350);
         styleText(food, 450);
@@ -86,13 +98,19 @@ public class RouteTwo extends GameScene {
         return sceneTwo;
     }
 
+    /**
+     * Creates third scene of route two using methods from GameScene class and
+     * text/images.
+     * 
+     * @returns Scene
+     */
     public Scene storyTwoThree() {
 
         StackPane box3 = new StackPane();
         basicPane(box3);
         // label
         Label gasStation = new Label("you arrive at the gas station");
-        //styles text
+        // styles text
         styleText(gasStation, 390);
         // loading image and moving it
         ImageView border = image("\\images\\border.png", 615, 100);
@@ -104,6 +122,13 @@ public class RouteTwo extends GameScene {
         return sceneThree;
     }
 
+    /**
+     * Creates first option scene of route two using methods from GameScene class
+     * along with
+     * text, images and textfield.
+     * 
+     * @returns Scene
+     */
     public Scene optionTwoOne() {
 
         StackPane box4 = new StackPane();
@@ -114,7 +139,7 @@ public class RouteTwo extends GameScene {
         Label choiceOne = new Label("1 : Gas");
         Label choiceTwo = new Label("2 : Food and Water");
         Label choiceThree = new Label("3 : Medical Supplies");
-     
+
         // styles text
         styleText(bag, 150);
         styleText(choiceOne, 250);
@@ -131,6 +156,13 @@ public class RouteTwo extends GameScene {
         return optionOneScene;
     }
 
+    /**
+     * Creates gas end scene for optionOne using methods from GameScene class along
+     * with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endGas() { // gas ending for option 1
 
         StackPane box5 = new StackPane();
@@ -157,13 +189,20 @@ public class RouteTwo extends GameScene {
 
     }
 
+    /**
+     * Creates endMed part one for option one using methods from GameScene class
+     * along with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endMedOne() { // medkit part 1 ending for option 1
         StackPane box6 = new StackPane();
         basicPane(box6);
         // labels
         Label travel = new Label("You hike for days... nothing but mountains in sight");
         Label noFood = new Label("You have used up all your food and water");
-    
+
         // styles text
         styleText(travel, 400);
         styleText(noFood, 500);
@@ -176,6 +215,13 @@ public class RouteTwo extends GameScene {
 
     }
 
+    /**
+     * Creates endMed part two for option one using methods from GameScene class
+     * along with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endMedTwo() { // medkit ending part 2 for option 1
 
         StackPane box7 = new StackPane();
@@ -186,7 +232,7 @@ public class RouteTwo extends GameScene {
         Label scream = new Label("Your sister broke free of her ropes ");
         Label hunger = new Label("she is eating you");
         Label consume = new Label("You have been consumed");
-     
+
         // styles text
         styleText(faint, 325);
         styleText(eaten, 400);
@@ -201,8 +247,13 @@ public class RouteTwo extends GameScene {
         return medTwoScene;
 
     }
-
-    public Scene foodOption() { // correct option to continue game
+/**
+     * Creates food choice scene(correct choice) for  option one using methods from GameScene class along with
+     * text and images. 
+     * 
+     * @returns Scene
+     */
+    public Scene foodChoice() { // correct option to continue game
 
         StackPane box8 = new StackPane();
         basicPane(box8);
@@ -210,7 +261,7 @@ public class RouteTwo extends GameScene {
         Label traveling = new Label("You continue walking at a grueling pace");
         Label tired = new Label("You are exhausted and stop to rest ");
         Label eat = new Label("You eat your food and begin walking again");
-      
+
         // styles text
         styleText(traveling, 400);
         styleText(tired, 500);
@@ -223,7 +274,12 @@ public class RouteTwo extends GameScene {
 
         return foodOptionScene;
     }
-
+/**
+     * Creates fourth scene of route two using methods from GameScene class along with 
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene storyTwoFour() {
 
         StackPane box9 = new StackPane();
@@ -233,7 +289,7 @@ public class RouteTwo extends GameScene {
         Label arrive = new Label("You arrive at a river");
         Label problem = new Label("The river stretches for miles");
         Label cross = new Label("You must cross the river quickly");
-        
+
         // styles text
         styleText(daysPass, 350);
         styleText(arrive, 425);
@@ -248,6 +304,13 @@ public class RouteTwo extends GameScene {
 
     }
 
+    /**
+     * Creates second option scene of route two using methods from GameScene class
+     * along with
+     * text, images and textfield.
+     * 
+     * @returns Scene
+     */
     public Scene optionTwoTwo() {
 
         StackPane box10 = new StackPane();
@@ -258,7 +321,7 @@ public class RouteTwo extends GameScene {
         Label choiceOne = new Label("1 : Swim across it");
         Label choiceTwo = new Label("2 : Travel around it");
         Label choiceThree = new Label("3 : Tightrope walk across");
-     
+
         // styles text
         styleText(swim, 150);
         styleText(choiceOne, 250);
@@ -278,7 +341,13 @@ public class RouteTwo extends GameScene {
         Scene optionTwoScene = new Scene(box10, 1000, 800);
         return optionTwoScene;
     }
-
+/**
+     * Creates end travel ending for option two using methods from GameScene class
+     * along with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endTravel() {
         StackPane box11 = new StackPane();
         basicPane(box11);
@@ -289,7 +358,7 @@ public class RouteTwo extends GameScene {
         Label slip = new Label("You are half way across when you slip on a rock");
         Label head = new Label("you fall from 50 feet and hit your head");
         Label dead = new Label("You have died");
-        
+
         // styles text
         styleText(traveling, 350);
         styleText(risky, 425);
@@ -303,7 +372,13 @@ public class RouteTwo extends GameScene {
         Scene travelOptionScene = new Scene(box11, 1000, 800);
         return travelOptionScene;
     }
-
+/**
+     * Creates end rope ending for option two using methods from GameScene class
+     * along with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endRope() { // correct option to continue game
 
         StackPane box12 = new StackPane();
@@ -315,7 +390,7 @@ public class RouteTwo extends GameScene {
         Label fall = new Label("You lose your balance and fall into the river");
         Label drown = new Label("Your sister distraught from the water, scratches you");
         Label zomb = new Label("You give up and drown as you will turn into a zombie soon");
-     
+
         // styles text
         styleText(toss, 320);
         styleText(tree, 380);
@@ -336,8 +411,14 @@ public class RouteTwo extends GameScene {
         Scene ropeOptionScene = new Scene(box12, 1000, 800);
         return ropeOptionScene;
     }
-
-    public Scene swimOption() {
+/**
+     * Creates swim choice scene (correct choice) for option two using methods from GameScene class
+     * along with
+     * text and images.
+     * 
+     * @returns Scene
+     */
+    public Scene swimChoice() {
         StackPane box13 = new StackPane();
         basicPane(box13);
         // labels
@@ -345,7 +426,7 @@ public class RouteTwo extends GameScene {
         Label tie = new Label("You tie her body with yours and begin swimming");
         Label swim = new Label("Progress is slow but steady");
         Label river = new Label("You make it safely across the river");
-        
+
         // styles text
         styleText(safety, 350);
         styleText(tie, 425);

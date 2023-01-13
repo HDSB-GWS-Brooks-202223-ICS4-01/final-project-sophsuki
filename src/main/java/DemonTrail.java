@@ -51,13 +51,13 @@ public class DemonTrail extends Application {
     Scene rTwoEndGas = rTwo.endGas();
     Scene rTwoEndMed = rTwo.endMedOne();
     Scene rTwoEndMedTwo = rTwo.endMedTwo();
-    Scene rTwoFoodOption = rTwo.foodOption();
+    Scene rTwoFoodOption = rTwo.foodChoice();
     // Route 2 scenes continued from food option to ending
     Scene rTwoFour = rTwo.storyTwoFour();
     Scene rTwoChoiceTwo = rTwo.optionTwoTwo();
     Scene rTwoEndTravel = rTwo.endTravel();
     Scene rTwoEndRope = rTwo.endRope();
-    Scene rTwoFinal = rTwo.swimOption();
+    Scene rTwoFinal = rTwo.swimChoice();
     // Route 2 textfields
     TextField rTwoInputOne = rTwo.textFieldOne;
     TextField rTwoInputTwo = rTwo.textFieldTwo;
