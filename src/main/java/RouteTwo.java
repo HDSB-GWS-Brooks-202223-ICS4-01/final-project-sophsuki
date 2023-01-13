@@ -136,7 +136,7 @@ public class RouteTwo extends GameScene {
         StackPane box5 = new StackPane();
         basicPane(box5);
         // labels
-        Label car = new Label("You approach an abanndoned car");
+        Label car = new Label("You approach an abandoned car");
         Label gasUse = new Label("You pour gas into the car");
         Label start = new Label("You find the keys and start the car");
         Label explode = new Label("Something went wrong... the car explodes");
@@ -181,7 +181,7 @@ public class RouteTwo extends GameScene {
         StackPane box7 = new StackPane();
         basicPane(box7);
         // labels
-        Label faint = new Label("You pass out due to malnutrion");
+        Label faint = new Label("You pass out due to malnutrition");
         Label eaten = new Label("Suddenly a sharp pain wakes you up");
         Label scream = new Label("Your sister broke free of her ropes ");
         Label hunger = new Label("she is eating you");
@@ -207,7 +207,7 @@ public class RouteTwo extends GameScene {
         StackPane box8 = new StackPane();
         basicPane(box8);
         // labels
-        Label traveling = new Label("You continue walking at a gruelling pace");
+        Label traveling = new Label("You continue walking at a grueling pace");
         Label tired = new Label("You are exhausted and stop to rest ");
         Label eat = new Label("You eat your food and begin walking again");
       
