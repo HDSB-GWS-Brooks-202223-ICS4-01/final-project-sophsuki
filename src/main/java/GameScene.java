@@ -10,9 +10,20 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+/**
+* Abstract class that all routes inherit. Contains style methods and input methods that are created for non-repetitive code.
+*
+* @author  Sophia & Jelena
+*/
 public class GameScene {
     // class worked on together - Sophia & Jelena
 
+/**
+ * Creates first scene using text and images. Uses methods from GameScene.java.
+ * 
+ * @return StackPane
+ * @param StackPane being used in the
+ */
     public StackPane basicPane(StackPane box) {
         box.setStyle("-fx-background: black;");
         box.setAlignment(Pos.TOP_CENTER);

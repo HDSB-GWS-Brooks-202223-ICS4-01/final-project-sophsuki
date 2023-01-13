@@ -23,23 +23,26 @@ public class IntroScene extends GameScene {
     public static TextField t = new TextField(); //text field for input
 
 /**
- * First scene
+ * Creates first scene using text and images. Uses methods from GameScene.java.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene introOne() {
-        StackPane sp1 = new StackPane();
+        StackPane sp1 = new StackPane(); //using stackpane for multiple images
 
+        //creates all text labels needed
         Label inTwo1 = new Label();
         Label inTwo2 = new Label();
         Label inTwo3 = new Label();
         Label inTwo4 = new Label();
 
+        //sets text
         inTwo1.setText("It's November 10th, we've been in the apocalypse for 3 years now.");
         inTwo2.setText("An evil scientists released the zombie plague which infected over half the city.");
         inTwo3.setText("My sister and I barely survived the first year before she started getting rebellious.");
         inTwo4.setText("One day she went out into the city on her own and got bit...");
 
+        //styling using methods from GameScene.java
         basicPane(sp1);
         styleText(inTwo1, 350);
         styleText(inTwo2, 390);
@@ -50,15 +53,9 @@ public class IntroScene extends GameScene {
         smallFont(inTwo3);
         smallFont(inTwo4);
 
+        //puts everything on the screen
         sp1.getChildren().add(image("\\images\\city.gif", 1000, 300));
         sp1.getChildren().addAll(spaceText(650), inTwo1, inTwo2, inTwo3, inTwo4);
-
-        //      FOR TIMER 
-        // sp1.getChildren().add(inTwo1);
-        // sp1.getChildren().add(inTwo2);
-        // sp1.getChildren().add(inTwo2);
-        // sp1.getChildren().add(inTwo3);
-        // sp1.getChildren().add(inTwo5);
 
         Scene scene1 = new Scene(sp1, 1000, 800);
 
@@ -67,9 +64,9 @@ public class IntroScene extends GameScene {
     }
 
 /**
- * Second scene
+ * Creates second scene using text and images. Uses methods from GameScene.java.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene introTwo() {
         StackPane sp2 = new StackPane();
@@ -98,21 +95,16 @@ public class IntroScene extends GameScene {
         smallFont(inTwo3);
         smallFont(inTwo4);
 
-        sp2.getChildren().add(image("\\images\\red city.gif", 1000, 300));
-        sp2.getChildren().add(inTwo1);
-        sp2.getChildren().add(inTwo2);
-        sp2.getChildren().add(inTwo3);
-        //LONG PAUSE
-        sp2.getChildren().add(image("\\images\\zombie sister.png", 400, 300));
-        sp2.getChildren().addAll(inTwo4, spaceText(650));
+        sp2.getChildren().addAll(inTwo1, inTwo2, inTwo3, inTwo4, spaceText(650), image("\\images\\zombie sister.png", 400, 300), image("\\images\\red city.gif", 1000, 300));
+
 
         return scene;
     }
 
 /**
- * Third scene
+ * Creates third scene using text and images. Uses methods from GameScene.java.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene introThree() {
 
@@ -150,9 +142,9 @@ public class IntroScene extends GameScene {
     }
 
 /**
- * First choice scene
+ * Creates a scene using text and images. Uses methods from GameScene.java. Uses text field for input logic.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene introFourChoice1() {
         StackPane sp4 = new StackPane(); 
@@ -192,9 +184,10 @@ public class IntroScene extends GameScene {
     }
 
 /**
- * I
+ * Creates scene for gas choice using text and images. Uses methods from GameScene.java.
+ *  Adds restart button that will change scene back to start.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene inChoice1Gas() {
         StackPane sp5 = new StackPane();
@@ -228,7 +221,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
-    //if medkit or water picked
+/**
+ * Creates scene for medkit or water choice using text and images. Uses methods from GameScene.java.
+ * 
+ * @return Scene 
+ */
     public Scene inChoice1MedWater() {
         StackPane sp6 = new StackPane(); 
         Scene scene = new Scene(sp6, 1000, 800); 
@@ -256,7 +253,12 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
-    // if water picked
+/**
+ * Creates scene for water choice using text and images. Uses methods from GameScene.java.
+ *  Adds restart button that will change scene back to start.
+ * 
+ * @return Scene 
+ */
     public Scene inChoice1Death() {
         StackPane sp7 = new StackPane();
         Scene scene = new Scene(sp7, 1000, 800); 
@@ -282,6 +284,13 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+/**
+ * Creates scene for med kit choice using text and images. Uses methods from GameScene.java.
+ * After this choice, you move onto route 2.
+ *  
+ * 
+ * @return Scene 
+ */
     public Scene inChoice1Pass() {
         StackPane sp8 = new StackPane();
         Scene scene = new Scene(sp8, 1000, 800);

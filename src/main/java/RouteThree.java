@@ -8,15 +8,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
+/**
+* All scenes for the third section of the game (route 3)
+*
+* @author  Jelena
+*/
 public class RouteThree extends GameScene{
     GameScene game = new GameScene();
-    Timer timer = new Timer();
+    Timer timer = new Timer(); 
 
-    public Button restart1 = new Button();
-    public Button restart2 = new Button();
+    public Button restart1 = new Button(); // button for 1 bad ending
+    public Button restart2 = new Button(); // button for 2nd bad ending
 
-    public static TextField textField = new TextField(); 
+    public static TextField textField = new TextField(); //input for choice screen
 
+/**
+ * Stats scene
+ * 
+ * @param Scene 
+ */
     public Scene r3Stats() {
         StackPane sp = new StackPane();
         Scene scene = new Scene(sp, 1000, 800);
@@ -39,6 +49,11 @@ public class RouteThree extends GameScene{
         return scene;
     }
 
+/**
+ * First scene
+ * 
+ * @param Scene 
+ */
     public Scene r3One() {
         StackPane sp1 = new StackPane();
         Scene scene = new Scene(sp1, 1000, 800);
@@ -69,6 +84,11 @@ public class RouteThree extends GameScene{
         return scene;
     }
 
+/**
+ * Second scene. Need to make a choice. Uses text field here.
+ * 
+ * @param Scene 
+ */
     public Scene r3Choice() {
         StackPane sp2 = new StackPane();
         Scene scene = new Scene(sp2,1000,800);
@@ -91,7 +111,7 @@ public class RouteThree extends GameScene{
         styleText(c3, 500);
         bigFont(title);
 
-        TextField input = limitText(textField);
+        TextField input = limitText(textField);//uses method in GameScene.java
         input.setTranslateY(600);
         
         sp2.getChildren().addAll(title, c1, c2, c3, input); 
@@ -99,6 +119,11 @@ public class RouteThree extends GameScene{
         return scene;
     }
 
+/**
+ * Scene if you choose to feed the sister
+ * 
+ * @param Scene 
+ */
     public Scene r3Feed() {
         StackPane sp3 = new StackPane();
         Scene scene = new Scene(sp3, 1000, 800);
@@ -125,6 +150,11 @@ public class RouteThree extends GameScene{
         return scene;
     }
 
+/**
+ * Scene if you let your sister get her own food
+ * 
+ * @param Scene 
+ */
     public Scene r3Free() {
         StackPane sp4 = new StackPane();
         Scene scene = new Scene(sp4, 1000, 800);
@@ -160,6 +190,11 @@ public class RouteThree extends GameScene{
         return scene;
     }
 
+/**
+ * Scene if you decide against feeding the sister
+ * 
+ * @param Scene 
+ */
     public Scene r3Starve() {
         StackPane sp5 = new StackPane();
         Scene scene = new Scene(sp5, 1000, 800); 
