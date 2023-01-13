@@ -167,7 +167,7 @@ public class End extends GameScene {
         // labels
         Label right = new Label("You were right");
         Label cure = new Label("You secured the cure just in time");
-        Label happy = new Label("Your sister was treated and made a fully recovery ");
+        Label happy = new Label("Your sister was treated and made a full recovery ");
         Label peace = new Label("Finally you are at peace");
     
         // styles text
@@ -183,33 +183,6 @@ public class End extends GameScene {
         box7.getChildren().addAll(right, cure, happy, peace, playAgainTwo);
         Scene goodEndScene = new Scene(box7, 1000, 800);
         return goodEndScene;
-    }
-
-
-    public Scene endStats() { // maybe delete
-
-        StackPane box7 = new StackPane();
-        basicPane(box7);
-        // labels
-        Label stats = new Label();
-        Label day = new Label();
-        Label mile = new Label();
-        Label date = new Label();
-        // text
-        stats.setText("Stats");
-        day.setText(" days survived : 20");
-        mile.setText("kilometers walked : 199");
-        date.setText("Date : November 30th");
-        // styles text
-        styleText(stats, 100);
-        title(stats);
-        styleText(day, 300);
-        styleText(mile, 400);
-        styleText(date, 500);
-
-        box7.getChildren().addAll(spaceText(700), stats, day, mile, date);
-        Scene sceneOne = new Scene(box7, 1000, 800);
-        return sceneOne;
     }
 
 }

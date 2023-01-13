@@ -254,7 +254,7 @@ public class IntroScene extends GameScene {
         smallFont(text2);
 
         sp7.getChildren().add(image("\\images\\graveyard1.png", 1000, 300));
-        sp7.getChildren().addAll(spaceText(650),text1, text2, restart(restart2));
+        sp7.getChildren().addAll(text1, text2, restart(restart2));
 
 
 

@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -75,7 +73,7 @@ public class DemonTrail extends Application {
     Scene r3Free = r3.r3Free();
     Scene r3Starve = r3.r3Starve();
     // route 3 text fields
-    TextField r3Input = r3.textField;
+    TextField r3Input = RouteThree.textField;
 
     // ending scenes
     End end = new End();
@@ -92,13 +90,13 @@ public class DemonTrail extends Application {
     Scene[] introScenes = { introOne, introTwo, introThree, introFourChoice1, inChoice1MedWater, inChoice1Pass };
     Scene[] waterEnd = { inChoice1MedWater, inChoice1Death };
 
-    // rTwo Scenes with correct choices, begining to end...
+    // rTwo Scenes 
     Scene[] rTwoScenes = { rTwoOne, rTwoTwo, rTwoThree, rTwoChoiceOne, rTwoFoodOption, rTwoFour, rTwoChoiceTwo,
             rTwoFinal };
     Scene[] rTwoMedScenes = { rTwoEndMed, rTwoEndMedTwo };
 
     // rThree scenes
-    Scene[] rThreeScenes = { r3Stats, r3One, r3Choice, r3Feed, r3Free, r3Starve };
+    Scene[] rThreeScenes = { r3Stats, r3One, r3Choice, r3Feed};
 
     // endscene array
     Scene[] endScenes = { endOne, endTwo, endThree, endChoice, endGood };
@@ -106,23 +104,21 @@ public class DemonTrail extends Application {
     // restart button array (died before final ending, play again from intro one)
     Button[] restartButtons = { intro.restart, intro.restart2, rTwo.restartOne, rTwo.restartTwo,
             rTwo.restartThree, rTwo.restartFour, r3.restart1, r3.restart2 };
-    // play again button array (reached one of the final endings, play again from
-    // start screen)
+
+    // play again button array (reached one of the final endings, play again from start screen)
     Button[] playAgain = { end.playAgain, end.playAgainTwo };
+
     // input text field array
     TextField[] inputFields = { endInput, introInput, rTwoInputOne, rTwoInputTwo, r3Input };
 
+    private int n = 0; // intro scene # var
     private int m = 0; // route 2 scene # var
     private int c = 0; // route 2 medscene #var
-    private int n = 0; // intro scene # var
     private int k = 0; // route 3 scene # var
     private int d = 0; // end scene # var
 
     private int score = 1000;
     private int deaths = 0;
-
-    // start screen
-    boolean onStartScreen = false;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -184,7 +180,7 @@ public class DemonTrail extends Application {
                             }
                         }
 
-                        else if (key.getSource() == rTwoInputOne) { // Route 2 first choice textfield
+                        else if (key.getSource() == rTwoInputOne) { // Route 2 choice 1
                             if (rTwoInputOne.getText().equals("1")) { // if option 1 selected
                                 window.setScene(rTwoEndGas);
                             } else if (rTwoInputOne.getText().equals("2")) {// if option 2 selected(correct option)
@@ -195,40 +191,36 @@ public class DemonTrail extends Application {
                             }
                         }
 
-                        else if (key.getSource() == rTwoInputTwo) { // Route 2 second choice textfield
+                        else if (key.getSource() == rTwoInputTwo) { // Route 2 choice 2
                             if (rTwoInputTwo.getText().equals("1")) {// if option 1 selected(correct choice)
                                 m++;
                                 window.setScene(rTwoScenes[m]);
-
                             } else if (rTwoInputTwo.getText().equals("2")) { // if option 2 selected
                                 window.setScene(rTwoEndTravel);
-
                             } else if (rTwoInputTwo.getText().equals("3")) {// if option 3 selected
                                 window.setScene(rTwoEndRope);
                             }
                         }
-                        // ROUTE 3
-                        else if (key.getSource() == r3Input) {
+                       
+                        else if (key.getSource() == r3Input) { // Route 3 choice
                             if (r3Input.getText().equals("1")) {// CORRECT OPTION
-                                window.setScene(r3Feed);
+                                k++;
+                                window.setScene(rThreeScenes[k]);
                             } else if (r3Input.getText().equals("2")) {// if option 2 clicked
                                 window.setScene(r3Free);
                             } else if (r3Input.getText().equals("3")) {// if option 3 clicked
                                 window.setScene(r3Starve);
 
                             }
-                        } else if (key.getSource() == endInput) {
-                            if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2
-                                                                                                   // selected
-
+                        } else if (key.getSource() == endInput) { // end choice
+                            if (endInput.getText().equals("1") || endInput.getText().equals("2")) {// if option 1/2 selected
                                 window.setScene(endBad);
                             } else if (endInput.getText().equals("3")) {// if option 3 selected(correct choice)
                                 d++;
-
                                 window.setScene(endScenes[d]); // good ending
                             }
-                            writeFile();
-                            deaths = 0;
+                            writeFile();// writes score
+                            
 
                         }
                     }
@@ -237,11 +229,9 @@ public class DemonTrail extends Application {
             });
         }
 
-        window.setScene(startScreen()); // change to whatever to test out screens.
-
+        window.setScene(startScreen()); 
         window.setResizable(false);
         window.show();
-
     }
 
     private void introNextScene() {
@@ -257,7 +247,7 @@ public class DemonTrail extends Application {
                             window.setScene(introScenes[n]);
                         } else {
                             window.setScene(rTwoScenes[m]);
-                            n = 0;
+                            
 
                         }
                     }
@@ -297,8 +287,8 @@ public class DemonTrail extends Application {
                             m++;
                             window.setScene(rTwoScenes[m]);
                         } else {
-                            window.setScene(endScenes[d]); // change to rthreescene[k] later
-                            m = 0;
+                            window.setScene(rThreeScenes[k]); 
+                            
 
                         }
                     }
@@ -337,7 +327,7 @@ public class DemonTrail extends Application {
                             window.setScene(rThreeScenes[k]);
                         } else {
                             window.setScene(endScenes[d]);
-                            k = 0;
+                            
                         }
                     }
 
@@ -353,7 +343,6 @@ public class DemonTrail extends Application {
                 @Override
                 public void handle(KeyEvent key) {
                     if (key.getCode().equals(KeyCode.SPACE)) {
-
                         d++;
                         window.setScene(endScenes[d]);
                     }
@@ -451,6 +440,7 @@ public class DemonTrail extends Application {
         n = 0;
         d = 0;
         k = 0;
+        deaths = 0; // resets deaths
 
         StackPane box = new StackPane();
         game.basicPane(box);
@@ -516,12 +506,13 @@ public class DemonTrail extends Application {
         game.basicPane(sp);
 
         Button start = new Button();
-        start.setTranslateY(640);
-        start.setMaxSize(300, 75);
-        start.setAlignment(Pos.CENTER);
-        start.setText("Return");
-        start.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());// why not just use
-                                                                                          // game.restart ?? REMiNDER
+        game.restart(start); 
+        // start.setTranslateY(640);
+        // start.setMaxSize(300, 75);
+        // start.setAlignment(Pos.CENTER);
+        // start.setText("Return");
+        // start.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());// why not just use
+        //                                                                                   // game.restart ?? REMiNDER
 
         Label title = new Label();
         Label t1 = new Label();
@@ -556,7 +547,7 @@ public class DemonTrail extends Application {
         start.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(startScreen()); // sets screen instructions screen
+                window.setScene(startScreen()); // sets screen to start screen
             }
 
         });
@@ -585,7 +576,7 @@ public class DemonTrail extends Application {
         back.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                window.setScene(startScreen()); // sets screen instructions screen
+                window.setScene(startScreen()); // sets screen to start screen
             }
 
         });
