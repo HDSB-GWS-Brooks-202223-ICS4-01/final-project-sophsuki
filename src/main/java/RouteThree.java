@@ -23,9 +23,9 @@ public class RouteThree extends GameScene{
     public static TextField textField = new TextField(); //input for choice screen
 
 /**
- * Stats scene
+ * Initial route 3 scene. Shows the stats of the player before starting the story. Uses methods from GameScene.java.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3Stats() {
         StackPane sp = new StackPane();
@@ -50,9 +50,9 @@ public class RouteThree extends GameScene{
     }
 
 /**
- * First scene
+ * Creates first scene using text and images. Uses methods from GameScene.java.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3One() {
         StackPane sp1 = new StackPane();
@@ -85,9 +85,9 @@ public class RouteThree extends GameScene{
     }
 
 /**
- * Second scene. Need to make a choice. Uses text field here.
+ * Creates the choice scene using text and images. Uses methods from GameScene.java. Uses textfield for input logic
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3Choice() {
         StackPane sp2 = new StackPane();
@@ -120,9 +120,10 @@ public class RouteThree extends GameScene{
     }
 
 /**
- * Scene if you choose to feed the sister
+ * Creates scene for the feeding choice using text and images. Uses methods from GameScene.java.
+ *  Story continues onto the end route after this scene.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3Feed() {
         StackPane sp3 = new StackPane();
@@ -151,9 +152,10 @@ public class RouteThree extends GameScene{
     }
 
 /**
- * Scene if you let your sister get her own food
+ * Creates scene for freeing choice using text and images. Uses methods from GameScene.java.
+ *  Adds restart button that will change scene back to start.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3Free() {
         StackPane sp4 = new StackPane();
@@ -191,9 +193,10 @@ public class RouteThree extends GameScene{
     }
 
 /**
- * Scene if you decide against feeding the sister
+ * Creates scene for starving choice using text and images. Uses methods from GameScene.java.
+ *  Adds restart button that will change scene back to start.
  * 
- * @param Scene 
+ * @return Scene 
  */
     public Scene r3Starve() {
         StackPane sp5 = new StackPane();
@@ -215,8 +218,6 @@ public class RouteThree extends GameScene{
         smallFont(t1);
         smallFont(t2);
         smallFont(t3);
-
-        //TODO:  maybe add timed image where blood covers screen
 
         Image pic = new Image("\\images\\cage.png");
         ImageView cage = new ImageView(pic);
