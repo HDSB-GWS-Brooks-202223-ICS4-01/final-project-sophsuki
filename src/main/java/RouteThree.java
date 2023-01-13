@@ -164,6 +164,8 @@ public class RouteThree extends GameScene{
         StackPane sp5 = new StackPane();
         Scene scene = new Scene(sp5, 1000, 800); 
 
+        basicPane(sp5); 
+
         Label t1 = new Label(); 
         Label t2 = new Label(); 
         Label t3 = new Label(); 
@@ -171,6 +173,13 @@ public class RouteThree extends GameScene{
         t1.setText("You don't let your sister out.");
         t2.setText("After a few hours resting she gets extremely resteless.");
         t3.setText("She escapes from her cage and eats you!");
+        
+        styleText(t1, 400);
+        styleText(t2, 490);
+        styleText(t3, 580);
+        smallFont(t1);
+        smallFont(t2);
+        smallFont(t3);
 
         //TODO:  maybe add timed image where blood covers screen
 

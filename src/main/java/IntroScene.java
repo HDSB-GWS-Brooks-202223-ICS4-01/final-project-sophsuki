@@ -8,23 +8,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 /**
-* If
+* All scenes for the first section of the game (intro)
 *
 * @author  Jelena
-* @version 1.0
-* @since   2014-03-31 
 */
 public class IntroScene extends GameScene {
 
     GameScene game = new GameScene();
     Timer timer = new Timer();
 
-    public Button restart = new Button();
+    public Button restart = new Button(); // buttons to restart after choice
     public Button restart2 = new Button();
 
-    public static TextField t = new TextField(); 
+    public static TextField t = new TextField(); //text field for input
 
-    // initial scene
+/**
+ * First scene
+ * 
+ * @param Scene 
+ */
     public Scene introOne() {
         StackPane sp1 = new StackPane();
 
@@ -36,7 +38,7 @@ public class IntroScene extends GameScene {
         inTwo1.setText("It's November 10th, we've been in the apocalypse for 3 years now.");
         inTwo2.setText("An evil scientists released the zombie plague which infected over half the city.");
         inTwo3.setText("My sister and I barely survived the first year before she started getting rebellious.");
-        inTwo4.setText("One day she went out into the city on our own and got bit...");
+        inTwo4.setText("One day she went out into the city on her own and got bit...");
 
         basicPane(sp1);
         styleText(inTwo1, 350);
@@ -64,6 +66,11 @@ public class IntroScene extends GameScene {
 
     }
 
+/**
+ * Second scene
+ * 
+ * @param Scene 
+ */
     public Scene introTwo() {
         StackPane sp2 = new StackPane();
         Scene scene = new Scene(sp2, 1000, 800);
@@ -102,6 +109,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+/**
+ * Third scene
+ * 
+ * @param Scene 
+ */
     public Scene introThree() {
 
         StackPane sp3 = new StackPane(); 
@@ -137,6 +149,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
+/**
+ * First choice scene
+ * 
+ * @param Scene 
+ */
     public Scene introFourChoice1() {
         StackPane sp4 = new StackPane(); 
         Scene scene = new Scene(sp4, 1000, 800);
@@ -174,7 +191,11 @@ public class IntroScene extends GameScene {
         return scene;
     }
 
-    // if gas picked
+/**
+ * I
+ * 
+ * @param Scene 
+ */
     public Scene inChoice1Gas() {
         StackPane sp5 = new StackPane();
         Scene scene = new Scene(sp5, 1000, 800);
