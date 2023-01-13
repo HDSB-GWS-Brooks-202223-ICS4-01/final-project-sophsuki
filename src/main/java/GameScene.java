@@ -15,14 +15,12 @@ import javafx.scene.text.FontWeight;
 *
 * @author  Sophia & Jelena
 */
-public class GameScene {
-    // class worked on together - Sophia & Jelena
-
+public class GameScene { // class worked on together - Sophia & Jelena
 /**
- * Creates first scene using text and images. Uses methods from GameScene.java.
+ * Creates basic style of all the scenes, makes the background black, aligns everything to the center.
  * 
  * @return StackPane
- * @param StackPane being used in the
+ * @param StackPane being used in the scene
  */
     public StackPane basicPane(StackPane box) {
         box.setStyle("-fx-background: black;");
@@ -30,6 +28,13 @@ public class GameScene {
         return box;
     }
 
+/**
+ * Adds font and white colour to text. 
+ * 
+ * @return Label final
+ * @param StackPane being used in the scene
+ * @param int y position of the text
+ */
     public Label styleText(Label text, int y) { // styles text and places pos
         text.setTextFill(javafx.scene.paint.Color.WHITESMOKE);
         text.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
