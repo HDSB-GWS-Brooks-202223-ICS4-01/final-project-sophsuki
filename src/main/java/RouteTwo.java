@@ -167,7 +167,7 @@ public class RouteTwo extends GameScene {
      * Creates end gas ending scene for option one using methods from GameScene
      * class along
      * with
-     * text, images and buttons.
+     * text, images and restart buttons.
      * 
      * @returns Scene
      */
@@ -226,7 +226,7 @@ public class RouteTwo extends GameScene {
      * Creates endMed scene part two ending for option one using methods from
      * GameScene class
      * along with
-     * text, images and buttons.
+     * text, images and restart button.
      * 
      * @returns Scene
      */
@@ -353,7 +353,7 @@ public class RouteTwo extends GameScene {
     /**
      * Creates end travel ending for option two using methods from GameScene class
      * along with
-     * text, images and buttons.
+     * text, images and restart button.
      * 
      * @returns Scene
      */
@@ -383,7 +383,7 @@ public class RouteTwo extends GameScene {
     /**
      * Creates end rope ending for option two using methods from GameScene class
      * along with
-     * text, images and buttons.
+     * text, images and restart button.
      * 
      * @returns Scene
      */
