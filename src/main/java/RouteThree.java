@@ -187,7 +187,7 @@ public class RouteThree extends GameScene{
 
         sp4.getChildren().add(image("\\images\\r31.png", 1000, 300));
         sp4.getChildren().add(cage);
-        sp4.getChildren().addAll(spaceText(650),t1, t2, t3, restart(restart2));
+        sp4.getChildren().addAll(t1, t2, t3, restart(restart2));
 
         return scene;
     }
@@ -229,7 +229,7 @@ public class RouteThree extends GameScene{
         sp5.getChildren().add(image("\\images\\r31.png", 1000, 300));
         sp5.getChildren().add(cage);
 
-        sp5.getChildren().addAll(spaceText(650),t1,t2,t3, restart(restart1));
+        sp5.getChildren().addAll(t1,t2,t3, restart(restart1));
 
         return scene;
     }

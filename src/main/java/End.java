@@ -5,12 +5,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Class inherits GameScene class and
+ * creates all scenes for End(final part of story).
+ *
+ * @author Sophia Hussain
+ */
 public class End extends GameScene {
-    
+
     public TextField finalChoice = new TextField();
     public Button playAgain = new Button();
     public Button playAgainTwo = new Button();
 
+    /**
+     * Creates first scene of end using methods from GameScene class along
+     * with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endOne() {
 
         StackPane box1 = new StackPane();
@@ -20,7 +33,6 @@ public class End extends GameScene {
         Label skin = new Label("Her skin has turned green and she has lost all her hair");
         Label notice = new Label("You realize shes running out of time and decide to pick up the pace");
         Label reach = new Label("You can see the city lights, but it's still miles away");
-
         // styles text
         styleText(time, 350);
         styleText(skin, 450);
@@ -30,11 +42,9 @@ public class End extends GameScene {
         smallFont(skin);
         smallFont(notice);
         smallFont(reach);
-
         // load image
         ImageView girl = image("\\images\\shootgirl.gif", 100, 150);
         ImageView zomb = image("\\images\\zombrun.gif", 150, 200);
-
         // changes image location
         girl.setTranslateY(190);
         zomb.setTranslateY(150);
@@ -46,24 +56,28 @@ public class End extends GameScene {
         return sceneOne;
     }
 
+    /**
+     * Creates second scene of end using methods from GameScene class along
+     * with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endTwo() {
         StackPane box2 = new StackPane();
         basicPane(box2);
-
         // labels + text
         Label time = new Label("A few days pass");
         Label arrive = new Label("You arrive at the safe haven");
         Label flyer = new Label("A paper plane flys by you");
         Label notice = new Label("You notice the words CURE written in bold");
         Label follow = new Label("You chase the paper");
-
         // styles text
         styleText(time, 150);
         styleText(arrive, 225);
         styleText(flyer, 425);
         styleText(notice, 525);
         styleText(follow, 625);
-
         // load image and move it
         ImageView paper = image("\\images\\plane.gif", 1000, 200);
         paper.setTranslateY(300);
@@ -74,19 +88,24 @@ public class End extends GameScene {
         return sceneTwo;
     }
 
+    /**
+     * Creates third scene of end using methods from GameScene class along
+     * with
+     * text and images.
+     * 
+     * @returns Scene
+     */
     public Scene endThree() {
 
         StackPane box3 = new StackPane();
         basicPane(box3);
-
-        //labels + text
+        // labels + text
         Label shop = new Label("The paper plane lands inside a coffe shop");
         Label hide = new Label("You tie and hide your sister outside in a nearby allyway to not scare the people");
         Label enter = new Label("You enter the coffe shop, take a seat and begin reading the flyer");
         Label woman = new Label("Soon after a mysterious woman approches you");
         Label offer = new Label("She sees the flyer and offers you the cure if you solve her riddle");
-
-        //styles text
+        // styles text
         styleText(shop, 325);
         styleText(hide, 400);
         styleText(enter, 475);
@@ -103,7 +122,15 @@ public class End extends GameScene {
         Scene sceneThree = new Scene(box3, 1000, 800);
         return sceneThree;
     }
-    public Scene endChoice() {
+
+    /**
+     * Creates option scene of end using methods from GameScene class
+     * along with
+     * text, images and textfield.
+     * 
+     * @returns Scene
+     */
+    public Scene endOption() {
 
         StackPane box4 = new StackPane();
         basicPane(box4);
@@ -113,7 +140,6 @@ public class End extends GameScene {
         Label choiceOne = new Label("1 : Pot of gold");
         Label choiceTwo = new Label("2 : Nothing");
         Label choiceThree = new Label("3 : Letter W");
-     
         // styles text
         styleText(riddle, 150);
         styleText(choiceOne, 250);
@@ -121,7 +147,6 @@ public class End extends GameScene {
         styleText(choiceTwo, 350);
         styleText(choiceThree, 450);
         styleText(choice, 600);
-
         // input textfield
         TextField optionOne = limitText(finalChoice);
 
@@ -130,17 +155,24 @@ public class End extends GameScene {
         Scene choiceScene = new Scene(box4, 1000, 800);
         return choiceScene;
     }
+
+    /**
+     * Creates endBad scene ending for end option using methods from
+     * GameScene class
+     * along with
+     * text, images and buttons.
+     * 
+     * @returns Scene
+     */
     public Scene endBad() {
 
         StackPane box5 = new StackPane();
         basicPane(box5);
-
         // labels
         Label wrong = new Label("You were wrong");
         Label zombie = new Label("Unable to find another cure, your sister fully turned");
         Label sad = new Label("The world is dark and dull without her");
         Label why = new Label("You wonder if theres anything left for you in this world");
-    
         // styles text
         styleText(wrong, 350);
         styleText(zombie, 450);
@@ -150,7 +182,7 @@ public class End extends GameScene {
         smallFont(zombie);
         smallFont(sad);
         smallFont(why);
-       
+        // button
         restart(playAgain);
         playAgain.setText("Play Again");
 
@@ -160,22 +192,29 @@ public class End extends GameScene {
         return badEndScene;
     }
 
-    public Scene endGood(){
+    /**
+     * Creates endGood scene ending (correct choice) for end option using methods
+     * from
+     * GameScene class
+     * along with
+     * text, images and buttons.
+     * 
+     * @returns Scene
+     */
+    public Scene endGood() {
         StackPane box7 = new StackPane();
         basicPane(box7);
-
         // labels
         Label right = new Label("You were right");
         Label cure = new Label("You secured the cure just in time");
         Label happy = new Label("Your sister was treated and made a full recovery ");
         Label peace = new Label("Finally you are at peace");
-    
         // styles text
         styleText(right, 350);
         styleText(cure, 425);
         styleText(happy, 500);
         styleText(peace, 575);
-       
+        // button
         restart(playAgainTwo);
         playAgainTwo.setText("Play Again");
 
