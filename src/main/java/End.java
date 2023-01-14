@@ -160,7 +160,7 @@ public class End extends GameScene {
      * Creates endBad scene ending for end option using methods from
      * GameScene class
      * along with
-     * text, images and buttons.
+     * text, images and restart button.
      * 
      * @returns Scene
      */
@@ -197,7 +197,7 @@ public class End extends GameScene {
      * from
      * GameScene class
      * along with
-     * text, images and buttons.
+     * text, images and restart button.
      * 
      * @returns Scene
      */

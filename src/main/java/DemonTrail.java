@@ -1,4 +1,3 @@
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -186,7 +185,7 @@ public class DemonTrail extends Application {
                             if (introInput.getText().equals("1")) { // if option 1 selected(medkit, correct option)
                                 n++;// increases scene counter
                                 window.setScene(inChoice1MedWater);
-                                choiceMedWaterEnd = false; //med kit end
+                                choiceMedWaterEnd = false; // med kit end
                             } else if (introInput.getText().equals("2")) {// if option 2 selected
                                 window.setScene(inChoice1Gas); // gas ending
                             } else if (introInput.getText().equals("3")) {// if option 3 selected (water)
@@ -463,7 +462,7 @@ public class DemonTrail extends Application {
             BufferedWriter writer = new BufferedWriter(fw);
 
             score = 1000 - (deaths * 75);
-            if (score > 0 ) {
+            if (score > 0) {
                 writer.write(Integer.toString(score));
             } else {
                 writer.write("0");
@@ -484,7 +483,7 @@ public class DemonTrail extends Application {
      * Resets score file by overwriting file with an empty string.
      * 
      */
-    public void resetFile() {
+    private void resetFile() {
         try {
             PrintWriter writer = new PrintWriter("Score.txt");
             writer.print("");
@@ -496,7 +495,8 @@ public class DemonTrail extends Application {
     }
 
     /**
-     * Creates start screen using GameScene methods along with text and adds buttons to
+     * Creates start screen using GameScene methods along with text and adds buttons
+     * to
      * navigate between instruction screen, reset score screen and intro scene 1.
      * Also starts music and resets all input and scene number counters.
      * 
